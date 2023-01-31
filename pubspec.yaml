@@ -1,0 +1,31 @@
+name: qr_plus
+description: Advanced all-in-one qr code package with support for safe qr codes.
+version: 1.0.0
+homepage: https://mankeli.co
+repository: https://github.com/Mankeli-Software/qr_plus
+issue_tracker: https://github.com/Mankeli-Software/qr_plus/issues
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies:
+  connectivity_plus: ^3.0.2
+  crypto: ^3.0.2
+  flutter_bloc: ^8.1.1
+  freezed: ^2.3.2
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.0
+  ntp: ^2.0.0
+  qr_code_scanner: ^1.0.1
+  qr_flutter: ^4.0.0
+
+dev_dependencies:
+  build_runner: ^2.3.3
+  dart_code_metrics: any
+  json_serializable: ^6.6.0
+  mankeli_analysis: ^1.0.0
+
+# package:derry scripts
+scripts:
+  gen:
+    code: flutter pub run build_runner build --delete-conflicting-outputs

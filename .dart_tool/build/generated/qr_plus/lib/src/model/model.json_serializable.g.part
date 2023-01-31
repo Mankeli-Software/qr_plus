@@ -1,0 +1,21 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_QrDataCrumb _$$_QrDataCrumbFromJson(Map<String, dynamic> json) =>
+    _$_QrDataCrumb(
+      data: json['data'] as String?,
+      timestamp: json['timestamp'] == null
+          ? null
+          : DateTime.parse(json['timestamp'] as String),
+      index: json['index'] as int?,
+      ttl: json['ttl'] as int?,
+    );
+
+Map<String, dynamic> _$$_QrDataCrumbToJson(_$_QrDataCrumb instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'timestamp': instance.timestamp?.toIso8601String(),
+      'index': instance.index,
+      'ttl': instance.ttl,
+    };

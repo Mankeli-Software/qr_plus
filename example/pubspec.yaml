@@ -1,0 +1,21 @@
+name: example
+description: A example app for qr_plus
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  dart_code_metrics: ^5.5.1
+  flutter_test:
+    sdk: flutter
+  mankeli_analysis: ^1.0.0
+
+flutter:
+  uses-material-design: true
