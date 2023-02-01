@@ -32,6 +32,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "asn1lib",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/asn1lib-1.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/async-2.10.0",
       "packageUri": "lib/",
@@ -104,6 +110,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "clock",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/clock-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "code_builder",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/code_builder-4.4.0",
       "packageUri": "lib/",
@@ -168,6 +180,12 @@
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/dbus-0.7.8",
       "packageUri": "lib/",
       "languageVersion": "2.15"
+    },
+    {
+      "name": "encrypt",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/encrypt-5.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "ffi",
@@ -368,6 +386,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pointycastle",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/pointycastle-3.6.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "pool",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/pool-1.5.1",
       "packageUri": "lib/",
@@ -536,7 +560,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-01-31T16:16:53.487636Z",
+  "generated": "2023-02-01T08:10:28.310403Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }

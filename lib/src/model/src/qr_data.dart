@@ -1,4 +1,9 @@
-part of '../model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+// Its OK within the source
+// ignore: avoid-banned-imports
+import 'package:qr_plus/src/model/model.dart';
+
+part 'qr_data.gen.dart';
 
 /// {@template qr_data}
 /// A representation of the data being transferred with a QR code. Can be either

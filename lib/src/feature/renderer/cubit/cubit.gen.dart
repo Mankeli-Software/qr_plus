@@ -15,27 +15,41 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$RendererState {
-  String get data => throw _privateConstructorUsedError;
+mixin _$QrPlusRendererState {
+  QrPlusMode get mode => throw _privateConstructorUsedError;
+  String get plainData => throw _privateConstructorUsedError;
+  QrData? get qrData => throw _privateConstructorUsedError;
+  String? get data => throw _privateConstructorUsedError;
+  int get crumbIndex => throw _privateConstructorUsedError;
+  ConnectivityResult get connectivity => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RendererStateCopyWith<RendererState> get copyWith =>
+  $QrPlusRendererStateCopyWith<QrPlusRendererState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RendererStateCopyWith<$Res> {
-  factory $RendererStateCopyWith(
-          RendererState value, $Res Function(RendererState) then) =
-      _$RendererStateCopyWithImpl<$Res, RendererState>;
+abstract class $QrPlusRendererStateCopyWith<$Res> {
+  factory $QrPlusRendererStateCopyWith(
+          QrPlusRendererState value, $Res Function(QrPlusRendererState) then) =
+      _$QrPlusRendererStateCopyWithImpl<$Res, QrPlusRendererState>;
   @useResult
-  $Res call({String data});
+  $Res call(
+      {QrPlusMode mode,
+      String plainData,
+      QrData? qrData,
+      String? data,
+      int crumbIndex,
+      ConnectivityResult connectivity});
+
+  $QrPlusModeCopyWith<$Res> get mode;
+  $QrDataCopyWith<$Res>? get qrData;
 }
 
 /// @nodoc
-class _$RendererStateCopyWithImpl<$Res, $Val extends RendererState>
-    implements $RendererStateCopyWith<$Res> {
-  _$RendererStateCopyWithImpl(this._value, this._then);
+class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
+    implements $QrPlusRendererStateCopyWith<$Res> {
+  _$QrPlusRendererStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -45,88 +59,213 @@ class _$RendererStateCopyWithImpl<$Res, $Val extends RendererState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? mode = null,
+    Object? plainData = null,
+    Object? qrData = freezed,
+    Object? data = freezed,
+    Object? crumbIndex = null,
+    Object? connectivity = null,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as QrPlusMode,
+      plainData: null == plainData
+          ? _value.plainData
+          : plainData // ignore: cast_nullable_to_non_nullable
+              as String,
+      qrData: freezed == qrData
+          ? _value.qrData
+          : qrData // ignore: cast_nullable_to_non_nullable
+              as QrData?,
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      crumbIndex: null == crumbIndex
+          ? _value.crumbIndex
+          : crumbIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      connectivity: null == connectivity
+          ? _value.connectivity
+          : connectivity // ignore: cast_nullable_to_non_nullable
+              as ConnectivityResult,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QrPlusModeCopyWith<$Res> get mode {
+    return $QrPlusModeCopyWith<$Res>(_value.mode, (value) {
+      return _then(_value.copyWith(mode: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QrDataCopyWith<$Res>? get qrData {
+    if (_value.qrData == null) {
+      return null;
+    }
+
+    return $QrDataCopyWith<$Res>(_value.qrData!, (value) {
+      return _then(_value.copyWith(qrData: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_RendererStateCopyWith<$Res>
-    implements $RendererStateCopyWith<$Res> {
-  factory _$$_RendererStateCopyWith(
-          _$_RendererState value, $Res Function(_$_RendererState) then) =
-      __$$_RendererStateCopyWithImpl<$Res>;
+abstract class _$$_QrPlusRendererStateCopyWith<$Res>
+    implements $QrPlusRendererStateCopyWith<$Res> {
+  factory _$$_QrPlusRendererStateCopyWith(_$_QrPlusRendererState value,
+          $Res Function(_$_QrPlusRendererState) then) =
+      __$$_QrPlusRendererStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String data});
+  $Res call(
+      {QrPlusMode mode,
+      String plainData,
+      QrData? qrData,
+      String? data,
+      int crumbIndex,
+      ConnectivityResult connectivity});
+
+  @override
+  $QrPlusModeCopyWith<$Res> get mode;
+  @override
+  $QrDataCopyWith<$Res>? get qrData;
 }
 
 /// @nodoc
-class __$$_RendererStateCopyWithImpl<$Res>
-    extends _$RendererStateCopyWithImpl<$Res, _$_RendererState>
-    implements _$$_RendererStateCopyWith<$Res> {
-  __$$_RendererStateCopyWithImpl(
-      _$_RendererState _value, $Res Function(_$_RendererState) _then)
+class __$$_QrPlusRendererStateCopyWithImpl<$Res>
+    extends _$QrPlusRendererStateCopyWithImpl<$Res, _$_QrPlusRendererState>
+    implements _$$_QrPlusRendererStateCopyWith<$Res> {
+  __$$_QrPlusRendererStateCopyWithImpl(_$_QrPlusRendererState _value,
+      $Res Function(_$_QrPlusRendererState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? mode = null,
+    Object? plainData = null,
+    Object? qrData = freezed,
+    Object? data = freezed,
+    Object? crumbIndex = null,
+    Object? connectivity = null,
   }) {
-    return _then(_$_RendererState(
-      data: null == data
+    return _then(_$_QrPlusRendererState(
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
+              as QrPlusMode,
+      plainData: null == plainData
+          ? _value.plainData
+          : plainData // ignore: cast_nullable_to_non_nullable
+              as String,
+      qrData: freezed == qrData
+          ? _value.qrData
+          : qrData // ignore: cast_nullable_to_non_nullable
+              as QrData?,
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      crumbIndex: null == crumbIndex
+          ? _value.crumbIndex
+          : crumbIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      connectivity: null == connectivity
+          ? _value.connectivity
+          : connectivity // ignore: cast_nullable_to_non_nullable
+              as ConnectivityResult,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_RendererState implements _RendererState {
-  const _$_RendererState({required this.data});
+class _$_QrPlusRendererState implements _QrPlusRendererState {
+  const _$_QrPlusRendererState(
+      {required this.mode,
+      required this.plainData,
+      this.qrData,
+      this.data,
+      this.crumbIndex = 0,
+      this.connectivity = ConnectivityResult.mobile});
 
   @override
-  final String data;
+  final QrPlusMode mode;
+  @override
+  final String plainData;
+  @override
+  final QrData? qrData;
+  @override
+  final String? data;
+  @override
+  @JsonKey()
+  final int crumbIndex;
+  @override
+  @JsonKey()
+  final ConnectivityResult connectivity;
 
   @override
   String toString() {
-    return 'RendererState(data: $data)';
+    return 'QrPlusRendererState(mode: $mode, plainData: $plainData, qrData: $qrData, data: $data, crumbIndex: $crumbIndex, connectivity: $connectivity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RendererState &&
-            (identical(other.data, data) || other.data == data));
+            other is _$_QrPlusRendererState &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.plainData, plainData) ||
+                other.plainData == plainData) &&
+            (identical(other.qrData, qrData) || other.qrData == qrData) &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.crumbIndex, crumbIndex) ||
+                other.crumbIndex == crumbIndex) &&
+            (identical(other.connectivity, connectivity) ||
+                other.connectivity == connectivity));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode => Object.hash(
+      runtimeType, mode, plainData, qrData, data, crumbIndex, connectivity);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RendererStateCopyWith<_$_RendererState> get copyWith =>
-      __$$_RendererStateCopyWithImpl<_$_RendererState>(this, _$identity);
+  _$$_QrPlusRendererStateCopyWith<_$_QrPlusRendererState> get copyWith =>
+      __$$_QrPlusRendererStateCopyWithImpl<_$_QrPlusRendererState>(
+          this, _$identity);
 }
 
-abstract class _RendererState implements RendererState {
-  const factory _RendererState({required final String data}) = _$_RendererState;
+abstract class _QrPlusRendererState implements QrPlusRendererState {
+  const factory _QrPlusRendererState(
+      {required final QrPlusMode mode,
+      required final String plainData,
+      final QrData? qrData,
+      final String? data,
+      final int crumbIndex,
+      final ConnectivityResult connectivity}) = _$_QrPlusRendererState;
 
   @override
-  String get data;
+  QrPlusMode get mode;
+  @override
+  String get plainData;
+  @override
+  QrData? get qrData;
+  @override
+  String? get data;
+  @override
+  int get crumbIndex;
+  @override
+  ConnectivityResult get connectivity;
   @override
   @JsonKey(ignore: true)
-  _$$_RendererStateCopyWith<_$_RendererState> get copyWith =>
+  _$$_QrPlusRendererStateCopyWith<_$_QrPlusRendererState> get copyWith =>
       throw _privateConstructorUsedError;
 }

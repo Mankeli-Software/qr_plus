@@ -1,0 +1,10 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "*.dart": "$(capture).gen.dart",
+        "pubspec.yaml": "pubspec.lock, build.yaml, analysis_options.yaml, analysis_options.yaml, l10n.yaml, build.yaml, .metadata, .flutter-plugins, .flutter-plugins-dependencies",
+        "README.md": "LICENSE, CHANGELOG.md",
+        ".gitignore": "example.iml"
+    },
+}

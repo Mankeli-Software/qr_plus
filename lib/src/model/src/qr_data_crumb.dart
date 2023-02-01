@@ -1,4 +1,7 @@
-part of '../model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:qr_plus/qr_plus.dart';
+
+part 'qr_data_crumb.gen.dart';
 
 /// {@template qr_data_crumb}
 /// A representation of a smaller piece of [QrData]. Multiple [QrDataCrumb]s can be
@@ -18,7 +21,10 @@ class QrDataCrumb with _$QrDataCrumb {
     int? index,
 
     /// Time to live of this [QrDataCrumb] in milliseconds
-    int? ttl,
+    Duration? ttl,
+
+    /// The security mode of the [QrDataCrumb]
+    QrPlusMode? mode,
   }) = _QrDataCrumb;
 
   QrDataCrumb._();
@@ -30,5 +36,5 @@ class QrDataCrumb with _$QrDataCrumb {
   int compareTo(QrDataCrumb other) => index!.compareTo(other.index!);
 
   /// Returns `true` if the [QrDataCrumb] is valid (contains all the required fields). Otherwise returns `false`.
-  bool get isValid => data != null && timestamp != null && index != null && ttl != null;
+  bool get isValid => data != null && timestamp != null && index != null && ttl != null && mode != null;
 }

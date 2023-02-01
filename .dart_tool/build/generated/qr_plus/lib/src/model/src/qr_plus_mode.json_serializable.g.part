@@ -1,0 +1,85 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$PlainQrPlusMode _$$PlainQrPlusModeFromJson(Map<String, dynamic> json) =>
+    _$PlainQrPlusMode(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$PlainQrPlusModeToJson(_$PlainQrPlusMode instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$SafeQrPlusMode _$$SafeQrPlusModeFromJson(Map<String, dynamic> json) =>
+    _$SafeQrPlusMode(
+      crumbs: json['crumbs'] as int? ?? 3,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SafeQrPlusModeToJson(_$SafeQrPlusMode instance) =>
+    <String, dynamic>{
+      'crumbs': instance.crumbs,
+      'runtimeType': instance.$type,
+    };
+
+_$RobustQrPlusMode _$$RobustQrPlusModeFromJson(Map<String, dynamic> json) =>
+    _$RobustQrPlusMode(
+      crumbs: json['crumbs'] as int? ?? 3,
+      ttl: json['ttl'] == null
+          ? const Duration(seconds: 20)
+          : Duration(microseconds: json['ttl'] as int),
+      ntpFetchInterval: json['ntpFetchInterval'] == null
+          ? const Duration(seconds: 30)
+          : Duration(microseconds: json['ntpFetchInterval'] as int),
+      noConnectionBehavior: $enumDecodeNullable(
+              _$NoConnectionBehaviorEnumMap, json['noConnectionBehavior']) ??
+          NoConnectionBehavior.hide,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RobustQrPlusModeToJson(_$RobustQrPlusMode instance) =>
+    <String, dynamic>{
+      'crumbs': instance.crumbs,
+      'ttl': instance.ttl.inMicroseconds,
+      'ntpFetchInterval': instance.ntpFetchInterval.inMicroseconds,
+      'noConnectionBehavior':
+          _$NoConnectionBehaviorEnumMap[instance.noConnectionBehavior]!,
+      'runtimeType': instance.$type,
+    };
+
+const _$NoConnectionBehaviorEnumMap = {
+  NoConnectionBehavior.hide: 'hide',
+  NoConnectionBehavior.freeze: 'freeze',
+  NoConnectionBehavior.none: 'none',
+};
+
+_$ParanoidQrPlusMode _$$ParanoidQrPlusModeFromJson(Map<String, dynamic> json) =>
+    _$ParanoidQrPlusMode(
+      crumbs: json['crumbs'] as int? ?? 6,
+      ttl: json['ttl'] == null
+          ? const Duration(seconds: 10)
+          : Duration(microseconds: json['ttl'] as int),
+      ntpFetchInterval: json['ntpFetchInterval'] == null
+          ? const Duration(seconds: 5)
+          : Duration(microseconds: json['ntpFetchInterval'] as int),
+      noConnectionBehavior: $enumDecodeNullable(
+              _$NoConnectionBehaviorEnumMap, json['noConnectionBehavior']) ??
+          NoConnectionBehavior.hide,
+      encryptionKey: json['encryptionKey'] as String? ??
+          'Xo/VPGxNVzJYU6mszCqpNDzV/CgzxwqKmqunipQusdc=',
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ParanoidQrPlusModeToJson(
+        _$ParanoidQrPlusMode instance) =>
+    <String, dynamic>{
+      'crumbs': instance.crumbs,
+      'ttl': instance.ttl.inMicroseconds,
+      'ntpFetchInterval': instance.ntpFetchInterval.inMicroseconds,
+      'noConnectionBehavior':
+          _$NoConnectionBehaviorEnumMap[instance.noConnectionBehavior]!,
+      'encryptionKey': instance.encryptionKey,
+      'runtimeType': instance.$type,
+    };

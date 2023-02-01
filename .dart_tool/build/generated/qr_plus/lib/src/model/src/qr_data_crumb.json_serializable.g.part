@@ -9,7 +9,12 @@ _$_QrDataCrumb _$$_QrDataCrumbFromJson(Map<String, dynamic> json) =>
           ? null
           : DateTime.parse(json['timestamp'] as String),
       index: json['index'] as int?,
-      ttl: json['ttl'] as int?,
+      ttl: json['ttl'] == null
+          ? null
+          : Duration(microseconds: json['ttl'] as int),
+      mode: json['mode'] == null
+          ? null
+          : QrPlusMode.fromJson(json['mode'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_QrDataCrumbToJson(_$_QrDataCrumb instance) =>
@@ -17,5 +22,6 @@ Map<String, dynamic> _$$_QrDataCrumbToJson(_$_QrDataCrumb instance) =>
       'data': instance.data,
       'timestamp': instance.timestamp?.toIso8601String(),
       'index': instance.index,
-      'ttl': instance.ttl,
+      'ttl': instance.ttl?.inMicroseconds,
+      'mode': instance.mode,
     };
