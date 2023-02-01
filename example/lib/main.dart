@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: const Center(
         child: QrPlusRenderer(
-          data: 'Hello World',
+          data: 'https://youtu.be/dQw4w9WgXcQ',
           size: 250,
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:qr_plus/qr_plus.dart';
+import 'package:qr_plus/src/model/src/qr_plus_mode.dart';
 
 part 'qr_data_crumb.gen.dart';
 

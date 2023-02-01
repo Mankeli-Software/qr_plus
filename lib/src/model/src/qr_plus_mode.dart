@@ -26,6 +26,8 @@ class QrPlusMode with _$QrPlusMode {
     @Default('Xo/VPGxNVzJYU6mszCqpNDzV/CgzxwqKmqunipQusdc=') String encryptionKey,
   }) = ParanoidQrPlusMode;
 
+  // TODO add foil hat security level
+  // https://pub.dev/packages/prevent_screen_recording/changelog
   factory QrPlusMode.fromJson(Map<String, dynamic> json) => _$QrPlusModeFromJson(json);
 }
 
