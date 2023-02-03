@@ -309,7 +309,7 @@
     },
     {
       "name": "mankeli_analysis",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mankeli_analysis-1.0.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mankeli_analysis-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -336,6 +336,12 @@
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mime-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "mobile_scanner",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mobile_scanner-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "nested",
@@ -434,16 +440,16 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "qr_code_scanner",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr_code_scanner-1.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "qr_flutter",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr_flutter-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "screen_capture_event",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/screen_capture_event-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
     },
     {
       "name": "shelf",
@@ -524,6 +530,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/uuid-3.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -560,7 +572,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-01T08:10:28.310403Z",
+  "generated": "2023-02-03T14:26:28.213496Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }

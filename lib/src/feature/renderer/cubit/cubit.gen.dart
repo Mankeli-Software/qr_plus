@@ -18,10 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$QrPlusRendererState {
   QrPlusMode get mode => throw _privateConstructorUsedError;
   String get plainData => throw _privateConstructorUsedError;
-  QrData? get qrData => throw _privateConstructorUsedError;
-  String? get data => throw _privateConstructorUsedError;
-  int get crumbIndex => throw _privateConstructorUsedError;
+  QrPlusData get data => throw _privateConstructorUsedError;
+  int get crumbledDataIndex => throw _privateConstructorUsedError;
   ConnectivityResult get connectivity => throw _privateConstructorUsedError;
+  ScreenRecorderStatus get screenRecorderStatus =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QrPlusRendererStateCopyWith<QrPlusRendererState> get copyWith =>
@@ -37,13 +38,13 @@ abstract class $QrPlusRendererStateCopyWith<$Res> {
   $Res call(
       {QrPlusMode mode,
       String plainData,
-      QrData? qrData,
-      String? data,
-      int crumbIndex,
-      ConnectivityResult connectivity});
+      QrPlusData data,
+      int crumbledDataIndex,
+      ConnectivityResult connectivity,
+      ScreenRecorderStatus screenRecorderStatus});
 
   $QrPlusModeCopyWith<$Res> get mode;
-  $QrDataCopyWith<$Res>? get qrData;
+  $QrPlusDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -61,10 +62,10 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
   $Res call({
     Object? mode = null,
     Object? plainData = null,
-    Object? qrData = freezed,
-    Object? data = freezed,
-    Object? crumbIndex = null,
+    Object? data = null,
+    Object? crumbledDataIndex = null,
     Object? connectivity = null,
+    Object? screenRecorderStatus = null,
   }) {
     return _then(_value.copyWith(
       mode: null == mode
@@ -75,22 +76,22 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
           ? _value.plainData
           : plainData // ignore: cast_nullable_to_non_nullable
               as String,
-      qrData: freezed == qrData
-          ? _value.qrData
-          : qrData // ignore: cast_nullable_to_non_nullable
-              as QrData?,
-      data: freezed == data
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String?,
-      crumbIndex: null == crumbIndex
-          ? _value.crumbIndex
-          : crumbIndex // ignore: cast_nullable_to_non_nullable
+              as QrPlusData,
+      crumbledDataIndex: null == crumbledDataIndex
+          ? _value.crumbledDataIndex
+          : crumbledDataIndex // ignore: cast_nullable_to_non_nullable
               as int,
       connectivity: null == connectivity
           ? _value.connectivity
           : connectivity // ignore: cast_nullable_to_non_nullable
               as ConnectivityResult,
+      screenRecorderStatus: null == screenRecorderStatus
+          ? _value.screenRecorderStatus
+          : screenRecorderStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenRecorderStatus,
     ) as $Val);
   }
 
@@ -104,13 +105,9 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
 
   @override
   @pragma('vm:prefer-inline')
-  $QrDataCopyWith<$Res>? get qrData {
-    if (_value.qrData == null) {
-      return null;
-    }
-
-    return $QrDataCopyWith<$Res>(_value.qrData!, (value) {
-      return _then(_value.copyWith(qrData: value) as $Val);
+  $QrPlusDataCopyWith<$Res> get data {
+    return $QrPlusDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
     });
   }
 }
@@ -126,15 +123,15 @@ abstract class _$$_QrPlusRendererStateCopyWith<$Res>
   $Res call(
       {QrPlusMode mode,
       String plainData,
-      QrData? qrData,
-      String? data,
-      int crumbIndex,
-      ConnectivityResult connectivity});
+      QrPlusData data,
+      int crumbledDataIndex,
+      ConnectivityResult connectivity,
+      ScreenRecorderStatus screenRecorderStatus});
 
   @override
   $QrPlusModeCopyWith<$Res> get mode;
   @override
-  $QrDataCopyWith<$Res>? get qrData;
+  $QrPlusDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -150,10 +147,10 @@ class __$$_QrPlusRendererStateCopyWithImpl<$Res>
   $Res call({
     Object? mode = null,
     Object? plainData = null,
-    Object? qrData = freezed,
-    Object? data = freezed,
-    Object? crumbIndex = null,
+    Object? data = null,
+    Object? crumbledDataIndex = null,
     Object? connectivity = null,
+    Object? screenRecorderStatus = null,
   }) {
     return _then(_$_QrPlusRendererState(
       mode: null == mode
@@ -164,22 +161,22 @@ class __$$_QrPlusRendererStateCopyWithImpl<$Res>
           ? _value.plainData
           : plainData // ignore: cast_nullable_to_non_nullable
               as String,
-      qrData: freezed == qrData
-          ? _value.qrData
-          : qrData // ignore: cast_nullable_to_non_nullable
-              as QrData?,
-      data: freezed == data
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as String?,
-      crumbIndex: null == crumbIndex
-          ? _value.crumbIndex
-          : crumbIndex // ignore: cast_nullable_to_non_nullable
+              as QrPlusData,
+      crumbledDataIndex: null == crumbledDataIndex
+          ? _value.crumbledDataIndex
+          : crumbledDataIndex // ignore: cast_nullable_to_non_nullable
               as int,
       connectivity: null == connectivity
           ? _value.connectivity
           : connectivity // ignore: cast_nullable_to_non_nullable
               as ConnectivityResult,
+      screenRecorderStatus: null == screenRecorderStatus
+          ? _value.screenRecorderStatus
+          : screenRecorderStatus // ignore: cast_nullable_to_non_nullable
+              as ScreenRecorderStatus,
     ));
   }
 }
@@ -190,29 +187,31 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
   const _$_QrPlusRendererState(
       {required this.mode,
       required this.plainData,
-      this.qrData,
-      this.data,
-      this.crumbIndex = 0,
-      this.connectivity = ConnectivityResult.mobile});
+      this.data = const QrPlusData.unknown(),
+      this.crumbledDataIndex = 0,
+      this.connectivity = ConnectivityResult.mobile,
+      this.screenRecorderStatus = ScreenRecorderStatus.recorderOff});
 
   @override
   final QrPlusMode mode;
   @override
   final String plainData;
   @override
-  final QrData? qrData;
-  @override
-  final String? data;
+  @JsonKey()
+  final QrPlusData data;
   @override
   @JsonKey()
-  final int crumbIndex;
+  final int crumbledDataIndex;
   @override
   @JsonKey()
   final ConnectivityResult connectivity;
+  @override
+  @JsonKey()
+  final ScreenRecorderStatus screenRecorderStatus;
 
   @override
   String toString() {
-    return 'QrPlusRendererState(mode: $mode, plainData: $plainData, qrData: $qrData, data: $data, crumbIndex: $crumbIndex, connectivity: $connectivity)';
+    return 'QrPlusRendererState(mode: $mode, plainData: $plainData, data: $data, crumbledDataIndex: $crumbledDataIndex, connectivity: $connectivity, screenRecorderStatus: $screenRecorderStatus)';
   }
 
   @override
@@ -223,17 +222,18 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.plainData, plainData) ||
                 other.plainData == plainData) &&
-            (identical(other.qrData, qrData) || other.qrData == qrData) &&
             (identical(other.data, data) || other.data == data) &&
-            (identical(other.crumbIndex, crumbIndex) ||
-                other.crumbIndex == crumbIndex) &&
+            (identical(other.crumbledDataIndex, crumbledDataIndex) ||
+                other.crumbledDataIndex == crumbledDataIndex) &&
             (identical(other.connectivity, connectivity) ||
-                other.connectivity == connectivity));
+                other.connectivity == connectivity) &&
+            (identical(other.screenRecorderStatus, screenRecorderStatus) ||
+                other.screenRecorderStatus == screenRecorderStatus));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, mode, plainData, qrData, data, crumbIndex, connectivity);
+  int get hashCode => Object.hash(runtimeType, mode, plainData, data,
+      crumbledDataIndex, connectivity, screenRecorderStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -245,25 +245,26 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
 
 abstract class _QrPlusRendererState implements QrPlusRendererState {
   const factory _QrPlusRendererState(
-      {required final QrPlusMode mode,
-      required final String plainData,
-      final QrData? qrData,
-      final String? data,
-      final int crumbIndex,
-      final ConnectivityResult connectivity}) = _$_QrPlusRendererState;
+          {required final QrPlusMode mode,
+          required final String plainData,
+          final QrPlusData data,
+          final int crumbledDataIndex,
+          final ConnectivityResult connectivity,
+          final ScreenRecorderStatus screenRecorderStatus}) =
+      _$_QrPlusRendererState;
 
   @override
   QrPlusMode get mode;
   @override
   String get plainData;
   @override
-  QrData? get qrData;
+  QrPlusData get data;
   @override
-  String? get data;
-  @override
-  int get crumbIndex;
+  int get crumbledDataIndex;
   @override
   ConnectivityResult get connectivity;
+  @override
+  ScreenRecorderStatus get screenRecorderStatus;
   @override
   @JsonKey(ignore: true)
   _$$_QrPlusRendererStateCopyWith<_$_QrPlusRendererState> get copyWith =>

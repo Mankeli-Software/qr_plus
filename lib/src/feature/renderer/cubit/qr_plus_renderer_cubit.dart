@@ -6,7 +6,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   QrPlusRendererCubit({
     required QrPlusMode mode,
     required String plainData,
-    required this.qrPlusRepository,
+    required this.ntpRepository,
   }) : super(
           QrPlusRendererState(
             mode: mode,
@@ -14,125 +14,87 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
           ),
         );
 
-  final QrPlusRepository qrPlusRepository;
+  final NtpRepository ntpRepository;
 
-  Timer? _qrDataTimer;
+  final ScreenCaptureEvent _screenCaptureEvent = ScreenCaptureEvent();
 
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
+  Timer? _crumbledDataIndexTimer;
 
   Future<void> initialize() async {
-    if (state.mode is PlainQrPlusMode) return _updateData();
+    recreate();
 
-    final noConnectionBehavior = state.mode.maybeMap(
-      orElse: () => NoConnectionBehavior.none,
-      robust: (robust) => robust.noConnectionBehavior,
-      paranoid: (paranoid) => paranoid.noConnectionBehavior,
+    _screenCaptureEvent.addScreenRecordListener(_onScreenRecordingStatusChanged);
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(_onConnectivityChange);
+    _crumbledDataIndexTimer = Timer.periodic(const Duration(milliseconds: 250), (_) => _updateCrumbledDataIndex());
+  }
+
+  void _updateCrumbledDataIndex() {
+    if (state.data is! CrumbledQrPlusData) return;
+
+    final crumbledData = state.data as CrumbledQrPlusData;
+
+    var newIndex = state.crumbledDataIndex + 1;
+    if (newIndex >= crumbledData.crumbs.length) {
+      newIndex = 0;
+    }
+    emit(
+      state.copyWith(crumbledDataIndex: newIndex),
     );
+  }
 
-    if (noConnectionBehavior != NoConnectionBehavior.none) {
-      _connectivitySubscription = Connectivity().onConnectivityChanged.listen(
-            _updateConnectivity,
-          );
+  void _onScreenRecordingStatusChanged(bool isRecording) {
+    emit(
+      state.copyWith(
+        screenRecorderStatus: isRecording ? ScreenRecorderStatus.recorderOn : ScreenRecorderStatus.recorderOff,
+      ),
+    );
+    maybeRecreate();
+  }
+
+  void _onConnectivityChange(ConnectivityResult result) {
+    emit(state.copyWith(connectivity: result));
+    maybeRecreate();
+  }
+
+  void maybeRecreate() {
+    final hasNetwork = state.connectivity.hasNetworkConnection;
+    final hasScreenRecording = state.screenRecorderStatus == ScreenRecorderStatus.recorderOn;
+
+    var type = AuthenticQrPlusData;
+    if (!hasNetwork) {
+      type = NoNetworkQrPlusData;
+    } else if (hasScreenRecording) {
+      type = ScreenRecordingQrPlusData;
     }
 
-    _updateQrData();
+    if (state.data.runtimeType == type) return;
 
-    _maybeStartQrDataTimer();
+    recreate();
   }
 
-  void _maybeStartQrDataTimer() {
-    _qrDataTimer ??= Timer.periodic(
-      const Duration(milliseconds: 500),
-      _updateCrumbIndex,
-    );
-  }
-
-  void _stopQrDataTimer() {
-    _qrDataTimer?.cancel();
-    _qrDataTimer = null;
-  }
-
-  void _updateConnectivity(ConnectivityResult connectivity) {
-    final noConnectionBehavior = state.mode.maybeMap(
-      orElse: () => NoConnectionBehavior.none,
-      robust: (robust) => robust.noConnectionBehavior,
-      paranoid: (paranoid) => paranoid.noConnectionBehavior,
-    );
-
-    if (noConnectionBehavior == NoConnectionBehavior.freeze) {
-      if (connectivity == ConnectivityResult.none) {
-        _stopQrDataTimer();
-      } else {
-        _maybeStartQrDataTimer();
-      }
-    }
-
-    emit(
-      state.copyWith(
-        connectivity: connectivity,
-      ),
-    );
-  }
-
-  void _updateCrumbIndex(_) {
-    final index = state.crumbIndex + 1;
-
-    if (index >= state.qrData!.crumbs!.length) {
-      // Has gone through all crumbs, so resets them.
-      return _updateQrData();
-    }
-
-    emit(
-      state.copyWith(
-        crumbIndex: index,
-      ),
-    );
-    _updateData();
-  }
-
-  void _updateQrData() {
-    final qrData = state.mode.mapOrNull(
-      safe: (_) => qrPlusRepository.createData(
-        state.plainData,
-      ),
-      robust: (_) => qrPlusRepository.createData(
-        state.plainData,
-      ),
-      paranoid: (_) => qrPlusRepository.createData(
-        state.plainData,
-      ),
+  void recreate() {
+    final newData = QrPlusData.fromRawData(
+      state.plainData,
+      state.mode,
+      ntpRepository.now,
+      hasNetwork: state.connectivity.hasNetworkConnection,
+      hasScreenRecording: state.screenRecorderStatus == ScreenRecorderStatus.recorderOn,
     );
 
     emit(
       state.copyWith(
-        qrData: qrData,
-        crumbIndex: 0,
-      ),
-    );
-    _updateData();
-  }
-
-  void _updateData() {
-    final crumb = state.qrData!.crumbs![state.crumbIndex];
-    final data = state.mode.map(
-      plain: (_) => state.plainData,
-      safe: (_) => jsonEncode(crumb.toJson()),
-      robust: (_) => jsonEncode(crumb.toJson()),
-      paranoid: (_) => qrPlusRepository.encrypt(crumb),
-    );
-
-    emit(
-      state.copyWith(
-        data: data,
+        data: newData,
+        crumbledDataIndex: 0,
       ),
     );
   }
 
   @override
   Future<void> close() {
-    _stopQrDataTimer();
     _connectivitySubscription?.cancel();
-
+    _crumbledDataIndexTimer?.cancel();
+    _screenCaptureEvent.dispose();
     return super.close();
   }
 }

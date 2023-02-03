@@ -99,73 +99,95 @@ class QrPlusRenderer extends StatefulWidget {
 }
 
 class _QrPlusRendererState extends State<QrPlusRenderer> {
-  late QrPlusRepository _qrPlusRepository;
+  late NtpRepository _ntpRepository;
 
   @override
   void initState() {
-    _qrPlusRepository = QrPlusRepository(mode: widget.mode)..initialize();
+    _ntpRepository = NtpRepository(mode: widget.mode)..initialize();
 
     super.initState();
   }
 
   @override
   void dispose() {
-    _qrPlusRepository.dispose();
+    _ntpRepository.dispose();
     super.dispose();
+  }
+
+  String? getData({
+    required QrPlusData data,
+    required int index,
+    required QrPlusMode mode,
+  }) {
+    return data.mapOrNull(
+      authentic: (a) {
+        final data = a.toQrString(mode);
+
+        return index.isEven ? data : data.reversed;
+      },
+      noNetwork: (n) => n.toQrString(mode),
+      screenRecording: (s) => s.toQrString(mode),
+      crumbled: (c) => getData(
+        data: c.crumbs[index],
+        index: index,
+        mode: mode,
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider<QrPlusRepository>.value(
-      value: _qrPlusRepository,
+    return RepositoryProvider<NtpRepository>.value(
+      value: _ntpRepository,
       // bad linting rule
       // ignore: arguments-ordering
       child: BlocProvider(
         create: (context) => QrPlusRendererCubit(
           mode: widget.mode,
           plainData: widget.data,
-          qrPlusRepository: _qrPlusRepository,
+          ntpRepository: _ntpRepository,
         )..initialize(),
         // bad linting rule
         // ignore: arguments-ordering
-        child: BlocBuilder<QrPlusRendererCubit, QrPlusRendererState>(
-          buildWhen: (s1, s2) => s1.connectivity != s2.connectivity,
-          builder: (context, state) {
-            if (!state.connectivity.hasNetworkConnection) {
-              final noConnectionBehavior = widget.mode.maybeMap(
-                robust: (robust) => robust.noConnectionBehavior,
-                paranoid: (paranoid) => paranoid.noConnectionBehavior,
-                orElse: () => NoConnectionBehavior.none,
-              );
+        child: BlocConsumer<QrPlusRendererCubit, QrPlusRendererState>(
+          listener: (context, state) {
+            final valid = state.data.isValid(
+              requiredMode: widget.mode,
+              now: _ntpRepository.now,
+              allowNoNetwork: true,
+              allowScreenRecording: true,
+            );
 
-              if (noConnectionBehavior == NoConnectionBehavior.hide) return const SizedBox();
+            if (!valid) {
+              context.read<QrPlusRendererCubit>().recreate();
             }
+          },
+          buildWhen: (s1, s2) => s1.data != s2.data || s1.crumbledDataIndex != s2.crumbledDataIndex,
+          builder: (context, state) {
+            final data = getData(
+              data: state.data,
+              index: state.crumbledDataIndex,
+              mode: state.mode,
+            );
 
-            // Bad linting rule
-            // ignore: arguments-ordering
-            return BlocBuilder<QrPlusRendererCubit, QrPlusRendererState>(
-              buildWhen: (s1, s2) => s1.data != s2.data,
-              builder: (context, state) {
-                if (state.data == null) return const SizedBox();
+            if (data == null) return const SizedBox();
 
-                return QrImage(
-                  data: state.data!,
-                  size: widget.size,
-                  padding: widget.padding,
-                  backgroundColor: widget.backgroundColor,
-                  version: widget.version,
-                  errorCorrectionLevel: widget.errorCorrectionLevel,
-                  errorStateBuilder: widget.errorStateBuilder,
-                  constrainErrorBounds: widget.constrainErrorBounds,
-                  gapless: widget.gapless,
-                  embeddedImage: widget.embeddedImage,
-                  embeddedImageStyle: widget.embeddedImageStyle,
-                  semanticsLabel: widget.semanticsLabel,
-                  eyeStyle: widget.eyeStyle,
-                  dataModuleStyle: widget.dataModuleStyle,
-                  embeddedImageEmitsError: widget.embeddedImageEmitsError,
-                );
-              },
+            return QrImage(
+              data: data,
+              size: widget.size,
+              padding: widget.padding,
+              backgroundColor: widget.backgroundColor,
+              version: widget.version,
+              errorCorrectionLevel: widget.errorCorrectionLevel,
+              errorStateBuilder: widget.errorStateBuilder,
+              constrainErrorBounds: widget.constrainErrorBounds,
+              gapless: widget.gapless,
+              embeddedImage: widget.embeddedImage,
+              embeddedImageStyle: widget.embeddedImageStyle,
+              semanticsLabel: widget.semanticsLabel,
+              eyeStyle: widget.eyeStyle,
+              dataModuleStyle: widget.dataModuleStyle,
+              embeddedImageEmitsError: widget.embeddedImageEmitsError,
             );
           },
         ),

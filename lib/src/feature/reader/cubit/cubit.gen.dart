@@ -15,27 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ReaderState {
-  String? get data => throw _privateConstructorUsedError;
+mixin _$QrPlusReaderState {
+  Map<String, QrPlusData> get cache => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ReaderStateCopyWith<ReaderState> get copyWith =>
+  $QrPlusReaderStateCopyWith<QrPlusReaderState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ReaderStateCopyWith<$Res> {
-  factory $ReaderStateCopyWith(
-          ReaderState value, $Res Function(ReaderState) then) =
-      _$ReaderStateCopyWithImpl<$Res, ReaderState>;
+abstract class $QrPlusReaderStateCopyWith<$Res> {
+  factory $QrPlusReaderStateCopyWith(
+          QrPlusReaderState value, $Res Function(QrPlusReaderState) then) =
+      _$QrPlusReaderStateCopyWithImpl<$Res, QrPlusReaderState>;
   @useResult
-  $Res call({String? data});
+  $Res call({Map<String, QrPlusData> cache});
 }
 
 /// @nodoc
-class _$ReaderStateCopyWithImpl<$Res, $Val extends ReaderState>
-    implements $ReaderStateCopyWith<$Res> {
-  _$ReaderStateCopyWithImpl(this._value, this._then);
+class _$QrPlusReaderStateCopyWithImpl<$Res, $Val extends QrPlusReaderState>
+    implements $QrPlusReaderStateCopyWith<$Res> {
+  _$QrPlusReaderStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -45,88 +45,99 @@ class _$ReaderStateCopyWithImpl<$Res, $Val extends ReaderState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? cache = null,
   }) {
     return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
+      cache: null == cache
+          ? _value.cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, QrPlusData>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ReaderStateCopyWith<$Res>
-    implements $ReaderStateCopyWith<$Res> {
-  factory _$$_ReaderStateCopyWith(
-          _$_ReaderState value, $Res Function(_$_ReaderState) then) =
-      __$$_ReaderStateCopyWithImpl<$Res>;
+abstract class _$$_QrPlusReaderStateCopyWith<$Res>
+    implements $QrPlusReaderStateCopyWith<$Res> {
+  factory _$$_QrPlusReaderStateCopyWith(_$_QrPlusReaderState value,
+          $Res Function(_$_QrPlusReaderState) then) =
+      __$$_QrPlusReaderStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? data});
+  $Res call({Map<String, QrPlusData> cache});
 }
 
 /// @nodoc
-class __$$_ReaderStateCopyWithImpl<$Res>
-    extends _$ReaderStateCopyWithImpl<$Res, _$_ReaderState>
-    implements _$$_ReaderStateCopyWith<$Res> {
-  __$$_ReaderStateCopyWithImpl(
-      _$_ReaderState _value, $Res Function(_$_ReaderState) _then)
+class __$$_QrPlusReaderStateCopyWithImpl<$Res>
+    extends _$QrPlusReaderStateCopyWithImpl<$Res, _$_QrPlusReaderState>
+    implements _$$_QrPlusReaderStateCopyWith<$Res> {
+  __$$_QrPlusReaderStateCopyWithImpl(
+      _$_QrPlusReaderState _value, $Res Function(_$_QrPlusReaderState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? cache = null,
   }) {
-    return _then(_$_ReaderState(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_QrPlusReaderState(
+      cache: null == cache
+          ? _value._cache
+          : cache // ignore: cast_nullable_to_non_nullable
+              as Map<String, QrPlusData>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ReaderState implements _ReaderState {
-  const _$_ReaderState({this.data});
+class _$_QrPlusReaderState implements _QrPlusReaderState {
+  const _$_QrPlusReaderState(
+      {final Map<String, QrPlusData> cache = const <String, QrPlusData>{}})
+      : _cache = cache;
 
+  final Map<String, QrPlusData> _cache;
   @override
-  final String? data;
+  @JsonKey()
+  Map<String, QrPlusData> get cache {
+    if (_cache is EqualUnmodifiableMapView) return _cache;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cache);
+  }
 
   @override
   String toString() {
-    return 'ReaderState(data: $data)';
+    return 'QrPlusReaderState(cache: $cache)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReaderState &&
-            (identical(other.data, data) || other.data == data));
+            other is _$_QrPlusReaderState &&
+            const DeepCollectionEquality().equals(other._cache, _cache));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReaderStateCopyWith<_$_ReaderState> get copyWith =>
-      __$$_ReaderStateCopyWithImpl<_$_ReaderState>(this, _$identity);
+  _$$_QrPlusReaderStateCopyWith<_$_QrPlusReaderState> get copyWith =>
+      __$$_QrPlusReaderStateCopyWithImpl<_$_QrPlusReaderState>(
+          this, _$identity);
 }
 
-abstract class _ReaderState implements ReaderState {
-  const factory _ReaderState({final String? data}) = _$_ReaderState;
+abstract class _QrPlusReaderState implements QrPlusReaderState {
+  const factory _QrPlusReaderState({final Map<String, QrPlusData> cache}) =
+      _$_QrPlusReaderState;
 
   @override
-  String? get data;
+  Map<String, QrPlusData> get cache;
   @override
   @JsonKey(ignore: true)
-  _$$_ReaderStateCopyWith<_$_ReaderState> get copyWith =>
+  _$$_QrPlusReaderStateCopyWith<_$_QrPlusReaderState> get copyWith =>
       throw _privateConstructorUsedError;
 }

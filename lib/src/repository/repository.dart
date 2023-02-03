@@ -1,1 +1,1 @@
-export 'qr_plus_repository/qr_plus_repository.dart';
+export 'ntp_repository/ntp_repository.dart';

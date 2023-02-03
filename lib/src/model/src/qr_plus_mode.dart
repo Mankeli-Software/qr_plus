@@ -1,38 +1,61 @@
+// The analyzer does not understand how freezed classes work.
+// ignore_for_file: invalid_annotation_target
+
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'qr_plus_mode.gen.dart';
+part 'qr_plus_mode.g.dart';
 
+/// {@template qr_plus_security}
+/// LEVELS OF SECURITY
+/// 1. (plain) Plain text
+/// 2. (safe) Split into multiple pieces
+/// 3. (robust) Adds time to live
+/// 4. (sound) Checks time from NTP server
+/// 5. (paranoid) Adds cheating attempt detection
+/// 6. (snowden) Adds encryption
+/// {@endtemplate}
 @freezed
 class QrPlusMode with _$QrPlusMode {
+  /// {@macro qr_plus_security}
   const factory QrPlusMode.plain() = PlainQrPlusMode;
 
+  /// {@macro qr_plus_security}
   const factory QrPlusMode.safe({
     @Default(3) int crumbs,
   }) = SafeQrPlusMode;
 
+  /// {@macro qr_plus_security}
   const factory QrPlusMode.robust({
     @Default(3) int crumbs,
     @Default(Duration(seconds: 20)) Duration ttl,
-    @Default(Duration(seconds: 30)) Duration ntpFetchInterval,
-    @Default(NoConnectionBehavior.hide) NoConnectionBehavior noConnectionBehavior,
   }) = RobustQrPlusMode;
 
+  /// {@macro qr_plus_security}
+  const factory QrPlusMode.sound({
+    @Default(3) int crumbs,
+    @Default(Duration(seconds: 20)) Duration ttl,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
+  }) = SoundQrPlusMode;
+
+  /// {@macro qr_plus_security}
   const factory QrPlusMode.paranoid({
     @Default(6) int crumbs,
     @Default(Duration(seconds: 10)) Duration ttl,
-    @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
-    @Default(NoConnectionBehavior.hide) NoConnectionBehavior noConnectionBehavior,
-    @Default('Xo/VPGxNVzJYU6mszCqpNDzV/CgzxwqKmqunipQusdc=') String encryptionKey,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
   }) = ParanoidQrPlusMode;
 
-  // TODO add foil hat security level
-  // https://pub.dev/packages/prevent_screen_recording/changelog
-  factory QrPlusMode.fromJson(Map<String, dynamic> json) => _$QrPlusModeFromJson(json);
-}
+  /// {@macro qr_plus_security}
+  const factory QrPlusMode.snowden({
+    @Default(6) int crumbs,
+    @Default(Duration(seconds: 10)) Duration ttl,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default('Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=') String encryptionKey,
+  }) = SnowdenQrPlusMode;
 
-enum NoConnectionBehavior {
-  hide,
-  freeze,
-  none,
+  const QrPlusMode._();
+
+  /// {@macro qr_plus_security}
+  factory QrPlusMode.fromJson(Map<String, dynamic> json) => _$QrPlusModeFromJson(json);
 }
