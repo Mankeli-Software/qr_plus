@@ -1,11 +1,11 @@
 # qr_plus
 
-[![pub package](pub_badge)](pub_badge_link)
-[![License](license_badge)](license_badge_link)
+[![pub package][pub_badge]][pub_badge_link]
+[![License][license_badge]][license_badge_link]
 [![style: Mankeli analysis][style_badge]][style_badge_link]
 
 An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses
-[qr_flutter](https://pub.dev/packages/qr_flutter) for rendering the QR-codes and [mobile_scanner](https://pub.dev/packages/mobile_scanner) for reading the QR-codes.
+[qr_flutter][qr_flutter_link] for rendering the QR-codes and [mobile_scanner][mobile_scanner_link] for reading the QR-codes.
 
 ## Platform support
 ## Reader
@@ -25,7 +25,7 @@ Imagine creating an application that uses QR-codes for a scoring system, where p
 **IMPORTANT:** You need to have the same security mode on BOTH the reader and renderer, otherwise the reader won't accept the data.
 
 ### 1. Configure platform
-Since this package is a wrapper around [mobile_scanner](https://pub.dev/packages/mobile_scanner), please follow the steps for platform specific configuration from their documentation.
+Since this package is a wrapper around [mobile_scanner][mobile_scanner_link], please follow the steps for platform specific configuration from their documentation.
 ### 2. Add renderer
 ```dart
 QrPlusRenderer(
@@ -96,3 +96,5 @@ This layer encrypts the data before sending it. With the encryption key properly
 [license_badge_link]: https://opensource.org/licenses/BSD-3-Clause
 [style_badge]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
 [style_badge_link]: https://pub.dev/packages/mankeli_analysis
+[mobile_scanner_link]: https://pub.dev/packages/mobile_scanner
+[qr_flutter_link]:(https://pub.dev/packages/qr_flutter)
