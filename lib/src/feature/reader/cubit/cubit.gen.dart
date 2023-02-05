@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QrPlusReaderState {
+  /// A cache of read QR codes.
   Map<String, QrPlusData?> get cache => throw _privateConstructorUsedError;
-  QrPlusReaderController? get controller => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QrPlusReaderStateCopyWith<QrPlusReaderState> get copyWith =>
@@ -30,8 +30,7 @@ abstract class $QrPlusReaderStateCopyWith<$Res> {
           QrPlusReaderState value, $Res Function(QrPlusReaderState) then) =
       _$QrPlusReaderStateCopyWithImpl<$Res, QrPlusReaderState>;
   @useResult
-  $Res call(
-      {Map<String, QrPlusData?> cache, QrPlusReaderController? controller});
+  $Res call({Map<String, QrPlusData?> cache});
 }
 
 /// @nodoc
@@ -48,17 +47,12 @@ class _$QrPlusReaderStateCopyWithImpl<$Res, $Val extends QrPlusReaderState>
   @override
   $Res call({
     Object? cache = null,
-    Object? controller = freezed,
   }) {
     return _then(_value.copyWith(
       cache: null == cache
           ? _value.cache
           : cache // ignore: cast_nullable_to_non_nullable
               as Map<String, QrPlusData?>,
-      controller: freezed == controller
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as QrPlusReaderController?,
     ) as $Val);
   }
 }
@@ -71,8 +65,7 @@ abstract class _$$_QrPlusReaderStateCopyWith<$Res>
       __$$_QrPlusReaderStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Map<String, QrPlusData?> cache, QrPlusReaderController? controller});
+  $Res call({Map<String, QrPlusData?> cache});
 }
 
 /// @nodoc
@@ -87,17 +80,12 @@ class __$$_QrPlusReaderStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cache = null,
-    Object? controller = freezed,
   }) {
     return _then(_$_QrPlusReaderState(
       cache: null == cache
           ? _value._cache
           : cache // ignore: cast_nullable_to_non_nullable
               as Map<String, QrPlusData?>,
-      controller: freezed == controller
-          ? _value.controller
-          : controller // ignore: cast_nullable_to_non_nullable
-              as QrPlusReaderController?,
     ));
   }
 }
@@ -106,11 +94,13 @@ class __$$_QrPlusReaderStateCopyWithImpl<$Res>
 
 class _$_QrPlusReaderState implements _QrPlusReaderState {
   const _$_QrPlusReaderState(
-      {final Map<String, QrPlusData?> cache = const <String, QrPlusData?>{},
-      this.controller})
+      {final Map<String, QrPlusData?> cache = const <String, QrPlusData?>{}})
       : _cache = cache;
 
+  /// A cache of read QR codes.
   final Map<String, QrPlusData?> _cache;
+
+  /// A cache of read QR codes.
   @override
   @JsonKey()
   Map<String, QrPlusData?> get cache {
@@ -120,11 +110,8 @@ class _$_QrPlusReaderState implements _QrPlusReaderState {
   }
 
   @override
-  final QrPlusReaderController? controller;
-
-  @override
   String toString() {
-    return 'QrPlusReaderState(cache: $cache, controller: $controller)';
+    return 'QrPlusReaderState(cache: $cache)';
   }
 
   @override
@@ -132,14 +119,12 @@ class _$_QrPlusReaderState implements _QrPlusReaderState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QrPlusReaderState &&
-            const DeepCollectionEquality().equals(other._cache, _cache) &&
-            (identical(other.controller, controller) ||
-                other.controller == controller));
+            const DeepCollectionEquality().equals(other._cache, _cache));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_cache), controller);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
 
   @JsonKey(ignore: true)
   @override
@@ -150,14 +135,13 @@ class _$_QrPlusReaderState implements _QrPlusReaderState {
 }
 
 abstract class _QrPlusReaderState implements QrPlusReaderState {
-  const factory _QrPlusReaderState(
-      {final Map<String, QrPlusData?> cache,
-      final QrPlusReaderController? controller}) = _$_QrPlusReaderState;
+  const factory _QrPlusReaderState({final Map<String, QrPlusData?> cache}) =
+      _$_QrPlusReaderState;
 
   @override
+
+  /// A cache of read QR codes.
   Map<String, QrPlusData?> get cache;
-  @override
-  QrPlusReaderController? get controller;
   @override
   @JsonKey(ignore: true)
   _$$_QrPlusReaderStateCopyWith<_$_QrPlusReaderState> get copyWith =>

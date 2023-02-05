@@ -415,6 +415,8 @@ class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
   factory _$SafeQrPlusMode.fromJson(Map<String, dynamic> json) =>
       _$$SafeQrPlusModeFromJson(json);
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   @override
   @JsonKey()
   final int crumbs;
@@ -605,6 +607,8 @@ abstract class SafeQrPlusMode extends QrPlusMode {
   factory SafeQrPlusMode.fromJson(Map<String, dynamic> json) =
       _$SafeQrPlusMode.fromJson;
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   int get crumbs;
   @JsonKey(ignore: true)
   _$$SafeQrPlusModeCopyWith<_$SafeQrPlusMode> get copyWith =>
@@ -660,9 +664,14 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
   factory _$RobustQrPlusMode.fromJson(Map<String, dynamic> json) =>
       _$$RobustQrPlusModeFromJson(json);
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   @override
   @JsonKey()
   final int crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   @override
   @JsonKey()
   final Duration ttl;
@@ -856,7 +865,12 @@ abstract class RobustQrPlusMode extends QrPlusMode {
   factory RobustQrPlusMode.fromJson(Map<String, dynamic> json) =
       _$RobustQrPlusMode.fromJson;
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   int get crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   Duration get ttl;
   @JsonKey(ignore: true)
   _$$RobustQrPlusModeCopyWith<_$RobustQrPlusMode> get copyWith =>
@@ -923,12 +937,20 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
   factory _$SoundQrPlusMode.fromJson(Map<String, dynamic> json) =>
       _$$SoundQrPlusModeFromJson(json);
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   @override
   @JsonKey()
   final int crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   @override
   @JsonKey()
   final Duration ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   final Duration ntpFetchInterval;
@@ -1128,8 +1150,16 @@ abstract class SoundQrPlusMode extends QrPlusMode {
   factory SoundQrPlusMode.fromJson(Map<String, dynamic> json) =
       _$SoundQrPlusMode.fromJson;
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   int get crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   Duration get ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @JsonKey(includeToJson: false, includeFromJson: false)
   Duration get ntpFetchInterval;
   @JsonKey(ignore: true)
@@ -1188,7 +1218,7 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
     with DiagnosticableTreeMixin {
   const _$ParanoidQrPlusMode(
       {this.crumbs = 6,
-      this.ttl = const Duration(seconds: 10),
+      this.ttl = const Duration(seconds: 20),
       @JsonKey(includeToJson: false, includeFromJson: false)
           this.ntpFetchInterval = const Duration(seconds: 5),
       final String? $type})
@@ -1198,12 +1228,20 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
   factory _$ParanoidQrPlusMode.fromJson(Map<String, dynamic> json) =>
       _$$ParanoidQrPlusModeFromJson(json);
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   @override
   @JsonKey()
   final int crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   @override
   @JsonKey()
   final Duration ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   final Duration ntpFetchInterval;
@@ -1404,8 +1442,16 @@ abstract class ParanoidQrPlusMode extends QrPlusMode {
   factory ParanoidQrPlusMode.fromJson(Map<String, dynamic> json) =
       _$ParanoidQrPlusMode.fromJson;
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   int get crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   Duration get ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @JsonKey(includeToJson: false, includeFromJson: false)
   Duration get ntpFetchInterval;
   @JsonKey(ignore: true)
@@ -1471,7 +1517,7 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
     with DiagnosticableTreeMixin {
   const _$SnowdenQrPlusMode(
       {this.crumbs = 6,
-      this.ttl = const Duration(seconds: 10),
+      this.ttl = const Duration(seconds: 20),
       @JsonKey(includeToJson: false, includeFromJson: false)
           this.ntpFetchInterval = const Duration(seconds: 5),
       @JsonKey(includeToJson: false, includeFromJson: false)
@@ -1483,15 +1529,28 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
   factory _$SnowdenQrPlusMode.fromJson(Map<String, dynamic> json) =>
       _$$SnowdenQrPlusModeFromJson(json);
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   @override
   @JsonKey()
   final int crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   @override
   @JsonKey()
   final Duration ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   final Duration ntpFetchInterval;
+
+  /// The encryption key to be used to encrypt the data. Please, change your own key here and do not use the default one.
+  /// Also make sure to store your key in a secure place. See https://pub.dev/packages/flutter_dotenv for more info on how to store your key.
+  ///
+  /// NOTE: The key length should be 128/192/256 bits (16/24/32 bytes/characters).
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   final String encryptionKey;
@@ -1697,10 +1756,23 @@ abstract class SnowdenQrPlusMode extends QrPlusMode {
   factory SnowdenQrPlusMode.fromJson(Map<String, dynamic> json) =
       _$SnowdenQrPlusMode.fromJson;
 
+  /// The number of pieces the data is split into.
+  /// Defaults to 3.
   int get crumbs;
+
+  /// The time-to-live of the data, which defines how long the data is valid.
+  /// Defaults to 20 seconds.
   Duration get ttl;
+
+  /// The interval at which the NTP check is performed.
+  /// Defaults to 5 seconds.
   @JsonKey(includeToJson: false, includeFromJson: false)
   Duration get ntpFetchInterval;
+
+  /// The encryption key to be used to encrypt the data. Please, change your own key here and do not use the default one.
+  /// Also make sure to store your key in a secure place. See https://pub.dev/packages/flutter_dotenv for more info on how to store your key.
+  ///
+  /// NOTE: The key length should be 128/192/256 bits (16/24/32 bytes/characters).
   @JsonKey(includeToJson: false, includeFromJson: false)
   String get encryptionKey;
   @JsonKey(ignore: true)

@@ -1,14 +1,16 @@
 part of 'view.dart';
 
-/// {@template qr_code}
-/// A widget for rendering a QR code.
+/// {@template qr_plus_renderer}
+/// A widget for rendering a QR code with all the secyrity features provided
+/// by package:qr_plus.
 /// {@endtemplate}
 class QrPlusRenderer extends StatefulWidget {
-  /// {@macro qr_code}
-  const QrPlusRenderer({
+  /// {@macro qr_plus_renderer}
+  QrPlusRenderer({
     super.key,
     required this.data,
     this.mode = const QrPlusMode.plain(),
+    this.duration = const Duration(milliseconds: 250),
     this.size,
     this.padding = const EdgeInsets.all(10),
     this.backgroundColor = Colors.transparent,
@@ -29,13 +31,28 @@ class QrPlusRenderer extends StatefulWidget {
       color: Colors.black,
     ),
     this.embeddedImageEmitsError = false,
-  });
+  }) {
+    final crumbs = mode.maybeCrumbs;
+    final ttl = mode.maybeTTL;
 
-  /// The mode of the QR code
+    if (crumbs != null && ttl != null) {
+      final wholeDuration = Duration(milliseconds: crumbs * duration.inMilliseconds);
+      assert(
+        wholeDuration <= ttl,
+        'mode.ttl must be greater than the time it takes to display all crumbs. Otherwise no reader can read the code.',
+      );
+    }
+  }
+
+  /// The security mode of [QrPlusRenderer]. Note: in order to read QR codes rendered by package:qr_plus,
+  /// the renderer and reader must have the same mode.
   final QrPlusMode mode;
 
   /// The data passed to the widget
   final String data;
+
+  /// The duration how long each piece of the QR code is visible.
+  final Duration duration;
 
   /// The background color of the final QR code widget.
   final Color backgroundColor;
@@ -114,27 +131,6 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
     super.dispose();
   }
 
-  String? getData({
-    required QrPlusData data,
-    required int index,
-    required QrPlusMode mode,
-  }) {
-    return data.mapOrNull(
-      authentic: (a) {
-        final data = a.toQrString(mode);
-
-        return index.isEven ? data : data.reversed;
-      },
-      noNetwork: (n) => n.toQrString(mode),
-      screenRecording: (s) => s.toQrString(mode),
-      crumbled: (c) => getData(
-        data: c.crumbs[index],
-        index: index,
-        mode: mode,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider<NtpRepository>.value(
@@ -143,6 +139,7 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
         create: (context) => QrPlusRendererCubit(
           mode: widget.mode,
           plainData: widget.data,
+          duration: widget.duration,
           ntpRepository: _ntpRepository,
         )..initialize(),
         child: BlocConsumer<QrPlusRendererCubit, QrPlusRendererState>(
@@ -158,11 +155,7 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
           },
           buildWhen: (s1, s2) => s1.data != s2.data || s1.crumbledDataIndex != s2.crumbledDataIndex,
           builder: (context, state) {
-            final data = getData(
-              data: state.data,
-              index: state.crumbledDataIndex,
-              mode: state.mode,
-            );
+            final data = state.data.maybeCrumbs?[state.crumbledDataIndex].toQrString(state.mode);
 
             if (data == null) return const SizedBox();
 

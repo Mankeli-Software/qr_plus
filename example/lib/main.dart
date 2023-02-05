@@ -87,11 +87,10 @@ class Renderer extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Renderer'),
       ),
-      body: const Center(
+      body: Center(
         child: QrPlusRenderer(
           data: 'https://youtu.be/dQw4w9WgXcQ',
-          mode: QrPlusMode.snowden(),
-          size: 250,
+          mode: const QrPlusMode.snowden(),
         ),
       ),
     );
@@ -116,7 +115,7 @@ class Reader extends StatelessWidget {
           mode: const QrPlusMode.snowden(),
           allowDuplicates: true,
           onData: (data, authenticity) {
-            print(data);
+            /// Handle the data
           },
         ),
       ),

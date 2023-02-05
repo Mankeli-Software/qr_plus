@@ -1,7 +1,8 @@
 part of 'view.dart';
 
 /// {@template qr_plus_reader}
-/// A reader for package:qr_plus
+/// A widget for reading QR codes with all the secyrity features provided
+/// by package:qr_plus.
 /// {@endtemplate}
 class QrPlusReader extends StatefulWidget {
   /// {@macro qr_plus_reader}
@@ -14,7 +15,8 @@ class QrPlusReader extends StatefulWidget {
     this.allowDuplicates = false,
   });
 
-  /// The security mode of [QrPlusReader].
+  /// The security mode of [QrPlusReader]. Note: in order to read QR codes rendered by package:qr_plus,
+  /// the renderer and reader must have the same mode.
   final QrPlusMode mode;
 
   /// The controller of the camera.
@@ -70,22 +72,16 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           ntpRepository: _ntpRepository,
           onData: widget.onData,
           allowDuplicates: widget.allowDuplicates,
-          controller: widget.controller,
         ),
-        child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
-          buildWhen: (s1, s2) => s1.controller != s2.controller,
-          builder: (context, state) {
-            return MobileScanner(
-              controller: widget.controller,
-              allowDuplicates: true,
-              fit: widget.fit,
-              onDetect: (barcode, _) {
-                final data = barcode.rawValue;
-                if (data != null) {
-                  context.read<QrPlusReaderCubit>().onRawData(data);
-                }
-              },
-            );
+        child: MobileScanner(
+          controller: widget.controller,
+          allowDuplicates: true,
+          fit: widget.fit,
+          onDetect: (barcode, _) {
+            final data = barcode.rawValue;
+            if (data != null) {
+              context.read<QrPlusReaderCubit>().onRawData(data);
+            }
           },
         ),
       ),

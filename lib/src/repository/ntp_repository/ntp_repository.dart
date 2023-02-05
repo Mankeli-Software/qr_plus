@@ -3,8 +3,12 @@ import 'dart:async';
 import 'package:ntp/ntp.dart';
 import 'package:qr_plus/src/model/model.dart';
 
+/// {@template ntp_repository}
+/// Repository for NTP time synchronization to validate QR codes (especially their TTL)
+/// properly.
+/// {@endtemplate}
 class NtpRepository {
-  /// {@macro qr_data_repository}
+  /// {@macro ntp_repository}
   NtpRepository({
     required this.mode,
   });
@@ -34,7 +38,11 @@ class NtpRepository {
   }
 
   Future<void> _refreshNtpOffset() async {
-    _ntpOffset = await NTP.getNtpOffset();
+    try {
+      _ntpOffset = await NTP.getNtpOffset();
+    } catch (e) {
+      // Maybe catch this as no network error?
+    }
   }
 
   /// Returns the current time corrected from a NTP server

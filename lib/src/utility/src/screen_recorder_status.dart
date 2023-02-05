@@ -1,5 +1,5 @@
 /// {@template screen_recorder_status}
-/// A status which indicates whether the screen recorder is on or off.
+/// A status which indicates whether a screen recorder is on or off.
 /// {@endtemplate}
 enum ScreenRecorderStatus {
   /// {@macro screen_recorder_status}

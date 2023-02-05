@@ -64,7 +64,7 @@ _$ParanoidQrPlusMode _$$ParanoidQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$ParanoidQrPlusMode(
       crumbs: json['crumbs'] as int? ?? 6,
       ttl: json['ttl'] == null
-          ? const Duration(seconds: 10)
+          ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
       $type: json['runtimeType'] as String?,
     );
@@ -81,7 +81,7 @@ _$SnowdenQrPlusMode _$$SnowdenQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$SnowdenQrPlusMode(
       crumbs: json['crumbs'] as int? ?? 6,
       ttl: json['ttl'] == null
-          ? const Duration(seconds: 10)
+          ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
       $type: json['runtimeType'] as String?,
     );

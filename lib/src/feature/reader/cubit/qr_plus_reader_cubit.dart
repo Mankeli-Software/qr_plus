@@ -1,7 +1,8 @@
 part of 'cubit.dart';
 
 /// {@template qr_plus_reader_cubit}
-///
+/// A cubit that handles the reading of QR codes, caching them and notifying
+/// the package user about new data.
 /// {@endtemplate}
 class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
   /// {@macro qr_plus_reader_cubit}
@@ -10,12 +11,7 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     required this.onData,
     required this.ntpRepository,
     this.allowDuplicates = false,
-    QrPlusReaderController? controller,
-  }) : super(
-          QrPlusReaderState(
-            controller: controller,
-          ),
-        );
+  }) : super(const QrPlusReaderState());
 
   /// NTP repository to use for time synchronization.
   final NtpRepository ntpRepository;
@@ -36,112 +32,60 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
   /// The input string is the raw data that is read by the scanner,
   /// which will be parsed and decoded by this method.
   void onRawData(String rawData) {
-    final data = QrPlusData.fromQrString(rawData, mode);
+    final data = QrPlusDataCrumb.fromQrString(rawData, mode);
 
     /// [id] being null means the data is [UnknownQrPlusData], which we won't process.
-    final uid = data.maybeId;
+    final uid = data.maybeUid;
     if (uid == null) return;
 
     final cachedData = state.cache[uid];
+
+    /// We won't unnecessarily call the rather expensive _handleData method if its
+    /// not necessary.
     if (cachedData != null && !allowDuplicates) {
-      if (cachedData is CrumbledQrPlusData) {
-        final contains = cachedData.crumbs.any(
-          (c) => c.maybeIndex == data.maybeIndex,
-        );
-        if (contains) return;
-      } else {
-        return;
-      }
+      if (cachedData.isValid(requiredMode: mode, now: ntpRepository.now)) return;
     }
 
-    final index = data.maybeIndex;
-
-    /// THe [index] being null means the data is a crumb and thus needs to be handled differently.
-    return index == null ? _handleData(data, uid) : _handleCrumble(data, uid, index);
+    return _handleData(data);
   }
 
-  void _handleData(
-    QrPlusData data,
-    String uid,
-  ) {
-    final cachedDataString = state.cache[uid]?.maybeData;
-    if (cachedDataString != null) return;
-    final dataString = data.maybeData;
+  /// Actual handler for checking & uddating cache and notifying the package user.
+  void _handleData(QrPlusDataCrumb crumb) {
+    final uid = crumb.maybeUid!;
+    final crumbs = state.cache[uid]?.maybeCrumbs ?? [];
+
+    final newCrumbs = [
+      crumb,
+      ...crumbs.where((c) => c.maybeIndex != crumb.maybeIndex),
+    ];
+
+    final data = QrPlusData(
+      uid: crumb.maybeUid!,
+      crumbs: newCrumbs,
+    );
 
     final valid = data.isValid(requiredMode: mode, now: ntpRepository.now);
-    if (!valid) return;
-
-    _notifyListeners(
-      dataString,
-      noNetworkDetected: data is NoNetworkQrPlusData,
-      screenRecordingDetected: data is ScreenRecordingQrPlusData,
-    );
-
-    emit(
-      state.copyWith(
-        cache: {
-          ...state.cache,
-          uid: allowDuplicates ? null : data,
-        },
-      ),
-    );
-  }
-
-  void _handleCrumble(
-    QrPlusData data,
-    String uid,
-    int index,
-  ) {
-    final nrOfCrumbs = data.maybeCrumbs;
-
-    /// If crumbs are null, it means the data must be malformatted.
-    if (nrOfCrumbs == null) return;
-
-    final cachedData = state.cache[uid] as CrumbledQrPlusData?;
-
-    if (cachedData != null && cachedData.crumbs.length == nrOfCrumbs) return;
-
-    final crumbs = List<QrPlusData>.from(cachedData?.crumbs ?? []);
-
-    final contains = crumbs.any(
-      (c) => c.maybeIndex == index,
-    );
-
-    if (contains) return;
-
-    final newCrumbs = [...crumbs, data];
-
-    final newData = CrumbledQrPlusData(
-      crumbs: newCrumbs,
-      id: uid,
-    );
-
-    final clearCache = newCrumbs.length == nrOfCrumbs && allowDuplicates;
-    emit(
-      state.copyWith(
-        cache: {
-          ...state.cache,
-          uid: clearCache ? null : newData,
-        },
-      ),
-    );
-
-    if (newCrumbs.length == nrOfCrumbs) {
-      /// The data is complete, so we can notify the listeners.
-      ///
-
-      final dataList = [...newData.crumbs]..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
-
-      final valid = dataList.every((e) => e.isValid(requiredMode: mode, now: ntpRepository.now));
-      if (!valid) return;
-
+    if (valid) {
+      /// Converts the crumbs into a string
+      final dataList = [...newCrumbs]..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
       final dataString = dataList.map((c) => c.maybeData).join();
+
       _notifyListeners(
         dataString,
-        noNetworkDetected: crumbs.any((c) => c is NoNetworkQrPlusData),
-        screenRecordingDetected: crumbs.any((c) => c is ScreenRecordingQrPlusData),
+        noNetworkDetected: newCrumbs.any((c) => c is NoNetworkQrPlusDataCrumb),
+        screenRecordingDetected: newCrumbs.any((c) => c is ScreenRecordingQrPlusDataCrumb),
       );
     }
+
+    final clearCache = valid && allowDuplicates;
+    emit(
+      state.copyWith(
+        cache: {
+          ...state.cache,
+          uid: clearCache ? null : data,
+        },
+      ),
+    );
   }
 
   /// Notifies the [onData] callback that there is new data.
