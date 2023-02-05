@@ -97,4 +97,4 @@ This layer encrypts the data before sending it. With the encryption key properly
 [style_badge]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
 [style_badge_link]: https://pub.dev/packages/mankeli_analysis
 [mobile_scanner_link]: https://pub.dev/packages/mobile_scanner
-[qr_flutter_link]:(https://pub.dev/packages/qr_flutter)
+[qr_flutter_link]: https://pub.dev/packages/qr_flutter
