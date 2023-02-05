@@ -113,9 +113,9 @@ class Reader extends StatelessWidget {
       body: Center(
         child: QrPlusReader(
           mode: const QrPlusMode.snowden(),
-          allowDuplicates: true,
           onData: (data, authenticity) {
-            /// Handle the data
+            // ignore: avoid_print
+            print(data);
           },
         ),
       ),

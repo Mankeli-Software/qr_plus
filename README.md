@@ -1,7 +1,8 @@
 # qr_plus
 
-[![pub package](https://img.shields.io/pub/v/qr_plus.svg)](https://pub.dev/packages/qr_plus)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![pub package](pub_badge)](pub_badge_link)
+[![License](license_badge)](license_badge_link)
+[![style: Mankeli analysis][style_badge]][style_badge_link]
 
 An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses
 [qr_flutter](https://pub.dev/packages/qr_flutter) for rendering the QR-codes and [mobile_scanner](https://pub.dev/packages/mobile_scanner) for reading the QR-codes.
@@ -40,7 +41,6 @@ QrPlusReader(
     mode: const QrPlusMode.snowden(
         encryptionKey: '<your-encryption-key>', // Your encryption key from .env. See https://pub.dev/packages/flutter_dotenv
     ),
-    allowDuplicates: true,
     onData: (data, authenticity) {
         /// Handle the data
     },
@@ -90,5 +90,9 @@ A malicious user could read the data with another QR-code reader, manipulate the
 #### Soliution
 This layer encrypts the data before sending it. With the encryption key properly stored, only the reader provided by this package can decrypt it.
 
-
-
+[pub_badge]: https://img.shields.io/pub/v/qr_plus.svg
+[pub_badge_link]: https://pub.dev/packages/qr_plus
+[license_badge]: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
+[license_badge_link]: https://opensource.org/licenses/BSD-3-Clause
+[style_badge]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
+[style_badge_link]: https://pub.dev/packages/mankeli_analysis
