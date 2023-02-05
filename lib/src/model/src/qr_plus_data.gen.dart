@@ -39,14 +39,29 @@ mixin _$QrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,14 +69,29 @@ mixin _$QrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,14 +99,29 @@ mixin _$QrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) =>
@@ -179,14 +224,29 @@ class _$UnknownQrPlusData extends UnknownQrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) {
     return unknown();
@@ -197,14 +257,29 @@ class _$UnknownQrPlusData extends UnknownQrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) {
     return unknown?.call();
@@ -215,14 +290,29 @@ class _$UnknownQrPlusData extends UnknownQrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) {
@@ -382,14 +472,29 @@ class _$CrumbledQrPlusData extends CrumbledQrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) {
     return crumbled(id, crumbs);
@@ -400,14 +505,29 @@ class _$CrumbledQrPlusData extends CrumbledQrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) {
     return crumbled?.call(id, crumbs);
@@ -418,14 +538,29 @@ class _$CrumbledQrPlusData extends CrumbledQrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) {
@@ -510,7 +645,8 @@ abstract class _$$AuthenticQrPlusDataCopyWith<$Res> {
       String data,
       QrPlusMode mode,
       DateTime timestamp,
-      @JsonKey(includeIfNull: false) int? index});
+      @JsonKey(includeIfNull: false) int? index,
+      @JsonKey(includeIfNull: false) int? crumbs});
 
   $QrPlusModeCopyWith<$Res> get mode;
 }
@@ -531,6 +667,7 @@ class __$$AuthenticQrPlusDataCopyWithImpl<$Res>
     Object? mode = null,
     Object? timestamp = null,
     Object? index = freezed,
+    Object? crumbs = freezed,
   }) {
     return _then(_$AuthenticQrPlusData(
       id: null == id
@@ -553,6 +690,10 @@ class __$$AuthenticQrPlusDataCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int?,
+      crumbs: freezed == crumbs
+          ? _value.crumbs
+          : crumbs // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 
@@ -574,6 +715,7 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
       required this.mode,
       required this.timestamp,
       @JsonKey(includeIfNull: false) this.index,
+      @JsonKey(includeIfNull: false) this.crumbs,
       final String? $type})
       : $type = $type ?? 'authentic',
         super._();
@@ -592,13 +734,16 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
   @override
   @JsonKey(includeIfNull: false)
   final int? index;
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? crumbs;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QrPlusData.authentic(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index)';
+    return 'QrPlusData.authentic(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index, crumbs: $crumbs)';
   }
 
   @override
@@ -611,13 +756,14 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, data, mode, timestamp, index);
+      Object.hash(runtimeType, id, data, mode, timestamp, index, crumbs);
 
   @JsonKey(ignore: true)
   @override
@@ -631,17 +777,32 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) {
-    return authentic(id, data, mode, timestamp, index);
+    return authentic(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -649,17 +810,32 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) {
-    return authentic?.call(id, data, mode, timestamp, index);
+    return authentic?.call(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -667,19 +843,34 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) {
     if (authentic != null) {
-      return authentic(id, data, mode, timestamp, index);
+      return authentic(id, data, mode, timestamp, index, crumbs);
     }
     return orElse();
   }
@@ -734,11 +925,13 @@ class _$AuthenticQrPlusData extends AuthenticQrPlusData {
 
 abstract class AuthenticQrPlusData extends QrPlusData {
   const factory AuthenticQrPlusData(
-      {required final String id,
-      required final String data,
-      required final QrPlusMode mode,
-      required final DateTime timestamp,
-      @JsonKey(includeIfNull: false) final int? index}) = _$AuthenticQrPlusData;
+          {required final String id,
+          required final String data,
+          required final QrPlusMode mode,
+          required final DateTime timestamp,
+          @JsonKey(includeIfNull: false) final int? index,
+          @JsonKey(includeIfNull: false) final int? crumbs}) =
+      _$AuthenticQrPlusData;
   const AuthenticQrPlusData._() : super._();
 
   factory AuthenticQrPlusData.fromJson(Map<String, dynamic> json) =
@@ -750,6 +943,8 @@ abstract class AuthenticQrPlusData extends QrPlusData {
   DateTime get timestamp;
   @JsonKey(includeIfNull: false)
   int? get index;
+  @JsonKey(includeIfNull: false)
+  int? get crumbs;
   @JsonKey(ignore: true)
   _$$AuthenticQrPlusDataCopyWith<_$AuthenticQrPlusData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -766,7 +961,8 @@ abstract class _$$NoNetworkQrPlusDataCopyWith<$Res> {
       String data,
       QrPlusMode mode,
       DateTime timestamp,
-      @JsonKey(includeIfNull: false) int? index});
+      @JsonKey(includeIfNull: false) int? index,
+      @JsonKey(includeIfNull: false) int? crumbs});
 
   $QrPlusModeCopyWith<$Res> get mode;
 }
@@ -787,6 +983,7 @@ class __$$NoNetworkQrPlusDataCopyWithImpl<$Res>
     Object? mode = null,
     Object? timestamp = null,
     Object? index = freezed,
+    Object? crumbs = freezed,
   }) {
     return _then(_$NoNetworkQrPlusData(
       id: null == id
@@ -809,6 +1006,10 @@ class __$$NoNetworkQrPlusDataCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int?,
+      crumbs: freezed == crumbs
+          ? _value.crumbs
+          : crumbs // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 
@@ -830,6 +1031,7 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
       required this.mode,
       required this.timestamp,
       @JsonKey(includeIfNull: false) this.index,
+      @JsonKey(includeIfNull: false) this.crumbs,
       final String? $type})
       : $type = $type ?? 'noNetwork',
         super._();
@@ -848,13 +1050,16 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
   @override
   @JsonKey(includeIfNull: false)
   final int? index;
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? crumbs;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QrPlusData.noNetwork(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index)';
+    return 'QrPlusData.noNetwork(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index, crumbs: $crumbs)';
   }
 
   @override
@@ -867,13 +1072,14 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, data, mode, timestamp, index);
+      Object.hash(runtimeType, id, data, mode, timestamp, index, crumbs);
 
   @JsonKey(ignore: true)
   @override
@@ -887,17 +1093,32 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) {
-    return noNetwork(id, data, mode, timestamp, index);
+    return noNetwork(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -905,17 +1126,32 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) {
-    return noNetwork?.call(id, data, mode, timestamp, index);
+    return noNetwork?.call(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -923,19 +1159,34 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) {
     if (noNetwork != null) {
-      return noNetwork(id, data, mode, timestamp, index);
+      return noNetwork(id, data, mode, timestamp, index, crumbs);
     }
     return orElse();
   }
@@ -990,11 +1241,13 @@ class _$NoNetworkQrPlusData extends NoNetworkQrPlusData {
 
 abstract class NoNetworkQrPlusData extends QrPlusData {
   const factory NoNetworkQrPlusData(
-      {required final String id,
-      required final String data,
-      required final QrPlusMode mode,
-      required final DateTime timestamp,
-      @JsonKey(includeIfNull: false) final int? index}) = _$NoNetworkQrPlusData;
+          {required final String id,
+          required final String data,
+          required final QrPlusMode mode,
+          required final DateTime timestamp,
+          @JsonKey(includeIfNull: false) final int? index,
+          @JsonKey(includeIfNull: false) final int? crumbs}) =
+      _$NoNetworkQrPlusData;
   const NoNetworkQrPlusData._() : super._();
 
   factory NoNetworkQrPlusData.fromJson(Map<String, dynamic> json) =
@@ -1006,6 +1259,8 @@ abstract class NoNetworkQrPlusData extends QrPlusData {
   DateTime get timestamp;
   @JsonKey(includeIfNull: false)
   int? get index;
+  @JsonKey(includeIfNull: false)
+  int? get crumbs;
   @JsonKey(ignore: true)
   _$$NoNetworkQrPlusDataCopyWith<_$NoNetworkQrPlusData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1023,7 +1278,8 @@ abstract class _$$ScreenRecordingQrPlusDataCopyWith<$Res> {
       String data,
       QrPlusMode mode,
       DateTime timestamp,
-      @JsonKey(includeIfNull: false) int? index});
+      @JsonKey(includeIfNull: false) int? index,
+      @JsonKey(includeIfNull: false) int? crumbs});
 
   $QrPlusModeCopyWith<$Res> get mode;
 }
@@ -1044,6 +1300,7 @@ class __$$ScreenRecordingQrPlusDataCopyWithImpl<$Res>
     Object? mode = null,
     Object? timestamp = null,
     Object? index = freezed,
+    Object? crumbs = freezed,
   }) {
     return _then(_$ScreenRecordingQrPlusData(
       id: null == id
@@ -1066,6 +1323,10 @@ class __$$ScreenRecordingQrPlusDataCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int?,
+      crumbs: freezed == crumbs
+          ? _value.crumbs
+          : crumbs // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 
@@ -1087,6 +1348,7 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
       required this.mode,
       required this.timestamp,
       @JsonKey(includeIfNull: false) this.index,
+      @JsonKey(includeIfNull: false) this.crumbs,
       final String? $type})
       : $type = $type ?? 'screenRecording',
         super._();
@@ -1105,13 +1367,16 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
   @override
   @JsonKey(includeIfNull: false)
   final int? index;
+  @override
+  @JsonKey(includeIfNull: false)
+  final int? crumbs;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'QrPlusData.screenRecording(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index)';
+    return 'QrPlusData.screenRecording(id: $id, data: $data, mode: $mode, timestamp: $timestamp, index: $index, crumbs: $crumbs)';
   }
 
   @override
@@ -1124,13 +1389,14 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, data, mode, timestamp, index);
+      Object.hash(runtimeType, id, data, mode, timestamp, index, crumbs);
 
   @JsonKey(ignore: true)
   @override
@@ -1144,17 +1410,32 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
   TResult when<TResult extends Object?>({
     required TResult Function() unknown,
     required TResult Function(String id, List<QrPlusData> crumbs) crumbled,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         authentic,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         noNetwork,
-    required TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)
+    required TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)
         screenRecording,
   }) {
-    return screenRecording(id, data, mode, timestamp, index);
+    return screenRecording(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -1162,17 +1443,32 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unknown,
     TResult? Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult? Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult? Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
   }) {
-    return screenRecording?.call(id, data, mode, timestamp, index);
+    return screenRecording?.call(id, data, mode, timestamp, index, crumbs);
   }
 
   @override
@@ -1180,19 +1476,34 @@ class _$ScreenRecordingQrPlusData extends ScreenRecordingQrPlusData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unknown,
     TResult Function(String id, List<QrPlusData> crumbs)? crumbled,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         authentic,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         noNetwork,
-    TResult Function(String id, String data, QrPlusMode mode,
-            DateTime timestamp, @JsonKey(includeIfNull: false) int? index)?
+    TResult Function(
+            String id,
+            String data,
+            QrPlusMode mode,
+            DateTime timestamp,
+            @JsonKey(includeIfNull: false) int? index,
+            @JsonKey(includeIfNull: false) int? crumbs)?
         screenRecording,
     required TResult orElse(),
   }) {
     if (screenRecording != null) {
-      return screenRecording(id, data, mode, timestamp, index);
+      return screenRecording(id, data, mode, timestamp, index, crumbs);
     }
     return orElse();
   }
@@ -1251,7 +1562,8 @@ abstract class ScreenRecordingQrPlusData extends QrPlusData {
           required final String data,
           required final QrPlusMode mode,
           required final DateTime timestamp,
-          @JsonKey(includeIfNull: false) final int? index}) =
+          @JsonKey(includeIfNull: false) final int? index,
+          @JsonKey(includeIfNull: false) final int? crumbs}) =
       _$ScreenRecordingQrPlusData;
   const ScreenRecordingQrPlusData._() : super._();
 
@@ -1264,6 +1576,8 @@ abstract class ScreenRecordingQrPlusData extends QrPlusData {
   DateTime get timestamp;
   @JsonKey(includeIfNull: false)
   int? get index;
+  @JsonKey(includeIfNull: false)
+  int? get crumbs;
   @JsonKey(ignore: true)
   _$$ScreenRecordingQrPlusDataCopyWith<_$ScreenRecordingQrPlusData>
       get copyWith => throw _privateConstructorUsedError;

@@ -26,7 +26,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
 
     _screenCaptureEvent.addScreenRecordListener(_onScreenRecordingStatusChanged);
     _connectivitySubscription = Connectivity().onConnectivityChanged.listen(_onConnectivityChange);
-    _crumbledDataIndexTimer = Timer.periodic(const Duration(milliseconds: 250), (_) => _updateCrumbledDataIndex());
+    _crumbledDataIndexTimer = Timer.periodic(const Duration(milliseconds: 100), (_) => _updateCrumbledDataIndex());
   }
 
   void _updateCrumbledDataIndex() {

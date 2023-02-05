@@ -16,6 +16,6 @@ class QrPlusReaderController extends MobileScannerController {
   });
 
   @override
-  @Deprecated('')
+  @Deprecated('barcodes stream is deprecated, use onData callback instead.')
   Stream<Barcode> get barcodes => const Stream.empty();
 }

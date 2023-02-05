@@ -58,4 +58,33 @@ class QrPlusMode with _$QrPlusMode {
 
   /// {@macro qr_plus_security}
   factory QrPlusMode.fromJson(Map<String, dynamic> json) => _$QrPlusModeFromJson(json);
+
+  /// Returns the number of crumbs if it exists within the mode. Otherwise, returns null.
+  int? get maybeCrumbs => mapOrNull(
+        safe: (mode) => mode.crumbs,
+        robust: (mode) => mode.crumbs,
+        sound: (mode) => mode.crumbs,
+        paranoid: (mode) => mode.crumbs,
+        snowden: (mode) => mode.crumbs,
+      );
+
+  /// Returns the time to live if it exists within the mode. Otherwise, returns null.
+  Duration? get maybeTTL => mapOrNull(
+        robust: (mode) => mode.ttl,
+        sound: (mode) => mode.ttl,
+        paranoid: (mode) => mode.ttl,
+        snowden: (mode) => mode.ttl,
+      );
+
+  /// Returns the NTP fetch interval if it exists within the mode. Otherwise, returns null.
+  Duration? get maybeNTPFetchInterval => mapOrNull(
+        sound: (mode) => mode.ntpFetchInterval,
+        paranoid: (mode) => mode.ntpFetchInterval,
+        snowden: (mode) => mode.ntpFetchInterval,
+      );
+
+  /// Returns the encryption key if it exists within the mode. Otherwise, returns null.
+  String? get maybeEncryptionKey => mapOrNull(
+        snowden: (mode) => mode.encryptionKey,
+      );
 }

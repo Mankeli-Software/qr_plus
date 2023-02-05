@@ -33,6 +33,7 @@ class QrPlusData with _$QrPlusData {
     required QrPlusMode mode,
     required DateTime timestamp,
     @JsonKey(includeIfNull: false) int? index,
+    @JsonKey(includeIfNull: false) int? crumbs,
   }) = AuthenticQrPlusData;
 
   /// {@macro qr_plus_data}
@@ -42,6 +43,7 @@ class QrPlusData with _$QrPlusData {
     required QrPlusMode mode,
     required DateTime timestamp,
     @JsonKey(includeIfNull: false) int? index,
+    @JsonKey(includeIfNull: false) int? crumbs,
   }) = NoNetworkQrPlusData;
 
   /// {@macro qr_plus_data}
@@ -51,6 +53,7 @@ class QrPlusData with _$QrPlusData {
     required QrPlusMode mode,
     required DateTime timestamp,
     @JsonKey(includeIfNull: false) int? index,
+    @JsonKey(includeIfNull: false) int? crumbs,
   }) = ScreenRecordingQrPlusData;
 
   const QrPlusData._();
@@ -70,32 +73,6 @@ class QrPlusData with _$QrPlusData {
         _tryParseJson(reversed) ??
         _tryParseBase64(reversed, mode) ??
         const QrPlusData.unknown();
-  }
-
-  static QrPlusData? _tryParseJson(String data) {
-    try {
-      return QrPlusData.fromJson(jsonDecode(data) as Map<String, dynamic>);
-    } catch (_) {
-      return null;
-    }
-  }
-
-  static QrPlusData? _tryParseBase64(String data, QrPlusMode mode) {
-    final encryptionKey = mode.mapOrNull(snowden: (s) => s.encryptionKey);
-    if (encryptionKey == null) {
-      return null;
-    }
-
-    try {
-      final encrypted = Encrypted.from64(data);
-      final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
-
-      final decrypted = encrypter.decrypt(encrypted, iv: IV.fromLength(16));
-
-      return _tryParseJson(decrypted);
-    } catch (_) {
-      return null;
-    }
   }
 
   /// {@macro qr_plus_data}
@@ -136,14 +113,7 @@ class QrPlusData with _$QrPlusData {
 
     final dataLength = data.length;
 
-    final crumbs = mode.maybeMap(
-      safe: (s) => s.crumbs,
-      robust: (r) => r.crumbs,
-      sound: (s) => s.crumbs,
-      paranoid: (p) => p.crumbs,
-      snowden: (s) => s.crumbs,
-      orElse: () => 3,
-    );
+    final crumbs = mode.maybeCrumbs ?? 3;
 
     final nrOfCrumbs = min(crumbs, dataLength);
 
@@ -167,6 +137,7 @@ class QrPlusData with _$QrPlusData {
           mode: mode,
           timestamp: timestamp,
           index: index,
+          crumbs: nrOfCrumbs,
         );
       } else if (hasScreenRecording) {
         output = QrPlusData.screenRecording(
@@ -175,6 +146,7 @@ class QrPlusData with _$QrPlusData {
           mode: mode,
           timestamp: timestamp,
           index: index,
+          crumbs: nrOfCrumbs,
         );
       } else {
         output = QrPlusData.authentic(
@@ -183,6 +155,7 @@ class QrPlusData with _$QrPlusData {
           mode: mode,
           timestamp: timestamp,
           index: index,
+          crumbs: nrOfCrumbs,
         );
       }
 
@@ -193,6 +166,32 @@ class QrPlusData with _$QrPlusData {
       id: uid,
       crumbs: crumbList,
     );
+  }
+
+  static QrPlusData? _tryParseJson(String data) {
+    try {
+      return QrPlusData.fromJson(jsonDecode(data) as Map<String, dynamic>);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  static QrPlusData? _tryParseBase64(String data, QrPlusMode mode) {
+    final encryptionKey = mode.mapOrNull(snowden: (s) => s.encryptionKey);
+    if (encryptionKey == null) {
+      return null;
+    }
+
+    try {
+      final encrypted = Encrypted.from64(data);
+      final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
+
+      final decrypted = encrypter.decrypt(encrypted, iv: IV.fromLength(16));
+
+      return _tryParseJson(decrypted);
+    } catch (_) {
+      return null;
+    }
   }
 
   /// {@macro qr_plus_data}
@@ -221,8 +220,6 @@ class QrPlusData with _$QrPlusData {
   bool isValid({
     required QrPlusMode requiredMode,
     required DateTime now,
-    bool allowScreenRecording = false,
-    bool allowNoNetwork = false,
   }) {
     if (this is CrumbledQrPlusData) {
       return (this as CrumbledQrPlusData).crumbs.every(
@@ -232,37 +229,64 @@ class QrPlusData with _$QrPlusData {
             ),
           );
     }
-    if (this is ScreenRecordingQrPlusData && !allowScreenRecording) return false;
 
-    if (this is NoNetworkQrPlusData && !allowNoNetwork) return false;
-
-    final mode = mapOrNull(
-      authentic: (a) => a.mode,
-      screenRecording: (s) => s.mode,
-      noNetwork: (n) => n.mode,
-    );
+    final mode = maybeMode;
 
     if (mode == null || mode != requiredMode) return false;
 
-    final ttl = mode.mapOrNull(
-      robust: (r) => r.ttl,
-      sound: (s) => s.ttl,
-      paranoid: (p) => p.ttl,
-      snowden: (s) => s.ttl,
-    );
+    final ttl = mode.maybeTTL;
 
-    final timestamp = mapOrNull(
-      authentic: (a) => a.timestamp,
-      screenRecording: (s) => s.timestamp,
-      noNetwork: (n) => n.timestamp,
-    );
+    final timestamp = maybeTimestamp;
+
+    if (timestamp == null) return false;
 
     if (ttl != null) {
-      if (timestamp == null) return false;
-
       return timestamp.difference(now) < ttl;
     }
 
     return true;
   }
+
+  /// Returns index if the index is defined for the object. Otherwise returns null.
+  int? get maybeIndex => mapOrNull(
+        authentic: (data) => data.index,
+        noNetwork: (data) => data.index,
+        screenRecording: (data) => data.index,
+      );
+
+  /// Returns number of crumbs if the crumbs is defined for the object. Otherwise returns null.
+  int? get maybeCrumbs => mapOrNull(
+        authentic: (data) => data.crumbs,
+        noNetwork: (data) => data.crumbs,
+        screenRecording: (data) => data.crumbs,
+      );
+
+  /// Returns [QrPlusMode] if the mode is defined for the object. Otherwise returns null.
+  QrPlusMode? get maybeMode => mapOrNull(
+        authentic: (data) => data.mode,
+        noNetwork: (data) => data.mode,
+        screenRecording: (data) => data.mode,
+      );
+
+  /// Returns timestamp if the timestamp is defined for the object. Otherwise returns null.
+  DateTime? get maybeTimestamp => mapOrNull(
+        authentic: (data) => data.timestamp,
+        noNetwork: (data) => data.timestamp,
+        screenRecording: (data) => data.timestamp,
+      );
+
+  /// Returns id if the id is defined for the object. Otherwise returns null.
+  String? get maybeId => mapOrNull(
+        authentic: (data) => data.id,
+        noNetwork: (data) => data.id,
+        screenRecording: (data) => data.id,
+        crumbled: (data) => data.id,
+      );
+
+  /// Returns data if the data is defined for the object. Otherwise returns null.
+  String? get maybeData => mapOrNull(
+        authentic: (data) => data.data,
+        noNetwork: (data) => data.data,
+        screenRecording: (data) => data.data,
+      );
 }

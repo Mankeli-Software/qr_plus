@@ -41,6 +41,7 @@ _$AuthenticQrPlusData _$$AuthenticQrPlusDataFromJson(
       mode: QrPlusMode.fromJson(json['mode'] as Map<String, dynamic>),
       timestamp: DateTime.parse(json['timestamp'] as String),
       index: json['index'] as int?,
+      crumbs: json['crumbs'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -60,6 +61,7 @@ Map<String, dynamic> _$$AuthenticQrPlusDataToJson(
   }
 
   writeNotNull('index', instance.index);
+  writeNotNull('crumbs', instance.crumbs);
   val['runtimeType'] = instance.$type;
   return val;
 }
@@ -72,6 +74,7 @@ _$NoNetworkQrPlusData _$$NoNetworkQrPlusDataFromJson(
       mode: QrPlusMode.fromJson(json['mode'] as Map<String, dynamic>),
       timestamp: DateTime.parse(json['timestamp'] as String),
       index: json['index'] as int?,
+      crumbs: json['crumbs'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -91,6 +94,7 @@ Map<String, dynamic> _$$NoNetworkQrPlusDataToJson(
   }
 
   writeNotNull('index', instance.index);
+  writeNotNull('crumbs', instance.crumbs);
   val['runtimeType'] = instance.$type;
   return val;
 }
@@ -103,6 +107,7 @@ _$ScreenRecordingQrPlusData _$$ScreenRecordingQrPlusDataFromJson(
       mode: QrPlusMode.fromJson(json['mode'] as Map<String, dynamic>),
       timestamp: DateTime.parse(json['timestamp'] as String),
       index: json['index'] as int?,
+      crumbs: json['crumbs'] as int?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -122,6 +127,7 @@ Map<String, dynamic> _$$ScreenRecordingQrPlusDataToJson(
   }
 
   writeNotNull('index', instance.index);
+  writeNotNull('crumbs', instance.crumbs);
   val['runtimeType'] = instance.$type;
   return val;
 }

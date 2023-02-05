@@ -6,10 +6,10 @@ part of 'view.dart';
 class QrPlusReader extends StatefulWidget {
   /// {@macro qr_plus_reader}
   const QrPlusReader({
+    required this.onData,
     this.mode = const QrPlusMode.plain(),
     super.key,
     this.controller,
-    required this.onDetect,
     this.fit = BoxFit.cover,
     this.allowDuplicates = false,
   });
@@ -22,7 +22,17 @@ class QrPlusReader extends StatefulWidget {
 
   /// Function that gets called when a QR-code is detected
   /// and the data is parsed.
-  final void Function(String data) onDetect;
+  final void Function(
+    /// The data being read, parsed and processed by package:qr_plus.
+    String data,
+
+    ///  A status which indicates whether the QR code is authentic or not. It is up to the user of
+    /// this package to decide what to do with the data based on the authenticity status.
+    /// Note: [QrPlusAuthenticity.noNetwork] and [QrPlusAuthenticity.screenRecording]
+    /// do not guaurantee that the data is not authentic. They only indicate the possibility
+    /// that there is some sort of cheating attempt going on.
+    QrPlusAuthenticity authenticity,
+  ) onData;
 
   /// Handles how the widget should fit the screen.
   final BoxFit fit;
@@ -54,25 +64,30 @@ class _QrPlusReaderState extends State<QrPlusReader> {
   Widget build(BuildContext context) {
     return RepositoryProvider<NtpRepository>.value(
       value: _ntpRepository,
-      child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
-        builder: (context, state) {
-          return MobileScanner(
-            controller: MobileScannerController(
-              facing: widget.controller?.facing ?? CameraFacing.back,
-              ratio: widget.controller?.ratio,
-              torchEnabled: widget.controller?.torchEnabled,
-              formats: widget.controller?.formats,
-            ),
-            allowDuplicates: true,
-            fit: widget.fit,
-            onDetect: (barcode, _) {
-              final data = barcode.rawValue;
-              if (data != null) {
-                QrPlusData.fromQrString(data, widget.mode);
-              }
-            },
-          );
-        },
+      child: BlocProvider<QrPlusReaderCubit>(
+        create: (context) => QrPlusReaderCubit(
+          mode: widget.mode,
+          ntpRepository: _ntpRepository,
+          onData: widget.onData,
+          allowDuplicates: widget.allowDuplicates,
+          controller: widget.controller,
+        ),
+        child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
+          buildWhen: (s1, s2) => s1.controller != s2.controller,
+          builder: (context, state) {
+            return MobileScanner(
+              controller: widget.controller,
+              allowDuplicates: true,
+              fit: widget.fit,
+              onDetect: (barcode, _) {
+                final data = barcode.rawValue;
+                if (data != null) {
+                  context.read<QrPlusReaderCubit>().onRawData(data);
+                }
+              },
+            );
+          },
+        ),
       ),
     );
   }

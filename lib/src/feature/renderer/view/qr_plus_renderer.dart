@@ -139,23 +139,17 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
   Widget build(BuildContext context) {
     return RepositoryProvider<NtpRepository>.value(
       value: _ntpRepository,
-      // bad linting rule
-      // ignore: arguments-ordering
       child: BlocProvider(
         create: (context) => QrPlusRendererCubit(
           mode: widget.mode,
           plainData: widget.data,
           ntpRepository: _ntpRepository,
         )..initialize(),
-        // bad linting rule
-        // ignore: arguments-ordering
         child: BlocConsumer<QrPlusRendererCubit, QrPlusRendererState>(
           listener: (context, state) {
             final valid = state.data.isValid(
               requiredMode: widget.mode,
               now: _ntpRepository.now,
-              allowNoNetwork: true,
-              allowScreenRecording: true,
             );
 
             if (!valid) {
