@@ -32,6 +32,11 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
   /// The input string is the raw data that is read by the scanner,
   /// which will be parsed and decoded by this method.
   void onRawData(String rawData) {
+    /// With plain mode we won't process the data, just notify the package user.
+    if (mode is PlainQrPlusMode) {
+      return _notifyListeners(rawData);
+    }
+
     final data = QrPlusDataCrumb.fromQrString(rawData, mode);
 
     /// [id] being null means the data is [UnknownQrPlusData], which we won't process.
@@ -42,8 +47,8 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
 
     /// We won't unnecessarily call the rather expensive _handleData method if its
     /// not necessary.
-    if (cachedData != null && !allowDuplicates) {
-      if (cachedData.isValid(requiredMode: mode, now: ntpRepository.now)) return;
+    if (cachedData != null && !allowDuplicates && cachedData.isWhole) {
+      return;
     }
 
     return _handleData(data);
@@ -64,8 +69,13 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
       crumbs: newCrumbs,
     );
 
-    final valid = data.isValid(requiredMode: mode, now: ntpRepository.now);
-    if (valid) {
+    final isWhole = data.isWhole;
+
+    /// data.isValid actually checks if the data is whole, BUT there is no need to calculate
+    /// the isWhole result twice. So if isWHole is not true, we don't even have to evaluate
+    /// data.isValid, since it would return false anyway.
+    final valid = isWhole && data.isValid(requiredMode: mode, now: ntpRepository.now);
+    if (isWhole) {
       /// Converts the crumbs into a string
       final dataList = [...newCrumbs]..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
       final dataString = dataList.map((c) => c.maybeData).join();
@@ -77,7 +87,11 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
       );
     }
 
-    final clearCache = valid && allowDuplicates;
+    /// If the whole data is received, we will clear the cache in the following cases:
+    /// 1. allowDuplicates is true, we want to start fresh with the data
+    /// 2. The data is not valid, it will never be needed again.
+    final clearCache = isWhole && (allowDuplicates || !valid);
+
     emit(
       state.copyWith(
         cache: {

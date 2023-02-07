@@ -58,20 +58,19 @@ class QrPlusData with _$QrPlusData {
     required QrPlusMode requiredMode,
     required DateTime now,
   }) {
-    final crumbs = maybeCrumbs ?? [];
-    if (crumbs.isEmpty) return false;
-    final nrOfCrumbs = crumbs.first.maybeCrumbs ?? -1;
-    final whole = crumbs.length == nrOfCrumbs;
+    if (!isWhole) return false;
 
-    if (!whole) return false;
-
-    return crumbs.every(
+    return maybeCrumbs!.every(
       (c) => c.isValid(
         requiredMode: requiredMode,
         now: now,
       ),
     );
   }
+
+  /// Returns `true` if the [QrPlusData] is a whole object (it contains all of the required
+  /// crumbs to recreate the original data). Otherwise returns `false`.
+  bool get isWhole => (maybeCrumbs?.isNotEmpty ?? false) && maybeCrumbs!.length == maybeCrumbs!.first.maybeCrumbs;
 
   /// Returns the uid if defined within the object.
   String? get maybeUid => mapOrNull(

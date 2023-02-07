@@ -216,6 +216,10 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   /// to display the data in a QR code. Depending on the [mode] the [String] is
   /// either a json string or a base64 string.
   String toQrString(QrPlusMode mode) {
+    /// In plain mode, we just return the data without any encryption or metadata.
+    if (mode is PlainQrPlusMode) {
+      return maybeData ?? '';
+    }
     final key = mode.maybeEncryptionKey;
 
     return key != null ? _toBase64(mode) : _toJsonString();
