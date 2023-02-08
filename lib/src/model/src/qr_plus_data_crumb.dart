@@ -151,15 +151,16 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     final key = mode.maybeEncryptionKey;
 
     return key != null
-        ? _tryParseBase64(data, mode) ?? _tryParseBase64(reversed, mode) ?? const QrPlusDataCrumb.unknown()
-        : _tryParseJson(data) ?? _tryParseJson(reversed) ?? const QrPlusDataCrumb.unknown();
+        ? tryParseBase64(data, mode) ?? tryParseBase64(reversed, mode) ?? const QrPlusDataCrumb.unknown()
+        : tryParseJson(data) ?? tryParseJson(reversed) ?? const QrPlusDataCrumb.unknown();
   }
 
   /// {@macro qr_plus_data_crumb}
   ///
   /// Tries parsing the [QrPlusDataCrumb] from a json string. Returns `null` if the
   /// parsing fails (the data is invalid or the data is not a json string)
-  static QrPlusDataCrumb? _tryParseJson(String data) {
+  @visibleForTesting
+  static QrPlusDataCrumb? tryParseJson(String data) {
     try {
       return QrPlusDataCrumb.fromJson(jsonDecode(data) as Map<String, dynamic>);
     } catch (_) {
@@ -171,7 +172,8 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   ///
   /// Tries parsing the [QrPlusDataCrumb] from a base64 string. Returns `null` if the
   /// parsing fails (the data is invalid or the data is not a base64 string)
-  static QrPlusDataCrumb? _tryParseBase64(String data, QrPlusMode mode) {
+  @visibleForTesting
+  static QrPlusDataCrumb? tryParseBase64(String data, QrPlusMode mode) {
     final encryptionKey = mode.mapOrNull(snowden: (s) => s.encryptionKey);
     if (encryptionKey == null) {
       return null;
@@ -183,7 +185,7 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
 
       final decrypted = encrypter.decrypt(encrypted, iv: IV.fromLength(16));
 
-      return _tryParseJson(decrypted);
+      return tryParseJson(decrypted);
     } catch (_) {
       return null;
     }
@@ -193,7 +195,9 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   ///
   /// Returns a ecrypted base64 [String] representation of the [QrPlusDataCrumb] that can be used
   /// to display the data in a QR code.
-  String _toBase64(QrPlusMode mode) {
+  @visibleForTesting
+  String toBase64() {
+    final mode = maybeMode!;
     final encryptionKey = mode.mapOrNull(snowden: (s) => s.encryptionKey);
     if (encryptionKey == null) return jsonEncode(toJson());
 
@@ -208,21 +212,24 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   ///
   /// Returns a json [String] representation of the [QrPlusDataCrumb] that can be used
   /// to display the data in a QR code.
-  String _toJsonString() => jsonEncode(toJson());
+  @visibleForTesting
+  String toJsonString() => jsonEncode(toJson());
 
   /// {@macro qr_plus_data_crumb}
   ///
   /// Returns a [String] representation of the [QrPlusDataCrumb] that can be used
-  /// to display the data in a QR code. Depending on the [mode] the [String] is
+  /// to display the data in a QR code. Depending on the mode the [String] is
   /// either a json string or a base64 string.
-  String toQrString(QrPlusMode mode) {
-    /// In plain mode, we just return the data without any encryption or metadata.
+  String toQrString() {
+    final mode = maybeMode!;
+
+    /// In plain mode, we just return the data without any encryption or encoding.
     if (mode is PlainQrPlusMode) {
       return maybeData ?? '';
     }
     final key = mode.maybeEncryptionKey;
 
-    return key != null ? _toBase64(mode) : _toJsonString();
+    return key != null ? toBase64() : toJsonString();
   }
 
   /// Returns `true` if this crumb is valid. Otherwise returns false.
@@ -243,7 +250,7 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     if (timestamp == null) return false;
 
     if (ttl != null) {
-      return timestamp.difference(now) < ttl;
+      return now.difference(timestamp) <= ttl;
     }
 
     return true;

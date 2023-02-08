@@ -11,6 +11,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
     required String plainData,
     required this.duration,
     required this.ntpRepository,
+    @visibleForTesting this.uuid,
   }) : super(
           QrPlusRendererState(
             mode: mode,
@@ -21,10 +22,14 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   /// A repository for getting the REAL current time.
   final NtpRepository ntpRepository;
 
+  /// The [Uuid] can be overridden for testing purposes.
+  @visibleForTesting
+  final Uuid? uuid;
+
   /// The duration how long each piece of the QR code is visible.
   final Duration duration;
 
-  final ScreenCaptureEvent _screenCaptureEvent = ScreenCaptureEvent();
+  ScreenCaptureEvent? _screenCaptureEvent;
 
   StreamSubscription<ConnectivityResult>? _connectivitySubscription;
   Timer? _crumbledDataIndexTimer;
@@ -32,14 +37,16 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   /// Initializes the cubit by setting up the listeners and timers.
   Future<void> initialize() async {
     recreate();
-    _screenCaptureEvent.addScreenRecordListener(_onScreenRecordingStatusChanged);
-    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(_onConnectivityChange);
-    _crumbledDataIndexTimer = Timer.periodic(duration, (_) => _updateCrumbledDataIndex());
+    _screenCaptureEvent = ScreenCaptureEvent();
+    _screenCaptureEvent?.addScreenRecordListener(onScreenRecordingStatusChanged);
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(onConnectivityChange);
+    _crumbledDataIndexTimer = Timer.periodic(duration, (_) => updateCrumbledDataIndex());
   }
 
   /// Callback to be called periodically to update the crumbled data index
   /// and change the currently rendered [QrPlusDataCrumb].
-  void _updateCrumbledDataIndex() {
+  @visibleForTesting
+  void updateCrumbledDataIndex() {
     final crumbs = state.data.maybeCrumbs;
     if (crumbs == null) return;
 
@@ -53,28 +60,33 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   }
 
   /// Callback to be called when the screen recording status changes.
-  void _onScreenRecordingStatusChanged(bool isRecording) {
+  @visibleForTesting
+  // Its OK here
+  // ignore: avoid_positional_boolean_parameters
+  void onScreenRecordingStatusChanged(bool isRecording) {
     emit(
       state.copyWith(
         screenRecorderStatus: isRecording ? ScreenRecorderStatus.recorderOn : ScreenRecorderStatus.recorderOff,
       ),
     );
-    _maybeUpdateAuthenticity();
+    maybeUpdateAuthenticity();
   }
 
   /// Callback to be called when the network connectivity changes.
-  void _onConnectivityChange(ConnectivityResult result) {
+  @visibleForTesting
+  void onConnectivityChange(ConnectivityResult result) {
     emit(
       state.copyWith(
         connectivity: result,
       ),
     );
-    _maybeUpdateAuthenticity();
+    maybeUpdateAuthenticity();
   }
 
   /// Updates the [QrPlusRendererState.authenticity] if the [QrPlusAuthenticity] has possibly changed.
   /// If the authenticity has changed, the [QrPlusData] is recreated.
-  void _maybeUpdateAuthenticity() {
+  @visibleForTesting
+  void maybeUpdateAuthenticity() {
     var newAuthenticity = QrPlusAuthenticity.authentic;
     if (state.screenRecorderStatus == ScreenRecorderStatus.recorderOn) {
       newAuthenticity = QrPlusAuthenticity.screenRecording;
@@ -89,6 +101,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
         authenticity: newAuthenticity,
       ),
     );
+
     recreate();
   }
 
@@ -99,6 +112,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
       mode: state.mode,
       timestamp: ntpRepository.now,
       authenticity: state.authenticity,
+      uuid: uuid,
     );
 
     emit(
@@ -113,7 +127,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   Future<void> close() {
     _connectivitySubscription?.cancel();
     _crumbledDataIndexTimer?.cancel();
-    _screenCaptureEvent.dispose();
+    _screenCaptureEvent?.dispose();
 
     return super.close();
   }

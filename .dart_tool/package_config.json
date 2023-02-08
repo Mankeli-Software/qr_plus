@@ -45,9 +45,21 @@
     },
     {
       "name": "bloc",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/bloc-8.1.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/bloc-8.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "bloc_test",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/bloc_test-9.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "boolean_selector",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "build",
@@ -146,6 +158,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "coverage",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/coverage-1.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "crypto",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/crypto-3.0.2",
       "packageUri": "lib/",
@@ -182,8 +200,20 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "diff_match_patch",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/diff_match_patch-0.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "encrypt",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/encrypt-5.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fake_async",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -216,6 +246,12 @@
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_test",
+      "rootUri": "file:///Users/om/Development/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "flutter_web_plugins",
@@ -315,7 +351,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/matcher-0.12.14",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/matcher-0.12.13",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -344,6 +380,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "mocktail",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mocktail-0.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "nested",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/nested-1.0.0",
       "packageUri": "lib/",
@@ -352,6 +394,12 @@
     {
       "name": "nm",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/nm-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "node_preamble",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/node_preamble-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -369,7 +417,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/path-1.8.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -458,6 +506,18 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "shelf_packages_handler",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/shelf_packages_handler-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "shelf_static",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/shelf_static-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "shelf_web_socket",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/shelf_web_socket-1.0.3",
       "packageUri": "lib/",
@@ -480,6 +540,18 @@
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/source_helper-1.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "source_map_stack_trace",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/source_map_stack_trace-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "source_maps",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/source_maps-0.10.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "source_span",
@@ -518,6 +590,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "test",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test-1.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "test_api",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_api-0.4.16",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "test_core",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_core-0.4.20",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "timing",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/timing-1.0.1",
       "packageUri": "lib/",
@@ -542,6 +632,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "vm_service",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/vm_service-9.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "watcher",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/watcher-1.0.2",
       "packageUri": "lib/",
@@ -550,6 +646,12 @@
     {
       "name": "web_socket_channel",
       "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/web_socket_channel-2.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "webkit_inspection_protocol",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/webkit_inspection_protocol-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -572,7 +674,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-02-04T10:22:59.954294Z",
+  "generated": "2023-02-07T10:54:54.462913Z",
   "generator": "pub",
   "generatorVersion": "2.19.0"
 }

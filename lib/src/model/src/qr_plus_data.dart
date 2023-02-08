@@ -29,8 +29,12 @@ class QrPlusData with _$QrPlusData {
     required QrPlusMode mode,
     required DateTime timestamp,
     required QrPlusAuthenticity authenticity,
+
+    /// For testing purposes, the UUID can be overriden, otherwise a unique ID is generated.
+    Uuid? uuid,
   }) {
-    final uid = const Uuid().v4();
+    uuid ??= const Uuid();
+    final uid = uuid.v4();
     final nrOfCrumbs = mode.maybeCrumbs ?? 1;
 
     final crumbData = data.slice(nrOfCrumbs);
@@ -45,7 +49,7 @@ class QrPlusData with _$QrPlusData {
               data: d,
               mode: mode,
               index: crumbData.indexOf(d),
-              crumbs: nrOfCrumbs,
+              crumbs: crumbData.length,
               timestamp: timestamp,
             ),
           )

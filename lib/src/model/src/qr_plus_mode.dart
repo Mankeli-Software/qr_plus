@@ -47,14 +47,14 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.safe({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
   }) = SafeQrPlusMode;
 
   /// {@macro qr_plus_mode}
   const factory QrPlusMode.robust({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -65,7 +65,7 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.sound({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -80,7 +80,7 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.paranoid({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @Default(6) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(6) int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -95,7 +95,7 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.snowden({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @Default(6) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false) @Default(6) int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.

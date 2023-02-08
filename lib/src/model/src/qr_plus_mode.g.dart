@@ -30,7 +30,6 @@ Map<String, dynamic> _$$SafeQrPlusModeToJson(_$SafeQrPlusMode instance) =>
 
 _$RobustQrPlusMode _$$RobustQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$RobustQrPlusMode(
-      crumbs: json['crumbs'] as int? ?? 3,
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
@@ -39,14 +38,12 @@ _$RobustQrPlusMode _$$RobustQrPlusModeFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$RobustQrPlusModeToJson(_$RobustQrPlusMode instance) =>
     <String, dynamic>{
-      'crumbs': instance.crumbs,
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
 _$SoundQrPlusMode _$$SoundQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$SoundQrPlusMode(
-      crumbs: json['crumbs'] as int? ?? 3,
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
@@ -55,14 +52,12 @@ _$SoundQrPlusMode _$$SoundQrPlusModeFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SoundQrPlusModeToJson(_$SoundQrPlusMode instance) =>
     <String, dynamic>{
-      'crumbs': instance.crumbs,
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
 _$ParanoidQrPlusMode _$$ParanoidQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$ParanoidQrPlusMode(
-      crumbs: json['crumbs'] as int? ?? 6,
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
@@ -72,14 +67,12 @@ _$ParanoidQrPlusMode _$$ParanoidQrPlusModeFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ParanoidQrPlusModeToJson(
         _$ParanoidQrPlusMode instance) =>
     <String, dynamic>{
-      'crumbs': instance.crumbs,
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
 _$SnowdenQrPlusMode _$$SnowdenQrPlusModeFromJson(Map<String, dynamic> json) =>
     _$SnowdenQrPlusMode(
-      crumbs: json['crumbs'] as int? ?? 6,
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
           : Duration(microseconds: json['ttl'] as int),
@@ -88,7 +81,6 @@ _$SnowdenQrPlusMode _$$SnowdenQrPlusModeFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SnowdenQrPlusModeToJson(_$SnowdenQrPlusMode instance) =>
     <String, dynamic>{
-      'crumbs': instance.crumbs,
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };

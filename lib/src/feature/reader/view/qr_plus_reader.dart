@@ -33,7 +33,9 @@ class QrPlusReader extends StatefulWidget {
     /// Note: [QrPlusAuthenticity.noNetwork] and [QrPlusAuthenticity.screenRecording]
     /// do not guaurantee that the data is not authentic. They only indicate the possibility
     /// that there is some sort of cheating attempt going on.
-    QrPlusAuthenticity authenticity,
+    ///
+    /// NOTE: This field is only used, when [QrPlusReader.mode] is not [QrPlusMode.paranoid] or [QrPlusMode.snowden]. Othwerwise this will always be null.
+    QrPlusAuthenticity? authenticity,
   ) onData;
 
   /// Handles how the widget should fit the screen.
@@ -73,15 +75,20 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           onData: widget.onData,
           allowDuplicates: widget.allowDuplicates,
         ),
-        child: MobileScanner(
-          controller: widget.controller,
-          allowDuplicates: true,
-          fit: widget.fit,
-          onDetect: (barcode, _) {
-            final data = barcode.rawValue;
-            if (data != null) {
-              context.read<QrPlusReaderCubit>().onRawData(data);
-            }
+        child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
+          buildWhen: (_, __) => false,
+          builder: (context, state) {
+            return MobileScanner(
+              controller: widget.controller,
+              allowDuplicates: widget.mode is! PlainQrPlusMode || widget.allowDuplicates,
+              fit: widget.fit,
+              onDetect: (barcode, _) {
+                final data = barcode.rawValue;
+                if (data != null) {
+                  context.read<QrPlusReaderCubit>().onRawData(data);
+                }
+              },
+            );
           },
         ),
       ),

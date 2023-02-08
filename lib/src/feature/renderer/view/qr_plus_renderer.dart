@@ -155,7 +155,7 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
           },
           buildWhen: (s1, s2) => s1.data != s2.data || s1.crumbledDataIndex != s2.crumbledDataIndex,
           builder: (context, state) {
-            final data = state.data.maybeCrumbs?[state.crumbledDataIndex].toQrString(state.mode);
+            final data = state.data.maybeCrumbs?[state.crumbledDataIndex].toQrString();
 
             if (data == null) return const SizedBox();
 
