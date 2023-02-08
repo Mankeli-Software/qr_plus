@@ -114,5 +114,5 @@ This layer encrypts the data before sending it. With the encryption key properly
 [paranoid_qr]: doc/asset/paranoid-qr.gif
 [plain_fullscreen]: doc/asset/plain-fullscreen.jpg
 [plain_qr]: doc/asset/plain-qr.jpg
-[analysis_and_test]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/flutter.yml/badge.svg?branch=main
+[analysis_and_test]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/flutter.yml/badge.svg
 
