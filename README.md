@@ -108,11 +108,11 @@ This layer encrypts the data before sending it. With the encryption key properly
 [style_badge_link]: https://pub.dev/packages/mankeli_analysis
 [mobile_scanner_link]: https://pub.dev/packages/mobile_scanner
 [qr_flutter_link]: https://pub.dev/packages/qr_flutter
-[snowden_fullscreen]: doc/asset/snowden-fullscreen.gif
-[snowden_qr]: doc/asset/snowden-qr.gif
-[paranoid_fullscreen]: doc/asset/paranoid-fullscreen.gif
-[paranoid_qr]: doc/asset/paranoid-qr.gif
-[plain_fullscreen]: doc/asset/plain-fullscreen.jpg
-[plain_qr]: doc/asset/plain-qr.jpg
+[snowden_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-fullscreen.gif
+[snowden_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-qr.gif
+[paranoid_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-fullscreen.gif
+[paranoid_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-qr.gif
+[plain_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-fullscreen.jpg
+[plain_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-qr.jpg
 [analysis_and_test]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/flutter.yml/badge.svg
 

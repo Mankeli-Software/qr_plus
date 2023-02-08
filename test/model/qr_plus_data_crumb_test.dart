@@ -111,7 +111,10 @@ void main() {
         'uses value equality '
         'always',
         () {
-          expect(const QrPlusDataCrumb.unknown(), const QrPlusDataCrumb.unknown());
+          expect(
+            const QrPlusDataCrumb.unknown(),
+            const QrPlusDataCrumb.unknown(),
+          );
         },
       );
 
@@ -119,7 +122,10 @@ void main() {
         'is UnknownQrPlusDataCrumb '
         'always',
         () {
-          expect(const QrPlusDataCrumb.unknown(), isA<UnknownQrPlusDataCrumb>());
+          expect(
+            const QrPlusDataCrumb.unknown(),
+            isA<UnknownQrPlusDataCrumb>(),
+          );
         },
       );
     });
@@ -272,7 +278,10 @@ void main() {
         'maybeTimestamp returns correct timestamp '
         'always',
         () {
-          expect(crumb.maybeTimestamp, (crumb as AuthenticQrPlusDataCrumb).timestamp);
+          expect(
+            crumb.maybeTimestamp,
+            (crumb as AuthenticQrPlusDataCrumb).timestamp,
+          );
         },
       );
     });
@@ -426,7 +435,10 @@ void main() {
         'maybeTimestamp returns correct timestamp '
         'always',
         () {
-          expect(crumb.maybeTimestamp, (crumb as NoNetworkQrPlusDataCrumb).timestamp);
+          expect(
+            crumb.maybeTimestamp,
+            (crumb as NoNetworkQrPlusDataCrumb).timestamp,
+          );
         },
       );
     });
@@ -540,7 +552,10 @@ void main() {
         'maybeIndex returns correct index '
         'always',
         () {
-          expect(crumb.maybeIndex, (crumb as ScreenRecordingQrPlusDataCrumb).index);
+          expect(
+            crumb.maybeIndex,
+            (crumb as ScreenRecordingQrPlusDataCrumb).index,
+          );
         },
       );
 
@@ -548,7 +563,10 @@ void main() {
         'maybeCrumbs returns correct crumbs '
         'always',
         () {
-          expect(crumb.maybeCrumbs, (crumb as ScreenRecordingQrPlusDataCrumb).crumbs);
+          expect(
+            crumb.maybeCrumbs,
+            (crumb as ScreenRecordingQrPlusDataCrumb).crumbs,
+          );
         },
       );
 
@@ -564,7 +582,10 @@ void main() {
         'maybeData returns correct data '
         'always',
         () {
-          expect(crumb.maybeData, (crumb as ScreenRecordingQrPlusDataCrumb).data);
+          expect(
+            crumb.maybeData,
+            (crumb as ScreenRecordingQrPlusDataCrumb).data,
+          );
         },
       );
 
@@ -572,7 +593,10 @@ void main() {
         'maybeMode returns correct mode '
         'always',
         () {
-          expect(crumb.maybeMode, (crumb as ScreenRecordingQrPlusDataCrumb).mode);
+          expect(
+            crumb.maybeMode,
+            (crumb as ScreenRecordingQrPlusDataCrumb).mode,
+          );
         },
       );
 
@@ -580,7 +604,10 @@ void main() {
         'maybeTimestamp returns correct timestamp '
         'always',
         () {
-          expect(crumb.maybeTimestamp, (crumb as ScreenRecordingQrPlusDataCrumb).timestamp);
+          expect(
+            crumb.maybeTimestamp,
+            (crumb as ScreenRecordingQrPlusDataCrumb).timestamp,
+          );
         },
       );
     });

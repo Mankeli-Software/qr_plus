@@ -38,9 +38,12 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   Future<void> initialize() async {
     recreate();
     _screenCaptureEvent = ScreenCaptureEvent();
-    _screenCaptureEvent?.addScreenRecordListener(onScreenRecordingStatusChanged);
-    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(onConnectivityChange);
-    _crumbledDataIndexTimer = Timer.periodic(duration, (_) => updateCrumbledDataIndex());
+    _screenCaptureEvent
+        ?.addScreenRecordListener(onScreenRecordingStatusChanged);
+    _connectivitySubscription =
+        Connectivity().onConnectivityChanged.listen(onConnectivityChange);
+    _crumbledDataIndexTimer =
+        Timer.periodic(duration, (_) => updateCrumbledDataIndex());
   }
 
   /// Callback to be called periodically to update the crumbled data index
@@ -66,7 +69,9 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
   void onScreenRecordingStatusChanged(bool isRecording) {
     emit(
       state.copyWith(
-        screenRecorderStatus: isRecording ? ScreenRecorderStatus.recorderOn : ScreenRecorderStatus.recorderOff,
+        screenRecorderStatus: isRecording
+            ? ScreenRecorderStatus.recorderOn
+            : ScreenRecorderStatus.recorderOff,
       ),
     );
     maybeUpdateAuthenticity();

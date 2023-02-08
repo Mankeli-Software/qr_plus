@@ -74,7 +74,9 @@ class QrPlusData with _$QrPlusData {
 
   /// Returns `true` if the [QrPlusData] is a whole object (it contains all of the required
   /// crumbs to recreate the original data). Otherwise returns `false`.
-  bool get isWhole => (maybeCrumbs?.isNotEmpty ?? false) && maybeCrumbs!.length == maybeCrumbs!.first.maybeCrumbs;
+  bool get isWhole =>
+      (maybeCrumbs?.isNotEmpty ?? false) &&
+      maybeCrumbs!.length == maybeCrumbs!.first.maybeCrumbs;
 
   /// Returns the uid if defined within the object.
   String? get maybeUid => mapOrNull(

@@ -93,7 +93,8 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   /// {@macro qr_plus_data_crumb}
   ///
   /// Constructor for [QrPlusDataCrumb] that constructs a [QrPlusDataCrumb] from a json object.
-  factory QrPlusDataCrumb.fromJson(Map<String, dynamic> json) => _$QrPlusDataCrumbFromJson(json);
+  factory QrPlusDataCrumb.fromJson(Map<String, dynamic> json) =>
+      _$QrPlusDataCrumbFromJson(json);
 
   /// {@macro qr_plus_data_crumb}
   ///
@@ -151,8 +152,12 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     final key = mode.maybeEncryptionKey;
 
     return key != null
-        ? tryParseBase64(data, mode) ?? tryParseBase64(reversed, mode) ?? const QrPlusDataCrumb.unknown()
-        : tryParseJson(data) ?? tryParseJson(reversed) ?? const QrPlusDataCrumb.unknown();
+        ? tryParseBase64(data, mode) ??
+            tryParseBase64(reversed, mode) ??
+            const QrPlusDataCrumb.unknown()
+        : tryParseJson(data) ??
+            tryParseJson(reversed) ??
+            const QrPlusDataCrumb.unknown();
   }
 
   /// {@macro qr_plus_data_crumb}
@@ -203,7 +208,8 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
 
     final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
 
-    final encrypted = encrypter.encrypt(jsonEncode(toJson()), iv: IV.fromLength(16));
+    final encrypted =
+        encrypter.encrypt(jsonEncode(toJson()), iv: IV.fromLength(16));
 
     return encrypted.base64;
   }

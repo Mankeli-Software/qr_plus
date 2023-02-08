@@ -47,14 +47,18 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.safe({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(3)
+        int crumbs,
   }) = SafeQrPlusMode;
 
   /// {@macro qr_plus_mode}
   const factory QrPlusMode.robust({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(3)
+        int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -65,7 +69,9 @@ class QrPlusMode with _$QrPlusMode {
   const factory QrPlusMode.sound({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(3) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(3)
+        int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -73,14 +79,18 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(Duration(seconds: 5))
+        Duration ntpFetchInterval,
   }) = SoundQrPlusMode;
 
   /// {@macro qr_plus_mode}
   const factory QrPlusMode.paranoid({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(6) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(6)
+        int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -88,14 +98,18 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(Duration(seconds: 5))
+        Duration ntpFetchInterval,
   }) = ParanoidQrPlusMode;
 
   /// {@macro qr_plus_mode}
   const factory QrPlusMode.snowden({
     /// The number of pieces the data is split into.
     /// Defaults to 3.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(6) int crumbs,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(6)
+        int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
@@ -103,19 +117,24 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default(Duration(seconds: 5)) Duration ntpFetchInterval,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default(Duration(seconds: 5))
+        Duration ntpFetchInterval,
 
     /// The encryption key to be used to encrypt the data. Please, change your own key here and do not use the default one.
     /// Also make sure to store your key in a secure place. See https://pub.dev/packages/flutter_dotenv for more info on how to store your key.
     ///
     /// NOTE: The key length should be 128/192/256 bits (16/24/32 bytes/characters).
-    @JsonKey(includeToJson: false, includeFromJson: false) @Default('Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=') String encryptionKey,
+    @JsonKey(includeToJson: false, includeFromJson: false)
+    @Default('Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=')
+        String encryptionKey,
   }) = SnowdenQrPlusMode;
 
   const QrPlusMode._();
 
   /// {@macro qr_plus_mode}
-  factory QrPlusMode.fromJson(Map<String, dynamic> json) => _$QrPlusModeFromJson(json);
+  factory QrPlusMode.fromJson(Map<String, dynamic> json) =>
+      _$QrPlusModeFromJson(json);
 
   /// Returns the number of crumbs if it exists within the mode. Otherwise, returns null.
   int? get maybeCrumbs => mapOrNull(

@@ -25,7 +25,8 @@ class QrPlusRendererState with _$QrPlusRendererState {
 
     /// The current status of the screen recorder. This is relevant for detecting cheating attempts
     /// and constructing the proper [QrPlusAuthenticity].
-    @Default(ScreenRecorderStatus.recorderOff) ScreenRecorderStatus screenRecorderStatus,
+    @Default(ScreenRecorderStatus.recorderOff)
+        ScreenRecorderStatus screenRecorderStatus,
 
     /// A status for detecting cheating attempts by the renderer.
     @Default(QrPlusAuthenticity.authentic) QrPlusAuthenticity authenticity,
