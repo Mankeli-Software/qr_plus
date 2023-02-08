@@ -1,4 +1,4 @@
-name: Flutter analyze
+name: Flutter analysis and test
 
 on:
   push:
@@ -28,3 +28,6 @@ jobs:
 
       - name: Analyze project source
         run: flutter analyze . --fatal-infos
+        
+      - name: Test code
+        run: flutter test .
