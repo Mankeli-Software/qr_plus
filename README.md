@@ -3,6 +3,7 @@
 [![pub package][pub_badge]][pub_badge_link]
 [![License][license_badge]][license_badge_link]
 [![style: Mankeli analysis][style_badge]][style_badge_link]
+![analysis & test][analysis_and_test]
 
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mankeli)
@@ -113,5 +114,5 @@ This layer encrypts the data before sending it. With the encryption key properly
 [paranoid_qr]: doc/asset/paranoid-qr.gif
 [plain_fullscreen]: doc/asset/plain-fullscreen.jpg
 [plain_qr]: doc/asset/plain-qr.jpg
-
+[analysis_and_test]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/flutter.yml/badge.svg?branch=main
 
