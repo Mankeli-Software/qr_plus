@@ -43,3 +43,8 @@ dev_dependencies:
 scripts:
   gen:
     code: flutter pub run build_runner build --delete-conflicting-outputs
+
+false_secrets:
+  - /lib/src/model/src/qr_plus_mode.dart
+  - /lib/src/model/src/qr_plus_mode.g.dart
+  - /lib/src/model/src/qr_plus_mode.gen.dart
