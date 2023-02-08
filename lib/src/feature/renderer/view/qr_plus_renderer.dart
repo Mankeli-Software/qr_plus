@@ -36,7 +36,8 @@ class QrPlusRenderer extends StatefulWidget {
     final ttl = mode.maybeTTL;
 
     if (crumbs != null && ttl != null) {
-      final wholeDuration = Duration(milliseconds: crumbs * duration.inMilliseconds);
+      final wholeDuration =
+          Duration(milliseconds: crumbs * duration.inMilliseconds);
       assert(
         wholeDuration <= ttl,
         'mode.ttl must be greater than the time it takes to display all crumbs. Otherwise no reader can read the code.',
@@ -153,9 +154,12 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
               context.read<QrPlusRendererCubit>().recreate();
             }
           },
-          buildWhen: (s1, s2) => s1.data != s2.data || s1.crumbledDataIndex != s2.crumbledDataIndex,
+          buildWhen: (s1, s2) =>
+              s1.data != s2.data ||
+              s1.crumbledDataIndex != s2.crumbledDataIndex,
           builder: (context, state) {
-            final data = state.data.maybeCrumbs?[state.crumbledDataIndex].toQrString();
+            final data =
+                state.data.maybeCrumbs?[state.crumbledDataIndex].toQrString();
 
             if (data == null) return const SizedBox();
 

@@ -74,17 +74,20 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     /// data.isValid actually checks if the data is whole, BUT there is no need to calculate
     /// the isWhole result twice. So if isWHole is not true, we don't even have to evaluate
     /// data.isValid, since it would return false anyway.
-    final valid = isWhole && data.isValid(requiredMode: mode, now: ntpRepository.now);
+    final valid =
+        isWhole && data.isValid(requiredMode: mode, now: ntpRepository.now);
 
     if (valid) {
       /// Converts the crumbs into a string
-      final dataList = [...newCrumbs]..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
+      final dataList = [...newCrumbs]
+        ..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
       final dataString = dataList.map((c) => c.maybeData).join();
 
       _notifyListeners(
         dataString,
         noNetworkDetected: newCrumbs.any((c) => c is NoNetworkQrPlusDataCrumb),
-        screenRecordingDetected: newCrumbs.any((c) => c is ScreenRecordingQrPlusDataCrumb),
+        screenRecordingDetected:
+            newCrumbs.any((c) => c is ScreenRecordingQrPlusDataCrumb),
       );
     }
 
@@ -119,7 +122,8 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
       authenticity = QrPlusAuthenticity.noNetwork;
     }
 
-    final showAuthenticity = mode is ParanoidQrPlusMode || mode is SnowdenQrPlusMode;
+    final showAuthenticity =
+        mode is ParanoidQrPlusMode || mode is SnowdenQrPlusMode;
 
     onData(data, showAuthenticity ? authenticity : null);
   }

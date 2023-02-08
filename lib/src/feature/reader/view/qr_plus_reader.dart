@@ -80,7 +80,8 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           builder: (context, state) {
             return MobileScanner(
               controller: widget.controller,
-              allowDuplicates: widget.mode is! PlainQrPlusMode || widget.allowDuplicates,
+              allowDuplicates:
+                  widget.mode is! PlainQrPlusMode || widget.allowDuplicates,
               fit: widget.fit,
               onDetect: (barcode, _) {
                 final data = barcode.rawValue;

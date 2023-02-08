@@ -28,7 +28,8 @@ void main() {
     ntpRepository = MockNtpRepository();
 
     when(() => ntpRepository.now).thenReturn(DateTime(2020));
-    when(() => callback.call(any<String>(), any<QrPlusAuthenticity?>())).thenAnswer((_) {});
+    when(() => callback.call(any<String>(), any<QrPlusAuthenticity?>()))
+        .thenAnswer((_) {});
   });
 
   group('QrPlusReaderCubit', () {
@@ -136,7 +137,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic)).called(1);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+              .called(1);
         },
       );
 
@@ -160,7 +162,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic)).called(1);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+              .called(1);
         },
       );
 
@@ -188,7 +191,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic)).called(1);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+              .called(1);
         },
       );
 
@@ -217,7 +221,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic)).called(2);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+              .called(2);
         },
       );
     });
@@ -243,7 +248,9 @@ void main() {
           }
         },
         verify: (cubit) {
-          verifyNever(() => callback.call(rawData, QrPlusAuthenticity.authentic));
+          verifyNever(
+            () => callback.call(rawData, QrPlusAuthenticity.authentic),
+          );
         },
       );
 
@@ -267,7 +274,9 @@ void main() {
           }
         },
         verify: (cubit) {
-          verifyNever(() => callback.call(rawData, QrPlusAuthenticity.authentic));
+          verifyNever(
+            () => callback.call(rawData, QrPlusAuthenticity.authentic),
+          );
         },
       );
     });
@@ -293,7 +302,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic)).called(1);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+              .called(1);
         },
       );
       blocTest<QrPlusReaderCubit, QrPlusReaderState>(
@@ -316,7 +326,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.noNetwork)).called(1);
+          verify(() => callback.call(rawData, QrPlusAuthenticity.noNetwork))
+              .called(1);
         },
       );
       blocTest<QrPlusReaderCubit, QrPlusReaderState>(
@@ -339,7 +350,9 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.screenRecording)).called(1);
+          verify(
+            () => callback.call(rawData, QrPlusAuthenticity.screenRecording),
+          ).called(1);
         },
       );
     });
