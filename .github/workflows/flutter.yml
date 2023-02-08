@@ -1,8 +1,7 @@
 name: analysis & test
 
 on:
-  pull_request:
-    types: [opened]
+  push:
 
 jobs:
   build:
