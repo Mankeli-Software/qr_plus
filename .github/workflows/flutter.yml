@@ -1,12 +1,12 @@
 name: analysis & test
 
 on:
-  push:
-    branches: [ "main", "dev" ]
+  pull_request:
+    types: [opened]
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
