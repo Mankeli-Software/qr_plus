@@ -1,10 +1,8 @@
-name: Flutter analysis and test
+name: analysis & test
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
 
 jobs:
   build:
