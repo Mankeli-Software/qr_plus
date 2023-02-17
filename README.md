@@ -97,7 +97,7 @@ This layer adds possible cheating attempt detection. The renderer knows when the
 #### *Problem*
 A malicious user could read the data with another QR-code reader, manipulate the JSON to be valid, and create new QR-codes with the valid data.
 
-#### *Soliution*
+#### *Solution*
 This layer encrypts the data before sending it. With the encryption key properly stored, only the reader provided by this package can decrypt it.
 
 [pub_badge]: https://img.shields.io/pub/v/qr_plus.svg
