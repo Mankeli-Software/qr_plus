@@ -1,4 +1,4 @@
-name: analysis & test
+name: '[CI]'
 
 on:
   push:
