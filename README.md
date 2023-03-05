@@ -1,17 +1,17 @@
 # qr_plus
 
-[![pub package][pub_badge]][pub_badge_link]
-[![License][license_badge]][license_badge_link]
-[![style: Mankeli analysis][style_badge]][style_badge_link]
-!['[CI]'][ci]
+[![pub package][1]][2]
+[![License][3]][4]
+[![style: Mankeli analysis][5]][6]
+!['[CI]'][7]
 
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mankeli)
+[!["Buy Me A Coffee"][8]
 
-An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses [qr_flutter][qr_flutter_link] for rendering the QR-codes and [mobile_scanner][mobile_scanner_link] for reading the QR-codes.
+An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses [qr_flutter][9] for rendering the QR-codes and [mobile_scanner][10] for reading the QR-codes.
 
 
-![Example gif][paranoid_fullscreen]
+![Example gif][13]
 
 _An example QR code rendered with QrPlusMode.paranoid_
 
@@ -35,7 +35,7 @@ For example, consider a scenario where you're organizing a scavenger hunt event 
 **IMPORTANT:** You need to have the same security mode on BOTH the reader and renderer, otherwise the reader won't accept the data.
 
 ### 1. Configure platform
-Since this package is a wrapper around [mobile_scanner][mobile_scanner_link], please follow the steps for platform specific configuration from their documentation.
+Since this package is a wrapper around [mobile_scanner][10], please follow the steps for platform specific configuration from their documentation.
 ### 2. Add renderer
 ```dart
 QrPlusRenderer(
@@ -100,19 +100,21 @@ A malicious user could read the data with another QR-code reader, manipulate the
 #### *Solution*
 This layer encrypts the data before sending it. With the encryption key properly stored, only the reader provided by this package can decrypt it.
 
-[pub_badge]: https://img.shields.io/pub/v/qr_plus.svg
-[pub_badge_link]: https://pub.dev/packages/qr_plus
-[license_badge]: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
-[license_badge_link]: https://opensource.org/licenses/BSD-3-Clause
-[style_badge]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
-[style_badge_link]: https://pub.dev/packages/mankeli_analysis
-[mobile_scanner_link]: https://pub.dev/packages/mobile_scanner
-[qr_flutter_link]: https://pub.dev/packages/qr_flutter
-[snowden_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-fullscreen.gif
-[snowden_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-qr.gif
-[paranoid_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-fullscreen.gif
-[paranoid_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-qr.gif
-[plain_fullscreen]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-fullscreen.jpg
-[plain_qr]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-qr.jpg
-[ci]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/ci.yaml/badge.svg
+[1]: https://img.shields.io/pub/v/qr_plus.svg
+[2]: https://pub.dev/packages/qr_plus
+[3]: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
+[4]: https://opensource.org/licenses/BSD-3-Clause
+[5]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
+[6]: https://pub.dev/packages/mankeli_analysis
+[7]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/ci.yaml/badge.svg
+[8]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mankeli
+[9]: https://pub.dev/packages/qr_flutter
+[10]: https://pub.dev/packages/mobile_scanner
+[11]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-fullscreen.gif
+[12]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-qr.gif
+[13]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-fullscreen.gif
+[14]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-qr.gif
+[15]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-fullscreen.jpg
+[16]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-qr.jpg
+
 
