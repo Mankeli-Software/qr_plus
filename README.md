@@ -6,12 +6,12 @@
 !['[CI]'][7]
 
 
-[!["Buy Me A Coffee"][8]
+[![Buy Me A Coffee][8]][9]
 
-An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses [qr_flutter][9] for rendering the QR-codes and [mobile_scanner][10] for reading the QR-codes.
+An advanced all-in-one QR code package that provides multiple layers of security. This package acts as a wrapper around some of the most popular QR-code related packages. It uses [qr_flutter][10] for rendering the QR-codes and [mobile_scanner][11] for reading the QR-codes.
 
 
-![Example gif][13]
+![Example gif][14]
 
 _An example QR code rendered with QrPlusMode.paranoid_
 
@@ -35,7 +35,7 @@ For example, consider a scenario where you're organizing a scavenger hunt event 
 **IMPORTANT:** You need to have the same security mode on BOTH the reader and renderer, otherwise the reader won't accept the data.
 
 ### 1. Configure platform
-Since this package is a wrapper around [mobile_scanner][10], please follow the steps for platform specific configuration from their documentation.
+Since this package is a wrapper around [mobile_scanner][11], please follow the steps for platform specific configuration from their documentation.
 ### 2. Add renderer
 ```dart
 QrPlusRenderer(
@@ -107,14 +107,15 @@ This layer encrypts the data before sending it. With the encryption key properly
 [5]: https://img.shields.io/badge/Style-Mankeli%20analysis-blue
 [6]: https://pub.dev/packages/mankeli_analysis
 [7]: https://github.com/Mankeli-Software/qr_plus/actions/workflows/ci.yaml/badge.svg
-[8]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mankeli
-[9]: https://pub.dev/packages/qr_flutter
-[10]: https://pub.dev/packages/mobile_scanner
-[11]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-fullscreen.gif
-[12]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-qr.gif
-[13]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-fullscreen.gif
-[14]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-qr.gif
-[15]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-fullscreen.jpg
-[16]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-qr.jpg
+[8]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
+[9]: https://www.buymeacoffee.com/mankeli
+[10]: https://pub.dev/packages/qr_flutter
+[11]: https://pub.dev/packages/mobile_scanner
+[12]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-fullscreen.gif
+[13]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/snowden-qr.gif
+[14]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-fullscreen.gif
+[15]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/paranoid-qr.gif
+[16]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-fullscreen.jpg
+[17]: https://github.com/Mankeli-Software/qr_plus/blob/3f6ef8d3a8a80db5357011216494f74dba4c10a4/doc/asset/plain-qr.jpg
 
 
