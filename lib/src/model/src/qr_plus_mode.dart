@@ -62,7 +62,8 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20)) Duration ttl,
+    @Default(Duration(seconds: 20))
+        Duration ttl,
   }) = RobustQrPlusMode;
 
   /// {@macro qr_plus_mode}
@@ -75,7 +76,8 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20)) Duration ttl,
+    @Default(Duration(seconds: 20))
+        Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
@@ -94,7 +96,8 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20)) Duration ttl,
+    @Default(Duration(seconds: 20))
+        Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
@@ -113,7 +116,8 @@ class QrPlusMode with _$QrPlusMode {
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20)) Duration ttl,
+    @Default(Duration(seconds: 20))
+        Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
