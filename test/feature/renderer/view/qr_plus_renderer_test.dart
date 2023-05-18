@@ -17,7 +17,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(QrImage), findsOneWidget);
+      expect(find.byType(QrImageView), findsOneWidget);
     });
   });
 }
