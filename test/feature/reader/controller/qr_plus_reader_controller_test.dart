@@ -13,7 +13,7 @@ void main() {
       () {
         expect(
           QrPlusReaderController().barcodes,
-          const Stream<Barcode>.empty(),
+          const Stream<BarcodeCapture>.empty(),
         );
       },
     );
