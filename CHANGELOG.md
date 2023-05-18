@@ -1,4 +1,14 @@
+# qr_plus changelog
+
+## 1.1.0
+
+- fix: fixes issues with dependencies
+- BREAKING CHANGE: `allowDuplicates` on `QrPlusReader` is deprecated in favor of `DetectionSpeed` on `QrPlusReaderController`
+
 ## 1.0.1
-- Fixes issues with pub scores and github workflows
+
+- fix: fixes issues with pub scores and github workflows
+
 ## 1.0.0
-- Initial release
+
+- feat: initial release
