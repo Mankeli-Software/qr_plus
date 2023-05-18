@@ -10,15 +10,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: 2.19.6
           
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.7.0"
           channel: 'stable'
           cache: true
+
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 2.19.6
 
 
       - name: Install dependencies
