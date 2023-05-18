@@ -163,7 +163,7 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
 
             if (data == null) return const SizedBox();
 
-            return QrImage(
+            return QrImageView(
               data: data,
               size: widget.size,
               padding: widget.padding,

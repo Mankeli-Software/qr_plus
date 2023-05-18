@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-52.0.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-60.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/analyzer-5.4.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/analyzer-5.12.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "analyzer_plugin",
@@ -39,7 +39,7 @@
     },
     {
       "name": "async",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/async-2.10.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -111,7 +111,7 @@
     },
     {
       "name": "characters",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/characters-1.2.1",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/characters-1.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -135,19 +135,19 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/collection-1.17.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/collection-1.17.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "connectivity_plus",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/connectivity_plus-3.0.2",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/connectivity_plus-4.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "connectivity_plus_platform_interface",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/connectivity_plus_platform_interface-1.2.3",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/connectivity_plus_platform_interface-1.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -177,7 +177,7 @@
     },
     {
       "name": "dart_code_metrics",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/dart_code_metrics-5.5.1",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/dart_code_metrics-5.7.4",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -237,31 +237,31 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///Users/om/Development/flutter/packages/flutter",
+      "rootUri": "file:///usr/local/Caskroom/flutter/3.7.12/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_bloc",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.1",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///Users/om/Development/flutter/packages/flutter_test",
+      "rootUri": "file:///usr/local/Caskroom/flutter/3.7.12/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///Users/om/Development/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///usr/local/Caskroom/flutter/3.7.12/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "freezed",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/freezed-2.3.2",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/freezed-2.3.4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -321,15 +321,15 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/js-0.6.5",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.19"
     },
     {
       "name": "json_annotation",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/json_annotation-4.8.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/json_annotation-4.8.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.19"
     },
     {
       "name": "json_serializable",
@@ -351,7 +351,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/matcher-0.12.13",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/matcher-0.12.15",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -363,7 +363,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/meta-1.8.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/meta-1.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -375,7 +375,7 @@
     },
     {
       "name": "mobile_scanner",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mobile_scanner-2.1.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/mobile_scanner-3.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -417,7 +417,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/path-1.8.2",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -471,7 +471,7 @@
     },
     {
       "name": "pub_updater",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/pub_updater-0.2.4",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/pub_updater-0.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -483,15 +483,15 @@
     },
     {
       "name": "qr",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr-2.1.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     },
     {
       "name": "qr_flutter",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr_flutter-4.0.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/qr_flutter-4.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "screen_capture_event",
@@ -525,9 +525,9 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///Users/om/Development/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///usr/local/Caskroom/flutter/3.7.12/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "source_gen",
@@ -591,19 +591,19 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test-1.22.0",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test-1.24.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_api-0.4.16",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_api-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_core-0.4.20",
+      "rootUri": "file:///Users/om/.pub-cache/hosted/pub.dev/test_core-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -671,10 +671,10 @@
       "name": "qr_plus",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-02-08T17:58:07.367409Z",
+  "generated": "2023-05-18T07:45:44.760342Z",
   "generator": "pub",
-  "generatorVersion": "2.19.1"
+  "generatorVersion": "3.0.1"
 }

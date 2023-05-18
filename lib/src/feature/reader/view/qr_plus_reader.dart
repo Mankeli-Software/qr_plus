@@ -12,6 +12,7 @@ class QrPlusReader extends StatefulWidget {
     super.key,
     this.controller,
     this.fit = BoxFit.cover,
+    @Deprecated('Use DetectionSpeed on QrPlusReaderController instead')
     this.allowDuplicates = false,
   });
 
@@ -42,6 +43,7 @@ class QrPlusReader extends StatefulWidget {
   final BoxFit fit;
 
   /// Set to false if you don't want duplicate scans.
+  @Deprecated('Use DetectionSpeed on QrPlusReaderController instead')
   final bool allowDuplicates;
 
   @override
@@ -73,20 +75,19 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           mode: widget.mode,
           ntpRepository: _ntpRepository,
           onData: widget.onData,
-          allowDuplicates: widget.allowDuplicates,
         ),
         child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
           buildWhen: (_, __) => false,
           builder: (context, state) {
             return MobileScanner(
               controller: widget.controller,
-              allowDuplicates:
-                  widget.mode is! PlainQrPlusMode || widget.allowDuplicates,
               fit: widget.fit,
-              onDetect: (barcode, _) {
-                final data = barcode.rawValue;
-                if (data != null) {
-                  context.read<QrPlusReaderCubit>().onRawData(data);
+              onDetect: (capture) {
+                for (final barcode in capture.barcodes) {
+                  final data = barcode.rawValue;
+                  if (data != null) {
+                    context.read<QrPlusReaderCubit>().onRawData(data);
+                  }
                 }
               },
             );

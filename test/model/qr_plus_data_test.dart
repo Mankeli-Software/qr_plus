@@ -9,8 +9,8 @@ void main() {
       'always',
       () {
         expect(
-          const QrPlusData(uid: 'uid', crumbs: []),
-          const QrPlusData(uid: 'uid', crumbs: []),
+          const QrPlusData(uid: 'uid'),
+          const QrPlusData(uid: 'uid'),
         );
       },
     );
@@ -191,7 +191,7 @@ void main() {
           'maybeCrumbs is not null '
           'when QrPlusData is not UnknownQrPlusData', () {
         expect(
-          const QrPlusData(uid: 'uid', crumbs: []).maybeCrumbs,
+          const QrPlusData(uid: 'uid').maybeCrumbs,
           isNotNull,
         );
       });
@@ -211,7 +211,7 @@ void main() {
           'maybeUid is not null '
           'when QrPlusData is not UnknownQrPlusData', () {
         expect(
-          const QrPlusData(uid: 'uid', crumbs: []).maybeUid,
+          const QrPlusData(uid: 'uid').maybeUid,
           isNotNull,
         );
       });
