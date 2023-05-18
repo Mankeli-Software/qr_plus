@@ -15,7 +15,7 @@ jobs:
         with:
           flutter-version: "3.7.0"
           channel: 'stable'
-          cache: true
+          cache: false
 
       - uses: dart-lang/setup-dart@v1
         with:
