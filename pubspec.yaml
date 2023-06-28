@@ -11,7 +11,7 @@ screenshots:
     path: doc/asset/plain-qr.jpg
 
 environment:
-  sdk: '>=2.19.6 <4.0.0'
+  sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
   connectivity_plus: ^4.0.0
