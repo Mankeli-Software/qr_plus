@@ -1,5 +1,9 @@
 # qr_plus changelog
 
+## 1.1.2
+
+- fix: adds missing fields for `QrPlusReaderController`
+
 ## 1.1.1
 
 - fix: exports `QrPlusReaderController` for reader customization

@@ -10,8 +10,12 @@ class QrPlusReaderController extends MobileScannerController {
   /// {@macro qr_plus_reader_controller}
   QrPlusReaderController({
     super.facing,
+    super.detectionSpeed,
+    super.detectionTimeoutMs,
     super.torchEnabled,
     super.formats,
+    super.returnImage,
+    super.autoStart,
   });
 
   @override
