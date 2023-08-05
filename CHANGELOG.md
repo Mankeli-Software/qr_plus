@@ -1,5 +1,9 @@
 # qr_plus changelog
 
+## 1.1.1
+
+- fix: exports `QrPlusReaderController` for reader customization
+
 ## 1.1.0
 
 - fix: fixes issues with dependencies

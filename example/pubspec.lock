@@ -622,7 +622,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.1.0"
+    version: "1.1.1"
   screen_capture_event:
     dependency: transitive
     description:
@@ -805,5 +805,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=3.0.0-0 <4.0.0"
+  dart: ">=3.0.5 <4.0.0"
   flutter: ">=3.7.0"

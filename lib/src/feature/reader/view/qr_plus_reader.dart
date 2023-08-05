@@ -13,7 +13,7 @@ class QrPlusReader extends StatefulWidget {
     this.controller,
     this.fit = BoxFit.cover,
     @Deprecated('Use DetectionSpeed on QrPlusReaderController instead')
-        this.allowDuplicates = false,
+    this.allowDuplicates = false,
   });
 
   /// The security mode of [QrPlusReader]. Note: in order to read QR codes rendered by package:qr_plus,
