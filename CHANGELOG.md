@@ -1,5 +1,9 @@
 # qr_plus changelog
 
+## 1.1.3
+
+- fix: fixes issue where qr code reader is too slow and not responding fast enough
+
 ## 1.1.2
 
 - fix: adds missing fields for `QrPlusReaderController`

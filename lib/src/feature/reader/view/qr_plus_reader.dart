@@ -53,9 +53,12 @@ class QrPlusReader extends StatefulWidget {
 class _QrPlusReaderState extends State<QrPlusReader> {
   late NtpRepository _ntpRepository;
 
+  late QrPlusReaderController defaultController;
+
   @override
   void initState() {
     _ntpRepository = NtpRepository(mode: widget.mode)..initialize();
+    defaultController = QrPlusReaderController();
 
     super.initState();
   }
@@ -63,6 +66,8 @@ class _QrPlusReaderState extends State<QrPlusReader> {
   @override
   void dispose() {
     _ntpRepository.dispose();
+    defaultController.dispose();
+
     super.dispose();
   }
 
@@ -80,7 +85,7 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           buildWhen: (_, __) => false,
           builder: (context, state) {
             return MobileScanner(
-              controller: widget.controller,
+              controller: widget.controller ?? defaultController,
               fit: widget.fit,
               onDetect: (capture) {
                 for (final barcode in capture.barcodes) {
