@@ -1,5 +1,9 @@
 # qr_plus changelog
 
+## 1.1.4
+
+- fix: fixes issue where changing encryption key from default would not allow data to be transferred
+
 ## 1.1.3
 
 - fix: fixes issue where qr code reader is too slow and not responding fast enough

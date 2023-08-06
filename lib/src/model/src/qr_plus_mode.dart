@@ -4,8 +4,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'qr_plus_mode.gen.dart';
 part 'qr_plus_mode.g.dart';
+part 'qr_plus_mode.gen.dart';
 
 /// {@template qr_plus_mode}
 /// This class represents different levels of security to be used within
@@ -49,7 +49,7 @@ class QrPlusMode with _$QrPlusMode {
     /// Defaults to 3.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(3)
-        int crumbs,
+    int crumbs,
   }) = SafeQrPlusMode;
 
   /// {@macro qr_plus_mode}
@@ -58,12 +58,11 @@ class QrPlusMode with _$QrPlusMode {
     /// Defaults to 3.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(3)
-        int crumbs,
+    int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20))
-        Duration ttl,
+    @Default(Duration(seconds: 20)) Duration ttl,
   }) = RobustQrPlusMode;
 
   /// {@macro qr_plus_mode}
@@ -72,18 +71,17 @@ class QrPlusMode with _$QrPlusMode {
     /// Defaults to 3.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(3)
-        int crumbs,
+    int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20))
-        Duration ttl,
+    @Default(Duration(seconds: 20)) Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(Duration(seconds: 5))
-        Duration ntpFetchInterval,
+    Duration ntpFetchInterval,
   }) = SoundQrPlusMode;
 
   /// {@macro qr_plus_mode}
@@ -92,18 +90,17 @@ class QrPlusMode with _$QrPlusMode {
     /// Defaults to 3.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(6)
-        int crumbs,
+    int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20))
-        Duration ttl,
+    @Default(Duration(seconds: 20)) Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(Duration(seconds: 5))
-        Duration ntpFetchInterval,
+    Duration ntpFetchInterval,
   }) = ParanoidQrPlusMode;
 
   /// {@macro qr_plus_mode}
@@ -112,18 +109,17 @@ class QrPlusMode with _$QrPlusMode {
     /// Defaults to 3.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(6)
-        int crumbs,
+    int crumbs,
 
     /// The time-to-live of the data, which defines how long the data is valid.
     /// Defaults to 20 seconds.
-    @Default(Duration(seconds: 20))
-        Duration ttl,
+    @Default(Duration(seconds: 20)) Duration ttl,
 
     /// The interval at which the NTP check is performed.
     /// Defaults to 5 seconds.
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default(Duration(seconds: 5))
-        Duration ntpFetchInterval,
+    Duration ntpFetchInterval,
 
     /// The encryption key to be used to encrypt the data. Please, change your own key here and do not use the default one.
     /// Also make sure to store your key in a secure place. See https://pub.dev/packages/flutter_dotenv for more info on how to store your key.
@@ -131,7 +127,7 @@ class QrPlusMode with _$QrPlusMode {
     /// NOTE: The key length should be 128/192/256 bits (16/24/32 bytes/characters).
     @JsonKey(includeToJson: false, includeFromJson: false)
     @Default('Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=')
-        String encryptionKey,
+    String encryptionKey,
   }) = SnowdenQrPlusMode;
 
   const QrPlusMode._();

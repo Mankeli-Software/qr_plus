@@ -2,13 +2,14 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'dart:convert';
+
 import 'package:encrypt/encrypt.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:qr_plus/src/model/model.dart';
 import 'package:qr_plus/src/utility/utility.dart';
 
-part 'qr_plus_data_crumb.gen.dart';
 part 'qr_plus_data_crumb.g.dart';
+part 'qr_plus_data_crumb.gen.dart';
 
 /// {@template qr_plus_data_crumb}
 /// This class represents a single crumb of data transferred through a QR code.
@@ -208,8 +209,12 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
 
     final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
 
-    final encrypted =
-        encrypter.encrypt(jsonEncode(toJson()), iv: IV.fromLength(16));
+    // print(toJson());
+
+    final encrypted = encrypter.encrypt(
+      jsonEncode(toJson()),
+      iv: IV.fromLength(16),
+    );
 
     return encrypted.base64;
   }
@@ -247,7 +252,9 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
   }) {
     final mode = maybeMode;
 
-    if (mode == null || mode != requiredMode) return false;
+    if (mode == null || mode.runtimeType != requiredMode.runtimeType) {
+      return false;
+    }
 
     final ttl = mode.maybeTTL;
 
