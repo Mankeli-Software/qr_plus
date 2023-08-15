@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:qr_plus/qr_plus.dart';
 
@@ -91,7 +93,7 @@ class Renderer extends StatelessWidget {
       body: Center(
         child: QrPlusRenderer(
           data: 'https://youtu.be/dQw4w9WgXcQ',
-          mode: const QrPlusMode.snowden(),
+          mode: const QrPlusMode.robust(),
         ),
       ),
     );
@@ -113,9 +115,9 @@ class Reader extends StatelessWidget {
       ),
       body: Center(
         child: QrPlusReader(
-          mode: const QrPlusMode.snowden(),
+          mode: const QrPlusMode.robust(),
           onData: (data, authenticity) {
-            // ignore: avoid_print
+            print(authenticity);
             print(data);
           },
         ),

@@ -95,7 +95,7 @@ A malicious user could screen record the changing QR-codes and share them with f
 
 #### _Solution_
 
-This layer adds a time-to-live (TTL) to the transmitted data. The QR-code is only valid for a given period of time, and the reader cannot read it if it's too old.
+This layer adds a time-to-live (TTL) to the transmitted data. The QR-code is only valid for a given period of time. If the TTL has expired, the reader will be notified of that. Its up to the developer / user to decide what to do with that information.
 
 ### **4. QrPlusMode.sound**
 

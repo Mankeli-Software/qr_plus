@@ -22,7 +22,7 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
   /// Callback to call when data is detected and parsed.
   final void Function(
     String data,
-    QrPlusAuthenticity? authenticity,
+    List<QrPlusAuthenticity> authenticity,
   ) onData;
 
   /// Whether to call [onData] on duplicate detections or not.
@@ -61,7 +61,9 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
 
     final newCrumbs = [
       crumb,
-      ...crumbs.where((c) => c.maybeIndex != crumb.maybeIndex),
+      ...crumbs.where(
+        (c) => c.maybeIndex != crumb.maybeIndex,
+      ),
     ];
 
     final data = QrPlusData(
@@ -75,22 +77,28 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     /// the isWhole result twice. So if isWHole is not true, we don't even have to evaluate
     /// data.isValid, since it would return false anyway.
     final valid = isWhole &&
-        data.isValid(
+        data.isTypeValid(
           requiredMode: mode,
-          now: ntpRepository.now,
         );
 
     if (valid) {
       /// Converts the crumbs into a string
-      final dataList = [...newCrumbs]
-        ..sort((a, b) => a.maybeIndex!.compareTo(b.maybeIndex!));
+      final dataList = [...newCrumbs]..sort(
+          (a, b) => a.maybeIndex!.compareTo(b.maybeIndex!),
+        );
       final dataString = dataList.map((c) => c.maybeData).join();
 
       _notifyListeners(
         dataString,
-        noNetworkDetected: newCrumbs.any((c) => c is NoNetworkQrPlusDataCrumb),
-        screenRecordingDetected:
-            newCrumbs.any((c) => c is ScreenRecordingQrPlusDataCrumb),
+        noNetworkDetected: newCrumbs.any(
+          (c) => c is NoNetworkQrPlusDataCrumb,
+        ),
+        screenRecordingDetected: newCrumbs.any(
+          (c) => c is ScreenRecordingQrPlusDataCrumb,
+        ),
+        timeToLiveExpired: newCrumbs.any(
+          (c) => !c.isTTLValid(now: ntpRepository.now),
+        ),
       );
     }
 
@@ -114,20 +122,30 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     String? data, {
     bool noNetworkDetected = false,
     bool screenRecordingDetected = false,
+    bool timeToLiveExpired = false,
   }) {
     if (data == null) return;
 
-    var authenticity = QrPlusAuthenticity.authentic;
-
-    if (screenRecordingDetected) {
-      authenticity = QrPlusAuthenticity.screenRecording;
-    } else if (noNetworkDetected) {
-      authenticity = QrPlusAuthenticity.noNetwork;
-    }
-
-    final showAuthenticity =
+    final isGreterThanParanoid =
         mode is ParanoidQrPlusMode || mode is SnowdenQrPlusMode;
 
-    onData(data, showAuthenticity ? authenticity : null);
+    final isGreaterThanRobust = isGreterThanParanoid ||
+        mode is RobustQrPlusMode ||
+        mode is SoundQrPlusMode;
+
+    final violations = [
+      if (screenRecordingDetected && isGreterThanParanoid)
+        QrPlusAuthenticity.screenRecording,
+      if (noNetworkDetected && isGreterThanParanoid)
+        QrPlusAuthenticity.noNetwork,
+      if (timeToLiveExpired && isGreaterThanRobust)
+        QrPlusAuthenticity.timeToLiveExpired,
+    ];
+
+    if (violations.isEmpty) {
+      violations.add(QrPlusAuthenticity.authentic);
+    }
+
+    onData(data, violations);
   }
 }

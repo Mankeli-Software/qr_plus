@@ -31,12 +31,15 @@ class QrPlusReader extends StatefulWidget {
 
     ///  A status which indicates whether the QR code is authentic or not. It is up to the user of
     /// this package to decide what to do with the data based on the authenticity status.
-    /// Note: [QrPlusAuthenticity.noNetwork] and [QrPlusAuthenticity.screenRecording]
+    /// Note: [QrPlusAuthenticity.noNetwork], [QrPlusAuthenticity.screenRecording]
+    /// and [QrPlusAuthenticity.timeToLiveExpired]
     /// do not guaurantee that the data is not authentic. They only indicate the possibility
-    /// that there is some sort of cheating attempt going on.
+    /// that there is some sort of cheating attempt going on. Its up to the developer / user to
+    /// handle these cases.
     ///
-    /// NOTE: This field is only used, when [QrPlusReader.mode] is not [QrPlusMode.paranoid] or [QrPlusMode.snowden]. Othwerwise this will always be null.
-    QrPlusAuthenticity? authenticity,
+    /// If the data is authentic, this is a list of length 1 with the only element being
+    /// [QrPlusAuthenticity.authentic].
+    List<QrPlusAuthenticity> authenticity,
   ) onData;
 
   /// Handles how the widget should fit the screen.

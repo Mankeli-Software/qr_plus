@@ -145,8 +145,7 @@ class _QrPlusRendererState extends State<QrPlusRenderer> {
         )..initialize(),
         child: BlocConsumer<QrPlusRendererCubit, QrPlusRendererState>(
           listener: (context, state) {
-            final valid = state.data.isValid(
-              requiredMode: widget.mode,
+            final valid = state.data.isTTLValid(
               now: _ntpRepository.now,
             );
 

@@ -7,7 +7,7 @@ import 'package:qr_plus/src/model/model.dart';
 import 'package:qr_plus/src/repository/repository.dart';
 
 class Callback {
-  void call(String s, QrPlusAuthenticity? a) {}
+  void call(String s, List<QrPlusAuthenticity> a) {}
 }
 
 class MockCallback extends Mock implements Callback {}
@@ -28,7 +28,7 @@ void main() {
     ntpRepository = MockNtpRepository();
 
     when(() => ntpRepository.now).thenReturn(DateTime(2020));
-    when(() => callback.call(any<String>(), any<QrPlusAuthenticity?>()))
+    when(() => callback.call(any<String>(), any<List<QrPlusAuthenticity>>()))
         .thenAnswer((_) {});
   });
 
@@ -42,7 +42,9 @@ void main() {
           ntpRepository: ntpRepository,
         ),
         act: (cubit) => cubit.onRawData(rawData),
-        verify: (cubit) => verify(() => callback.call(rawData, null)).called(1),
+        verify: (cubit) =>
+            verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
+                .called(1),
       );
 
       blocTest<QrPlusReaderCubit, QrPlusReaderState>(
@@ -65,7 +67,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, null)).called(1);
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
+              .called(1);
         },
       );
 
@@ -89,7 +92,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, null)).called(1);
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
+              .called(1);
         },
       );
 
@@ -113,7 +117,8 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, null)).called(1);
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
+              .called(1);
         },
       );
 
@@ -137,7 +142,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
               .called(1);
         },
       );
@@ -162,7 +167,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
               .called(1);
         },
       );
@@ -191,7 +196,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
               .called(1);
         },
       );
@@ -221,7 +226,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
               .called(2);
         },
       );
@@ -249,7 +254,7 @@ void main() {
         },
         verify: (cubit) {
           verifyNever(
-            () => callback.call(rawData, QrPlusAuthenticity.authentic),
+            () => callback.call(rawData, [QrPlusAuthenticity.authentic]),
           );
         },
       );
@@ -275,7 +280,7 @@ void main() {
         },
         verify: (cubit) {
           verifyNever(
-            () => callback.call(rawData, QrPlusAuthenticity.authentic),
+            () => callback.call(rawData, [QrPlusAuthenticity.authentic]),
           );
         },
       );
@@ -302,7 +307,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.authentic))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.authentic]))
               .called(1);
         },
       );
@@ -326,7 +331,7 @@ void main() {
           }
         },
         verify: (cubit) {
-          verify(() => callback.call(rawData, QrPlusAuthenticity.noNetwork))
+          verify(() => callback.call(rawData, [QrPlusAuthenticity.noNetwork]))
               .called(1);
         },
       );
@@ -351,7 +356,7 @@ void main() {
         },
         verify: (cubit) {
           verify(
-            () => callback.call(rawData, QrPlusAuthenticity.screenRecording),
+            () => callback.call(rawData, [QrPlusAuthenticity.screenRecording]),
           ).called(1);
         },
       );

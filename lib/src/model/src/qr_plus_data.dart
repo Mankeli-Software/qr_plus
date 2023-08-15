@@ -58,15 +58,26 @@ class QrPlusData with _$QrPlusData {
   }
 
   /// Returns `true` if every [QrPlusDataCrumb] in crumbs is valid. Otherwise returns `false`.
-  bool isValid({
+  bool isTypeValid({
     required QrPlusMode requiredMode,
+  }) {
+    if (!isWhole) return false;
+
+    return maybeCrumbs!.every(
+      (c) => c.isTypeValid(
+        requiredMode: requiredMode,
+      ),
+    );
+  }
+
+  /// Returns `true` if every [QrPlusDataCrumb] in crumbs is valid. Otherwise returns `false`.
+  bool isTTLValid({
     required DateTime now,
   }) {
     if (!isWhole) return false;
 
     return maybeCrumbs!.every(
-      (c) => c.isValid(
-        requiredMode: requiredMode,
+      (c) => c.isTTLValid(
         now: now,
       ),
     );

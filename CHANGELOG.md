@@ -1,5 +1,11 @@
 # qr_plus changelog
 
+## 1.2.0
+
+- fix: convert timestamps to utc before checking TTL
+- feat: instead of returning a single `QrPlusAuthenticity`, `onData` returns a list of them in case there are multiple violations
+- feat: the reader will now read the code even if TTL is invalid, but the reader will be notified of the expired TTL through the authenticity list on `onData`
+
 ## 1.1.4
 
 - fix: fixes issue where changing encryption key from default would not allow data to be transferred

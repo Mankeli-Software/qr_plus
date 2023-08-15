@@ -22,9 +22,8 @@ void main() {
         'when requiredMode is not the crumbs mode',
         () {
           expect(
-            crumb.isValid(
+            crumb.isTypeValid(
               requiredMode: const QrPlusMode.plain(),
-              now: DateTime(2021),
             ),
             isFalse,
           );
@@ -36,10 +35,7 @@ void main() {
         'when ttl has passed',
         () {
           expect(
-            crumb.isValid(
-              requiredMode: const QrPlusMode.sound(
-                ttl: Duration(seconds: 10),
-              ),
+            crumb.isTTLValid(
               now: DateTime.now().add(const Duration(seconds: 11)),
             ),
             isFalse,

@@ -25,4 +25,9 @@ enum QrPlusAuthenticity {
   /// This may be an unlucky coincidence or it may be an attempt to cheat; The QR code being recorded may actually belong
   /// to a different user, which is could be considered cheating in some scenarios.
   screenRecording,
+
+  /// {@macro qr_plus_authenticity}
+  ///
+  /// [QrPlusAuthenticity.timeToLiveExpired] indicates that the QR code has expired.
+  timeToLiveExpired,
 }

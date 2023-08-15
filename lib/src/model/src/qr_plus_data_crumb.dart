@@ -1,5 +1,5 @@
 // The analyzer does not understand how freezed classes work.
-// ignore_for_file: invalid_annotation_target
+// ignore_for_file: invalid_annotation_target, no_default_cases
 
 import 'dart:convert';
 
@@ -111,15 +111,6 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     required int crumbs,
   }) {
     switch (authenticity) {
-      case QrPlusAuthenticity.authentic:
-        return QrPlusDataCrumb.authentic(
-          uid: uid,
-          data: data,
-          mode: mode,
-          timestamp: timestamp,
-          index: index,
-          crumbs: crumbs,
-        );
       case QrPlusAuthenticity.noNetwork:
         return QrPlusDataCrumb.noNetwork(
           uid: uid,
@@ -131,6 +122,15 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
         );
       case QrPlusAuthenticity.screenRecording:
         return QrPlusDataCrumb.screenRecording(
+          uid: uid,
+          data: data,
+          mode: mode,
+          timestamp: timestamp,
+          index: index,
+          crumbs: crumbs,
+        );
+      default:
+        return QrPlusDataCrumb.authentic(
           uid: uid,
           data: data,
           mode: mode,
@@ -245,14 +245,26 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
 
   /// Returns `true` if this crumb is valid. Otherwise returns false.
   ///
-  /// The crumb is validated against the [requiredMode] and the time to live (if present).
-  bool isValid({
+  /// The crumb is validated against the [requiredMode]
+  bool isTypeValid({
     required QrPlusMode requiredMode,
-    required DateTime now,
   }) {
     final mode = maybeMode;
 
     if (mode == null || mode.runtimeType != requiredMode.runtimeType) {
+      return false;
+    }
+
+    return true;
+  }
+
+  /// Returns `true` if this crumbs TTL is valid. Otherwise returns false.
+  bool isTTLValid({
+    required DateTime now,
+  }) {
+    final mode = maybeMode;
+
+    if (mode == null) {
       return false;
     }
 
@@ -263,7 +275,7 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     if (timestamp == null) return false;
 
     if (ttl != null) {
-      return now.difference(timestamp) <= ttl;
+      return now.toUtc().difference(timestamp.toUtc()) <= ttl;
     }
 
     return true;

@@ -94,9 +94,8 @@ void main() {
                   crumbs: 5,
                 ),
               ],
-            ).isValid(
+            ).isTypeValid(
               requiredMode: const QrPlusMode.snowden(),
-              now: DateTime.now(),
             ),
             isFalse,
           );
@@ -120,9 +119,8 @@ void main() {
                   crumbs: 5,
                 ),
               ],
-            ).isValid(
+            ).isTypeValid(
               requiredMode: const QrPlusMode.snowden(),
-              now: DateTime.now().add(const Duration(seconds: 16)),
             ),
             isFalse,
           );
