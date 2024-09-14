@@ -12,7 +12,7 @@ part of 'cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$QrPlusRendererState {
@@ -30,7 +30,8 @@ mixin _$QrPlusRendererState {
 
   /// A state of the devices mobile connections. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
-  ConnectivityResult get connectivity => throw _privateConstructorUsedError;
+  List<ConnectivityResult> get connectivity =>
+      throw _privateConstructorUsedError;
 
   /// The current status of the screen recorder. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
@@ -40,7 +41,9 @@ mixin _$QrPlusRendererState {
   /// A status for detecting cheating attempts by the renderer.
   QrPlusAuthenticity get authenticity => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QrPlusRendererStateCopyWith<QrPlusRendererState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,7 +59,7 @@ abstract class $QrPlusRendererStateCopyWith<$Res> {
       String plainData,
       QrPlusData data,
       int crumbledDataIndex,
-      ConnectivityResult connectivity,
+      List<ConnectivityResult> connectivity,
       ScreenRecorderStatus screenRecorderStatus,
       QrPlusAuthenticity authenticity});
 
@@ -74,6 +77,8 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,7 +110,7 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
       connectivity: null == connectivity
           ? _value.connectivity
           : connectivity // ignore: cast_nullable_to_non_nullable
-              as ConnectivityResult,
+              as List<ConnectivityResult>,
       screenRecorderStatus: null == screenRecorderStatus
           ? _value.screenRecorderStatus
           : screenRecorderStatus // ignore: cast_nullable_to_non_nullable
@@ -117,6 +122,8 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
     ) as $Val);
   }
 
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QrPlusModeCopyWith<$Res> get mode {
@@ -125,6 +132,8 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
     });
   }
 
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QrPlusDataCopyWith<$Res> get data {
@@ -135,11 +144,11 @@ class _$QrPlusRendererStateCopyWithImpl<$Res, $Val extends QrPlusRendererState>
 }
 
 /// @nodoc
-abstract class _$$_QrPlusRendererStateCopyWith<$Res>
+abstract class _$$QrPlusRendererStateImplCopyWith<$Res>
     implements $QrPlusRendererStateCopyWith<$Res> {
-  factory _$$_QrPlusRendererStateCopyWith(_$_QrPlusRendererState value,
-          $Res Function(_$_QrPlusRendererState) then) =
-      __$$_QrPlusRendererStateCopyWithImpl<$Res>;
+  factory _$$QrPlusRendererStateImplCopyWith(_$QrPlusRendererStateImpl value,
+          $Res Function(_$QrPlusRendererStateImpl) then) =
+      __$$QrPlusRendererStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -147,7 +156,7 @@ abstract class _$$_QrPlusRendererStateCopyWith<$Res>
       String plainData,
       QrPlusData data,
       int crumbledDataIndex,
-      ConnectivityResult connectivity,
+      List<ConnectivityResult> connectivity,
       ScreenRecorderStatus screenRecorderStatus,
       QrPlusAuthenticity authenticity});
 
@@ -158,13 +167,15 @@ abstract class _$$_QrPlusRendererStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_QrPlusRendererStateCopyWithImpl<$Res>
-    extends _$QrPlusRendererStateCopyWithImpl<$Res, _$_QrPlusRendererState>
-    implements _$$_QrPlusRendererStateCopyWith<$Res> {
-  __$$_QrPlusRendererStateCopyWithImpl(_$_QrPlusRendererState _value,
-      $Res Function(_$_QrPlusRendererState) _then)
+class __$$QrPlusRendererStateImplCopyWithImpl<$Res>
+    extends _$QrPlusRendererStateCopyWithImpl<$Res, _$QrPlusRendererStateImpl>
+    implements _$$QrPlusRendererStateImplCopyWith<$Res> {
+  __$$QrPlusRendererStateImplCopyWithImpl(_$QrPlusRendererStateImpl _value,
+      $Res Function(_$QrPlusRendererStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,7 +187,7 @@ class __$$_QrPlusRendererStateCopyWithImpl<$Res>
     Object? screenRecorderStatus = null,
     Object? authenticity = null,
   }) {
-    return _then(_$_QrPlusRendererState(
+    return _then(_$QrPlusRendererStateImpl(
       mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
@@ -194,9 +205,9 @@ class __$$_QrPlusRendererStateCopyWithImpl<$Res>
           : crumbledDataIndex // ignore: cast_nullable_to_non_nullable
               as int,
       connectivity: null == connectivity
-          ? _value.connectivity
+          ? _value._connectivity
           : connectivity // ignore: cast_nullable_to_non_nullable
-              as ConnectivityResult,
+              as List<ConnectivityResult>,
       screenRecorderStatus: null == screenRecorderStatus
           ? _value.screenRecorderStatus
           : screenRecorderStatus // ignore: cast_nullable_to_non_nullable
@@ -211,15 +222,18 @@ class __$$_QrPlusRendererStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QrPlusRendererState implements _QrPlusRendererState {
-  const _$_QrPlusRendererState(
+class _$QrPlusRendererStateImpl implements _QrPlusRendererState {
+  const _$QrPlusRendererStateImpl(
       {required this.mode,
       required this.plainData,
       this.data = const QrPlusData.unknown(),
       this.crumbledDataIndex = 0,
-      this.connectivity = ConnectivityResult.mobile,
+      final List<ConnectivityResult> connectivity = const [
+        ConnectivityResult.mobile
+      ],
       this.screenRecorderStatus = ScreenRecorderStatus.recorderOff,
-      this.authenticity = QrPlusAuthenticity.authentic});
+      this.authenticity = QrPlusAuthenticity.authentic})
+      : _connectivity = connectivity;
 
   /// The security mode used to create the QR-code.
   @override
@@ -241,9 +255,17 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
 
   /// A state of the devices mobile connections. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
+  final List<ConnectivityResult> _connectivity;
+
+  /// A state of the devices mobile connections. This is relevant for detecting cheating attempts
+  /// and constructing the proper [QrPlusAuthenticity].
   @override
   @JsonKey()
-  final ConnectivityResult connectivity;
+  List<ConnectivityResult> get connectivity {
+    if (_connectivity is EqualUnmodifiableListView) return _connectivity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_connectivity);
+  }
 
   /// The current status of the screen recorder. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
@@ -262,18 +284,18 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QrPlusRendererState &&
+            other is _$QrPlusRendererStateImpl &&
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.plainData, plainData) ||
                 other.plainData == plainData) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.crumbledDataIndex, crumbledDataIndex) ||
                 other.crumbledDataIndex == crumbledDataIndex) &&
-            (identical(other.connectivity, connectivity) ||
-                other.connectivity == connectivity) &&
+            const DeepCollectionEquality()
+                .equals(other._connectivity, _connectivity) &&
             (identical(other.screenRecorderStatus, screenRecorderStatus) ||
                 other.screenRecorderStatus == screenRecorderStatus) &&
             (identical(other.authenticity, authenticity) ||
@@ -281,14 +303,23 @@ class _$_QrPlusRendererState implements _QrPlusRendererState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, mode, plainData, data,
-      crumbledDataIndex, connectivity, screenRecorderStatus, authenticity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      mode,
+      plainData,
+      data,
+      crumbledDataIndex,
+      const DeepCollectionEquality().hash(_connectivity),
+      screenRecorderStatus,
+      authenticity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QrPlusRendererStateCopyWith<_$_QrPlusRendererState> get copyWith =>
-      __$$_QrPlusRendererStateCopyWithImpl<_$_QrPlusRendererState>(
+  _$$QrPlusRendererStateImplCopyWith<_$QrPlusRendererStateImpl> get copyWith =>
+      __$$QrPlusRendererStateImplCopyWithImpl<_$QrPlusRendererStateImpl>(
           this, _$identity);
 }
 
@@ -298,42 +329,44 @@ abstract class _QrPlusRendererState implements QrPlusRendererState {
       required final String plainData,
       final QrPlusData data,
       final int crumbledDataIndex,
-      final ConnectivityResult connectivity,
+      final List<ConnectivityResult> connectivity,
       final ScreenRecorderStatus screenRecorderStatus,
-      final QrPlusAuthenticity authenticity}) = _$_QrPlusRendererState;
-
-  @override
+      final QrPlusAuthenticity authenticity}) = _$QrPlusRendererStateImpl;
 
   /// The security mode used to create the QR-code.
-  QrPlusMode get mode;
   @override
+  QrPlusMode get mode;
 
   /// The plain string data provided by the package user.
-  String get plainData;
   @override
+  String get plainData;
 
   /// The [QrPlusData] generated from the [plainData] given by the user.
-  QrPlusData get data;
   @override
+  QrPlusData get data;
 
   /// The index of the crumb that is currently being rendered to the user.
-  int get crumbledDataIndex;
   @override
+  int get crumbledDataIndex;
 
   /// A state of the devices mobile connections. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
-  ConnectivityResult get connectivity;
   @override
+  List<ConnectivityResult> get connectivity;
 
   /// The current status of the screen recorder. This is relevant for detecting cheating attempts
   /// and constructing the proper [QrPlusAuthenticity].
-  ScreenRecorderStatus get screenRecorderStatus;
   @override
+  ScreenRecorderStatus get screenRecorderStatus;
 
   /// A status for detecting cheating attempts by the renderer.
-  QrPlusAuthenticity get authenticity;
   @override
-  @JsonKey(ignore: true)
-  _$$_QrPlusRendererStateCopyWith<_$_QrPlusRendererState> get copyWith =>
+  QrPlusAuthenticity get authenticity;
+
+  /// Create a copy of QrPlusRendererState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$QrPlusRendererStateImplCopyWith<_$QrPlusRendererStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

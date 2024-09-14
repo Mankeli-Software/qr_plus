@@ -12,7 +12,7 @@ part of 'qr_plus_mode.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 QrPlusMode _$QrPlusModeFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -40,99 +40,96 @@ mixin _$QrPlusMode {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) =>
@@ -168,6 +165,8 @@ mixin _$QrPlusMode {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this QrPlusMode to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -187,33 +186,40 @@ class _$QrPlusModeCopyWithImpl<$Res, $Val extends QrPlusMode>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$PlainQrPlusModeCopyWith<$Res> {
-  factory _$$PlainQrPlusModeCopyWith(
-          _$PlainQrPlusMode value, $Res Function(_$PlainQrPlusMode) then) =
-      __$$PlainQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$PlainQrPlusModeImplCopyWith<$Res> {
+  factory _$$PlainQrPlusModeImplCopyWith(_$PlainQrPlusModeImpl value,
+          $Res Function(_$PlainQrPlusModeImpl) then) =
+      __$$PlainQrPlusModeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PlainQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$PlainQrPlusMode>
-    implements _$$PlainQrPlusModeCopyWith<$Res> {
-  __$$PlainQrPlusModeCopyWithImpl(
-      _$PlainQrPlusMode _value, $Res Function(_$PlainQrPlusMode) _then)
+class __$$PlainQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$PlainQrPlusModeImpl>
+    implements _$$PlainQrPlusModeImplCopyWith<$Res> {
+  __$$PlainQrPlusModeImplCopyWithImpl(
+      _$PlainQrPlusModeImpl _value, $Res Function(_$PlainQrPlusModeImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
-  const _$PlainQrPlusMode({final String? $type})
+class _$PlainQrPlusModeImpl extends PlainQrPlusMode
+    with DiagnosticableTreeMixin {
+  const _$PlainQrPlusModeImpl({final String? $type})
       : $type = $type ?? 'plain',
         super._();
 
-  factory _$PlainQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$PlainQrPlusModeFromJson(json);
+  factory _$PlainQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlainQrPlusModeImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -230,12 +236,12 @@ class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PlainQrPlusMode);
+        (other.runtimeType == runtimeType && other is _$PlainQrPlusModeImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -243,33 +249,32 @@ class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return plain();
@@ -279,33 +284,32 @@ class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return plain?.call();
@@ -315,33 +319,32 @@ class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -396,43 +399,46 @@ class _$PlainQrPlusMode extends PlainQrPlusMode with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlainQrPlusModeToJson(
+    return _$$PlainQrPlusModeImplToJson(
       this,
     );
   }
 }
 
 abstract class PlainQrPlusMode extends QrPlusMode {
-  const factory PlainQrPlusMode() = _$PlainQrPlusMode;
+  const factory PlainQrPlusMode() = _$PlainQrPlusModeImpl;
   const PlainQrPlusMode._() : super._();
 
   factory PlainQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$PlainQrPlusMode.fromJson;
+      _$PlainQrPlusModeImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$SafeQrPlusModeCopyWith<$Res> {
-  factory _$$SafeQrPlusModeCopyWith(
-          _$SafeQrPlusMode value, $Res Function(_$SafeQrPlusMode) then) =
-      __$$SafeQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$SafeQrPlusModeImplCopyWith<$Res> {
+  factory _$$SafeQrPlusModeImplCopyWith(_$SafeQrPlusModeImpl value,
+          $Res Function(_$SafeQrPlusModeImpl) then) =
+      __$$SafeQrPlusModeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int crumbs});
+  $Res call(
+      {@JsonKey(includeToJson: false, includeFromJson: false) int crumbs});
 }
 
 /// @nodoc
-class __$$SafeQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$SafeQrPlusMode>
-    implements _$$SafeQrPlusModeCopyWith<$Res> {
-  __$$SafeQrPlusModeCopyWithImpl(
-      _$SafeQrPlusMode _value, $Res Function(_$SafeQrPlusMode) _then)
+class __$$SafeQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$SafeQrPlusModeImpl>
+    implements _$$SafeQrPlusModeImplCopyWith<$Res> {
+  __$$SafeQrPlusModeImplCopyWithImpl(
+      _$SafeQrPlusModeImpl _value, $Res Function(_$SafeQrPlusModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? crumbs = null,
   }) {
-    return _then(_$SafeQrPlusMode(
+    return _then(_$SafeQrPlusModeImpl(
       crumbs: null == crumbs
           ? _value.crumbs
           : crumbs // ignore: cast_nullable_to_non_nullable
@@ -443,18 +449,20 @@ class __$$SafeQrPlusModeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
-  const _$SafeQrPlusMode({this.crumbs = 3, final String? $type})
+class _$SafeQrPlusModeImpl extends SafeQrPlusMode with DiagnosticableTreeMixin {
+  const _$SafeQrPlusModeImpl(
+      {@JsonKey(includeToJson: false, includeFromJson: false) this.crumbs = 3,
+      final String? $type})
       : $type = $type ?? 'safe',
         super._();
 
-  factory _$SafeQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$SafeQrPlusModeFromJson(json);
+  factory _$SafeQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SafeQrPlusModeImplFromJson(json);
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
   @override
-  @JsonKey()
+  @JsonKey(includeToJson: false, includeFromJson: false)
   final int crumbs;
 
   @JsonKey(name: 'runtimeType')
@@ -474,54 +482,56 @@ class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SafeQrPlusMode &&
+            other is _$SafeQrPlusModeImpl &&
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, crumbs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SafeQrPlusModeCopyWith<_$SafeQrPlusMode> get copyWith =>
-      __$$SafeQrPlusModeCopyWithImpl<_$SafeQrPlusMode>(this, _$identity);
+  _$$SafeQrPlusModeImplCopyWith<_$SafeQrPlusModeImpl> get copyWith =>
+      __$$SafeQrPlusModeImplCopyWithImpl<_$SafeQrPlusModeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return safe(crumbs);
@@ -531,33 +541,32 @@ class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return safe?.call(crumbs);
@@ -567,33 +576,32 @@ class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -648,32 +656,38 @@ class _$SafeQrPlusMode extends SafeQrPlusMode with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SafeQrPlusModeToJson(
+    return _$$SafeQrPlusModeImplToJson(
       this,
     );
   }
 }
 
 abstract class SafeQrPlusMode extends QrPlusMode {
-  const factory SafeQrPlusMode({final int crumbs}) = _$SafeQrPlusMode;
+  const factory SafeQrPlusMode(
+      {@JsonKey(includeToJson: false, includeFromJson: false)
+      final int crumbs}) = _$SafeQrPlusModeImpl;
   const SafeQrPlusMode._() : super._();
 
   factory SafeQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$SafeQrPlusMode.fromJson;
+      _$SafeQrPlusModeImpl.fromJson;
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
+  @JsonKey(includeToJson: false, includeFromJson: false)
   int get crumbs;
-  @JsonKey(ignore: true)
-  _$$SafeQrPlusModeCopyWith<_$SafeQrPlusMode> get copyWith =>
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SafeQrPlusModeImplCopyWith<_$SafeQrPlusModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RobustQrPlusModeCopyWith<$Res> {
-  factory _$$RobustQrPlusModeCopyWith(
-          _$RobustQrPlusMode value, $Res Function(_$RobustQrPlusMode) then) =
-      __$$RobustQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$RobustQrPlusModeImplCopyWith<$Res> {
+  factory _$$RobustQrPlusModeImplCopyWith(_$RobustQrPlusModeImpl value,
+          $Res Function(_$RobustQrPlusModeImpl) then) =
+      __$$RobustQrPlusModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {@JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
@@ -681,20 +695,22 @@ abstract class _$$RobustQrPlusModeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RobustQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$RobustQrPlusMode>
-    implements _$$RobustQrPlusModeCopyWith<$Res> {
-  __$$RobustQrPlusModeCopyWithImpl(
-      _$RobustQrPlusMode _value, $Res Function(_$RobustQrPlusMode) _then)
+class __$$RobustQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$RobustQrPlusModeImpl>
+    implements _$$RobustQrPlusModeImplCopyWith<$Res> {
+  __$$RobustQrPlusModeImplCopyWithImpl(_$RobustQrPlusModeImpl _value,
+      $Res Function(_$RobustQrPlusModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? crumbs = null,
     Object? ttl = null,
   }) {
-    return _then(_$RobustQrPlusMode(
+    return _then(_$RobustQrPlusModeImpl(
       crumbs: null == crumbs
           ? _value.crumbs
           : crumbs // ignore: cast_nullable_to_non_nullable
@@ -709,16 +725,17 @@ class __$$RobustQrPlusModeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
-  const _$RobustQrPlusMode(
+class _$RobustQrPlusModeImpl extends RobustQrPlusMode
+    with DiagnosticableTreeMixin {
+  const _$RobustQrPlusModeImpl(
       {@JsonKey(includeToJson: false, includeFromJson: false) this.crumbs = 3,
       this.ttl = const Duration(seconds: 20),
       final String? $type})
       : $type = $type ?? 'robust',
         super._();
 
-  factory _$RobustQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$RobustQrPlusModeFromJson(json);
+  factory _$RobustQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RobustQrPlusModeImplFromJson(json);
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -750,55 +767,57 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RobustQrPlusMode &&
+            other is _$RobustQrPlusModeImpl &&
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs) &&
             (identical(other.ttl, ttl) || other.ttl == ttl));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, crumbs, ttl);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RobustQrPlusModeCopyWith<_$RobustQrPlusMode> get copyWith =>
-      __$$RobustQrPlusModeCopyWithImpl<_$RobustQrPlusMode>(this, _$identity);
+  _$$RobustQrPlusModeImplCopyWith<_$RobustQrPlusModeImpl> get copyWith =>
+      __$$RobustQrPlusModeImplCopyWithImpl<_$RobustQrPlusModeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return robust(crumbs, ttl);
@@ -808,33 +827,32 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return robust?.call(crumbs, ttl);
@@ -844,33 +862,32 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -925,7 +942,7 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RobustQrPlusModeToJson(
+    return _$$RobustQrPlusModeImplToJson(
       this,
     );
   }
@@ -934,11 +951,11 @@ class _$RobustQrPlusMode extends RobustQrPlusMode with DiagnosticableTreeMixin {
 abstract class RobustQrPlusMode extends QrPlusMode {
   const factory RobustQrPlusMode(
       {@JsonKey(includeToJson: false, includeFromJson: false) final int crumbs,
-      final Duration ttl}) = _$RobustQrPlusMode;
+      final Duration ttl}) = _$RobustQrPlusModeImpl;
   const RobustQrPlusMode._() : super._();
 
   factory RobustQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$RobustQrPlusMode.fromJson;
+      _$RobustQrPlusModeImpl.fromJson;
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -948,33 +965,37 @@ abstract class RobustQrPlusMode extends QrPlusMode {
   /// The time-to-live of the data, which defines how long the data is valid.
   /// Defaults to 20 seconds.
   Duration get ttl;
-  @JsonKey(ignore: true)
-  _$$RobustQrPlusModeCopyWith<_$RobustQrPlusMode> get copyWith =>
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RobustQrPlusModeImplCopyWith<_$RobustQrPlusModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SoundQrPlusModeCopyWith<$Res> {
-  factory _$$SoundQrPlusModeCopyWith(
-          _$SoundQrPlusMode value, $Res Function(_$SoundQrPlusMode) then) =
-      __$$SoundQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$SoundQrPlusModeImplCopyWith<$Res> {
+  factory _$$SoundQrPlusModeImplCopyWith(_$SoundQrPlusModeImpl value,
+          $Res Function(_$SoundQrPlusModeImpl) then) =
+      __$$SoundQrPlusModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
       Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          Duration ntpFetchInterval});
+      Duration ntpFetchInterval});
 }
 
 /// @nodoc
-class __$$SoundQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$SoundQrPlusMode>
-    implements _$$SoundQrPlusModeCopyWith<$Res> {
-  __$$SoundQrPlusModeCopyWithImpl(
-      _$SoundQrPlusMode _value, $Res Function(_$SoundQrPlusMode) _then)
+class __$$SoundQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$SoundQrPlusModeImpl>
+    implements _$$SoundQrPlusModeImplCopyWith<$Res> {
+  __$$SoundQrPlusModeImplCopyWithImpl(
+      _$SoundQrPlusModeImpl _value, $Res Function(_$SoundQrPlusModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -982,7 +1003,7 @@ class __$$SoundQrPlusModeCopyWithImpl<$Res>
     Object? ttl = null,
     Object? ntpFetchInterval = null,
   }) {
-    return _then(_$SoundQrPlusMode(
+    return _then(_$SoundQrPlusModeImpl(
       crumbs: null == crumbs
           ? _value.crumbs
           : crumbs // ignore: cast_nullable_to_non_nullable
@@ -1001,19 +1022,19 @@ class __$$SoundQrPlusModeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
-  const _$SoundQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          this.crumbs = 3,
+class _$SoundQrPlusModeImpl extends SoundQrPlusMode
+    with DiagnosticableTreeMixin {
+  const _$SoundQrPlusModeImpl(
+      {@JsonKey(includeToJson: false, includeFromJson: false) this.crumbs = 3,
       this.ttl = const Duration(seconds: 20),
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.ntpFetchInterval = const Duration(seconds: 5),
+      this.ntpFetchInterval = const Duration(seconds: 5),
       final String? $type})
       : $type = $type ?? 'sound',
         super._();
 
-  factory _$SoundQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$SoundQrPlusModeFromJson(json);
+  factory _$SoundQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SoundQrPlusModeImplFromJson(json);
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1052,57 +1073,59 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SoundQrPlusMode &&
+            other is _$SoundQrPlusModeImpl &&
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs) &&
             (identical(other.ttl, ttl) || other.ttl == ttl) &&
             (identical(other.ntpFetchInterval, ntpFetchInterval) ||
                 other.ntpFetchInterval == ntpFetchInterval));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, crumbs, ttl, ntpFetchInterval);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SoundQrPlusModeCopyWith<_$SoundQrPlusMode> get copyWith =>
-      __$$SoundQrPlusModeCopyWithImpl<_$SoundQrPlusMode>(this, _$identity);
+  _$$SoundQrPlusModeImplCopyWith<_$SoundQrPlusModeImpl> get copyWith =>
+      __$$SoundQrPlusModeImplCopyWithImpl<_$SoundQrPlusModeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return sound(crumbs, ttl, ntpFetchInterval);
@@ -1112,33 +1135,32 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return sound?.call(crumbs, ttl, ntpFetchInterval);
@@ -1148,33 +1170,32 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -1229,7 +1250,7 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SoundQrPlusModeToJson(
+    return _$$SoundQrPlusModeImplToJson(
       this,
     );
   }
@@ -1237,15 +1258,14 @@ class _$SoundQrPlusMode extends SoundQrPlusMode with DiagnosticableTreeMixin {
 
 abstract class SoundQrPlusMode extends QrPlusMode {
   const factory SoundQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          final int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) final int crumbs,
       final Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          final Duration ntpFetchInterval}) = _$SoundQrPlusMode;
+      final Duration ntpFetchInterval}) = _$SoundQrPlusModeImpl;
   const SoundQrPlusMode._() : super._();
 
   factory SoundQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$SoundQrPlusMode.fromJson;
+      _$SoundQrPlusModeImpl.fromJson;
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1260,33 +1280,37 @@ abstract class SoundQrPlusMode extends QrPlusMode {
   /// Defaults to 5 seconds.
   @JsonKey(includeToJson: false, includeFromJson: false)
   Duration get ntpFetchInterval;
-  @JsonKey(ignore: true)
-  _$$SoundQrPlusModeCopyWith<_$SoundQrPlusMode> get copyWith =>
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SoundQrPlusModeImplCopyWith<_$SoundQrPlusModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ParanoidQrPlusModeCopyWith<$Res> {
-  factory _$$ParanoidQrPlusModeCopyWith(_$ParanoidQrPlusMode value,
-          $Res Function(_$ParanoidQrPlusMode) then) =
-      __$$ParanoidQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$ParanoidQrPlusModeImplCopyWith<$Res> {
+  factory _$$ParanoidQrPlusModeImplCopyWith(_$ParanoidQrPlusModeImpl value,
+          $Res Function(_$ParanoidQrPlusModeImpl) then) =
+      __$$ParanoidQrPlusModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
       Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          Duration ntpFetchInterval});
+      Duration ntpFetchInterval});
 }
 
 /// @nodoc
-class __$$ParanoidQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$ParanoidQrPlusMode>
-    implements _$$ParanoidQrPlusModeCopyWith<$Res> {
-  __$$ParanoidQrPlusModeCopyWithImpl(
-      _$ParanoidQrPlusMode _value, $Res Function(_$ParanoidQrPlusMode) _then)
+class __$$ParanoidQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$ParanoidQrPlusModeImpl>
+    implements _$$ParanoidQrPlusModeImplCopyWith<$Res> {
+  __$$ParanoidQrPlusModeImplCopyWithImpl(_$ParanoidQrPlusModeImpl _value,
+      $Res Function(_$ParanoidQrPlusModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1294,7 +1318,7 @@ class __$$ParanoidQrPlusModeCopyWithImpl<$Res>
     Object? ttl = null,
     Object? ntpFetchInterval = null,
   }) {
-    return _then(_$ParanoidQrPlusMode(
+    return _then(_$ParanoidQrPlusModeImpl(
       crumbs: null == crumbs
           ? _value.crumbs
           : crumbs // ignore: cast_nullable_to_non_nullable
@@ -1313,20 +1337,19 @@ class __$$ParanoidQrPlusModeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
+class _$ParanoidQrPlusModeImpl extends ParanoidQrPlusMode
     with DiagnosticableTreeMixin {
-  const _$ParanoidQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          this.crumbs = 6,
+  const _$ParanoidQrPlusModeImpl(
+      {@JsonKey(includeToJson: false, includeFromJson: false) this.crumbs = 6,
       this.ttl = const Duration(seconds: 20),
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.ntpFetchInterval = const Duration(seconds: 5),
+      this.ntpFetchInterval = const Duration(seconds: 5),
       final String? $type})
       : $type = $type ?? 'paranoid',
         super._();
 
-  factory _$ParanoidQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$ParanoidQrPlusModeFromJson(json);
+  factory _$ParanoidQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ParanoidQrPlusModeImplFromJson(json);
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1365,58 +1388,59 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParanoidQrPlusMode &&
+            other is _$ParanoidQrPlusModeImpl &&
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs) &&
             (identical(other.ttl, ttl) || other.ttl == ttl) &&
             (identical(other.ntpFetchInterval, ntpFetchInterval) ||
                 other.ntpFetchInterval == ntpFetchInterval));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, crumbs, ttl, ntpFetchInterval);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParanoidQrPlusModeCopyWith<_$ParanoidQrPlusMode> get copyWith =>
-      __$$ParanoidQrPlusModeCopyWithImpl<_$ParanoidQrPlusMode>(
+  _$$ParanoidQrPlusModeImplCopyWith<_$ParanoidQrPlusModeImpl> get copyWith =>
+      __$$ParanoidQrPlusModeImplCopyWithImpl<_$ParanoidQrPlusModeImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return paranoid(crumbs, ttl, ntpFetchInterval);
@@ -1426,33 +1450,32 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return paranoid?.call(crumbs, ttl, ntpFetchInterval);
@@ -1462,33 +1485,32 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -1543,7 +1565,7 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ParanoidQrPlusModeToJson(
+    return _$$ParanoidQrPlusModeImplToJson(
       this,
     );
   }
@@ -1551,15 +1573,14 @@ class _$ParanoidQrPlusMode extends ParanoidQrPlusMode
 
 abstract class ParanoidQrPlusMode extends QrPlusMode {
   const factory ParanoidQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          final int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) final int crumbs,
       final Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          final Duration ntpFetchInterval}) = _$ParanoidQrPlusMode;
+      final Duration ntpFetchInterval}) = _$ParanoidQrPlusModeImpl;
   const ParanoidQrPlusMode._() : super._();
 
   factory ParanoidQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$ParanoidQrPlusMode.fromJson;
+      _$ParanoidQrPlusModeImpl.fromJson;
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1574,35 +1595,39 @@ abstract class ParanoidQrPlusMode extends QrPlusMode {
   /// Defaults to 5 seconds.
   @JsonKey(includeToJson: false, includeFromJson: false)
   Duration get ntpFetchInterval;
-  @JsonKey(ignore: true)
-  _$$ParanoidQrPlusModeCopyWith<_$ParanoidQrPlusMode> get copyWith =>
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ParanoidQrPlusModeImplCopyWith<_$ParanoidQrPlusModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SnowdenQrPlusModeCopyWith<$Res> {
-  factory _$$SnowdenQrPlusModeCopyWith(
-          _$SnowdenQrPlusMode value, $Res Function(_$SnowdenQrPlusMode) then) =
-      __$$SnowdenQrPlusModeCopyWithImpl<$Res>;
+abstract class _$$SnowdenQrPlusModeImplCopyWith<$Res> {
+  factory _$$SnowdenQrPlusModeImplCopyWith(_$SnowdenQrPlusModeImpl value,
+          $Res Function(_$SnowdenQrPlusModeImpl) then) =
+      __$$SnowdenQrPlusModeImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
       Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          Duration ntpFetchInterval,
+      Duration ntpFetchInterval,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          String encryptionKey});
+      String encryptionKey});
 }
 
 /// @nodoc
-class __$$SnowdenQrPlusModeCopyWithImpl<$Res>
-    extends _$QrPlusModeCopyWithImpl<$Res, _$SnowdenQrPlusMode>
-    implements _$$SnowdenQrPlusModeCopyWith<$Res> {
-  __$$SnowdenQrPlusModeCopyWithImpl(
-      _$SnowdenQrPlusMode _value, $Res Function(_$SnowdenQrPlusMode) _then)
+class __$$SnowdenQrPlusModeImplCopyWithImpl<$Res>
+    extends _$QrPlusModeCopyWithImpl<$Res, _$SnowdenQrPlusModeImpl>
+    implements _$$SnowdenQrPlusModeImplCopyWith<$Res> {
+  __$$SnowdenQrPlusModeImplCopyWithImpl(_$SnowdenQrPlusModeImpl _value,
+      $Res Function(_$SnowdenQrPlusModeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1611,7 +1636,7 @@ class __$$SnowdenQrPlusModeCopyWithImpl<$Res>
     Object? ntpFetchInterval = null,
     Object? encryptionKey = null,
   }) {
-    return _then(_$SnowdenQrPlusMode(
+    return _then(_$SnowdenQrPlusModeImpl(
       crumbs: null == crumbs
           ? _value.crumbs
           : crumbs // ignore: cast_nullable_to_non_nullable
@@ -1634,22 +1659,21 @@ class __$$SnowdenQrPlusModeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
+class _$SnowdenQrPlusModeImpl extends SnowdenQrPlusMode
     with DiagnosticableTreeMixin {
-  const _$SnowdenQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          this.crumbs = 6,
+  const _$SnowdenQrPlusModeImpl(
+      {@JsonKey(includeToJson: false, includeFromJson: false) this.crumbs = 6,
       this.ttl = const Duration(seconds: 20),
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.ntpFetchInterval = const Duration(seconds: 5),
+      this.ntpFetchInterval = const Duration(seconds: 5),
       @JsonKey(includeToJson: false, includeFromJson: false)
-          this.encryptionKey = 'Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=',
+      this.encryptionKey = 'Pnozx5dIYojIUQCO5KPC3Y/a+6HyBy8=',
       final String? $type})
       : $type = $type ?? 'snowden',
         super._();
 
-  factory _$SnowdenQrPlusMode.fromJson(Map<String, dynamic> json) =>
-      _$$SnowdenQrPlusModeFromJson(json);
+  factory _$SnowdenQrPlusModeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SnowdenQrPlusModeImplFromJson(json);
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1697,10 +1721,10 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SnowdenQrPlusMode &&
+            other is _$SnowdenQrPlusModeImpl &&
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs) &&
             (identical(other.ttl, ttl) || other.ttl == ttl) &&
             (identical(other.ntpFetchInterval, ntpFetchInterval) ||
@@ -1709,48 +1733,50 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
                 other.encryptionKey == encryptionKey));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, crumbs, ttl, ntpFetchInterval, encryptionKey);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SnowdenQrPlusModeCopyWith<_$SnowdenQrPlusMode> get copyWith =>
-      __$$SnowdenQrPlusModeCopyWithImpl<_$SnowdenQrPlusMode>(this, _$identity);
+  _$$SnowdenQrPlusModeImplCopyWith<_$SnowdenQrPlusModeImpl> get copyWith =>
+      __$$SnowdenQrPlusModeImplCopyWithImpl<_$SnowdenQrPlusModeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() plain,
-    required TResult Function(int crumbs) safe,
+    required TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)
+        safe,
     required TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)
         robust,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         sound,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)
+            Duration ntpFetchInterval)
         paranoid,
     required TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)
+            String encryptionKey)
         snowden,
   }) {
     return snowden(crumbs, ttl, ntpFetchInterval, encryptionKey);
@@ -1760,33 +1786,32 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? plain,
-    TResult? Function(int crumbs)? safe,
+    TResult? Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult? Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult? Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
   }) {
     return snowden?.call(crumbs, ttl, ntpFetchInterval, encryptionKey);
@@ -1796,33 +1821,32 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? plain,
-    TResult Function(int crumbs)? safe,
+    TResult Function(
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs)?
+        safe,
     TResult Function(
             @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl)?
         robust,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         sound,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval)?
+            Duration ntpFetchInterval)?
         paranoid,
     TResult Function(
-            @JsonKey(includeToJson: false, includeFromJson: false)
-                int crumbs,
+            @JsonKey(includeToJson: false, includeFromJson: false) int crumbs,
             Duration ttl,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                Duration ntpFetchInterval,
+            Duration ntpFetchInterval,
             @JsonKey(includeToJson: false, includeFromJson: false)
-                String encryptionKey)?
+            String encryptionKey)?
         snowden,
     required TResult orElse(),
   }) {
@@ -1877,7 +1901,7 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SnowdenQrPlusModeToJson(
+    return _$$SnowdenQrPlusModeImplToJson(
       this,
     );
   }
@@ -1885,17 +1909,16 @@ class _$SnowdenQrPlusMode extends SnowdenQrPlusMode
 
 abstract class SnowdenQrPlusMode extends QrPlusMode {
   const factory SnowdenQrPlusMode(
-      {@JsonKey(includeToJson: false, includeFromJson: false)
-          final int crumbs,
+      {@JsonKey(includeToJson: false, includeFromJson: false) final int crumbs,
       final Duration ttl,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          final Duration ntpFetchInterval,
+      final Duration ntpFetchInterval,
       @JsonKey(includeToJson: false, includeFromJson: false)
-          final String encryptionKey}) = _$SnowdenQrPlusMode;
+      final String encryptionKey}) = _$SnowdenQrPlusModeImpl;
   const SnowdenQrPlusMode._() : super._();
 
   factory SnowdenQrPlusMode.fromJson(Map<String, dynamic> json) =
-      _$SnowdenQrPlusMode.fromJson;
+      _$SnowdenQrPlusModeImpl.fromJson;
 
   /// The number of pieces the data is split into.
   /// Defaults to 3.
@@ -1917,7 +1940,10 @@ abstract class SnowdenQrPlusMode extends QrPlusMode {
   /// NOTE: The key length should be 128/192/256 bits (16/24/32 bytes/characters).
   @JsonKey(includeToJson: false, includeFromJson: false)
   String get encryptionKey;
-  @JsonKey(ignore: true)
-  _$$SnowdenQrPlusModeCopyWith<_$SnowdenQrPlusMode> get copyWith =>
+
+  /// Create a copy of QrPlusMode
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SnowdenQrPlusModeImplCopyWith<_$SnowdenQrPlusModeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

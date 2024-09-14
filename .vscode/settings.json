@@ -1,7 +1,7 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
@@ -33,7 +33,6 @@
     "**/.dart_tool": true,
     "**/.flutter-plugins**": true,
     "**/.metadata": true,
-    "**/pubspec.lock": true,
     "**/node_modules/": true,
     "**.firebase": true,
   },

@@ -12,7 +12,7 @@ part of 'qr_plus_data_crumb.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 QrPlusDataCrumb _$QrPlusDataCrumbFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -102,6 +102,8 @@ mixin _$QrPlusDataCrumb {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this QrPlusDataCrumb to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -121,33 +123,41 @@ class _$QrPlusDataCrumbCopyWithImpl<$Res, $Val extends QrPlusDataCrumb>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$UnknownQrPlusDataCrumbCopyWith<$Res> {
-  factory _$$UnknownQrPlusDataCrumbCopyWith(_$UnknownQrPlusDataCrumb value,
-          $Res Function(_$UnknownQrPlusDataCrumb) then) =
-      __$$UnknownQrPlusDataCrumbCopyWithImpl<$Res>;
+abstract class _$$UnknownQrPlusDataCrumbImplCopyWith<$Res> {
+  factory _$$UnknownQrPlusDataCrumbImplCopyWith(
+          _$UnknownQrPlusDataCrumbImpl value,
+          $Res Function(_$UnknownQrPlusDataCrumbImpl) then) =
+      __$$UnknownQrPlusDataCrumbImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnknownQrPlusDataCrumbCopyWithImpl<$Res>
-    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$UnknownQrPlusDataCrumb>
-    implements _$$UnknownQrPlusDataCrumbCopyWith<$Res> {
-  __$$UnknownQrPlusDataCrumbCopyWithImpl(_$UnknownQrPlusDataCrumb _value,
-      $Res Function(_$UnknownQrPlusDataCrumb) _then)
+class __$$UnknownQrPlusDataCrumbImplCopyWithImpl<$Res>
+    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$UnknownQrPlusDataCrumbImpl>
+    implements _$$UnknownQrPlusDataCrumbImplCopyWith<$Res> {
+  __$$UnknownQrPlusDataCrumbImplCopyWithImpl(
+      _$UnknownQrPlusDataCrumbImpl _value,
+      $Res Function(_$UnknownQrPlusDataCrumbImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UnknownQrPlusDataCrumb extends UnknownQrPlusDataCrumb {
-  const _$UnknownQrPlusDataCrumb({final String? $type})
+class _$UnknownQrPlusDataCrumbImpl extends UnknownQrPlusDataCrumb {
+  const _$UnknownQrPlusDataCrumbImpl({final String? $type})
       : $type = $type ?? 'unknown',
         super._();
 
-  factory _$UnknownQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =>
-      _$$UnknownQrPlusDataCrumbFromJson(json);
+  factory _$UnknownQrPlusDataCrumbImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UnknownQrPlusDataCrumbImplFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -158,12 +168,13 @@ class _$UnknownQrPlusDataCrumb extends UnknownQrPlusDataCrumb {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnknownQrPlusDataCrumb);
+        (other.runtimeType == runtimeType &&
+            other is _$UnknownQrPlusDataCrumbImpl);
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -262,25 +273,26 @@ class _$UnknownQrPlusDataCrumb extends UnknownQrPlusDataCrumb {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnknownQrPlusDataCrumbToJson(
+    return _$$UnknownQrPlusDataCrumbImplToJson(
       this,
     );
   }
 }
 
 abstract class UnknownQrPlusDataCrumb extends QrPlusDataCrumb {
-  const factory UnknownQrPlusDataCrumb() = _$UnknownQrPlusDataCrumb;
+  const factory UnknownQrPlusDataCrumb() = _$UnknownQrPlusDataCrumbImpl;
   const UnknownQrPlusDataCrumb._() : super._();
 
   factory UnknownQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =
-      _$UnknownQrPlusDataCrumb.fromJson;
+      _$UnknownQrPlusDataCrumbImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$AuthenticQrPlusDataCrumbCopyWith<$Res> {
-  factory _$$AuthenticQrPlusDataCrumbCopyWith(_$AuthenticQrPlusDataCrumb value,
-          $Res Function(_$AuthenticQrPlusDataCrumb) then) =
-      __$$AuthenticQrPlusDataCrumbCopyWithImpl<$Res>;
+abstract class _$$AuthenticQrPlusDataCrumbImplCopyWith<$Res> {
+  factory _$$AuthenticQrPlusDataCrumbImplCopyWith(
+          _$AuthenticQrPlusDataCrumbImpl value,
+          $Res Function(_$AuthenticQrPlusDataCrumbImpl) then) =
+      __$$AuthenticQrPlusDataCrumbImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String uid,
@@ -294,13 +306,16 @@ abstract class _$$AuthenticQrPlusDataCrumbCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AuthenticQrPlusDataCrumbCopyWithImpl<$Res>
-    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$AuthenticQrPlusDataCrumb>
-    implements _$$AuthenticQrPlusDataCrumbCopyWith<$Res> {
-  __$$AuthenticQrPlusDataCrumbCopyWithImpl(_$AuthenticQrPlusDataCrumb _value,
-      $Res Function(_$AuthenticQrPlusDataCrumb) _then)
+class __$$AuthenticQrPlusDataCrumbImplCopyWithImpl<$Res>
+    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$AuthenticQrPlusDataCrumbImpl>
+    implements _$$AuthenticQrPlusDataCrumbImplCopyWith<$Res> {
+  __$$AuthenticQrPlusDataCrumbImplCopyWithImpl(
+      _$AuthenticQrPlusDataCrumbImpl _value,
+      $Res Function(_$AuthenticQrPlusDataCrumbImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -311,7 +326,7 @@ class __$$AuthenticQrPlusDataCrumbCopyWithImpl<$Res>
     Object? index = null,
     Object? crumbs = null,
   }) {
-    return _then(_$AuthenticQrPlusDataCrumb(
+    return _then(_$AuthenticQrPlusDataCrumbImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -339,6 +354,8 @@ class __$$AuthenticQrPlusDataCrumbCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QrPlusModeCopyWith<$Res> get mode {
@@ -350,8 +367,8 @@ class __$$AuthenticQrPlusDataCrumbCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AuthenticQrPlusDataCrumb extends AuthenticQrPlusDataCrumb {
-  const _$AuthenticQrPlusDataCrumb(
+class _$AuthenticQrPlusDataCrumbImpl extends AuthenticQrPlusDataCrumb {
+  const _$AuthenticQrPlusDataCrumbImpl(
       {required this.uid,
       required this.data,
       required this.mode,
@@ -362,8 +379,8 @@ class _$AuthenticQrPlusDataCrumb extends AuthenticQrPlusDataCrumb {
       : $type = $type ?? 'authentic',
         super._();
 
-  factory _$AuthenticQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =>
-      _$$AuthenticQrPlusDataCrumbFromJson(json);
+  factory _$AuthenticQrPlusDataCrumbImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuthenticQrPlusDataCrumbImplFromJson(json);
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -400,10 +417,10 @@ class _$AuthenticQrPlusDataCrumb extends AuthenticQrPlusDataCrumb {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthenticQrPlusDataCrumb &&
+            other is _$AuthenticQrPlusDataCrumbImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.mode, mode) || other.mode == mode) &&
@@ -413,18 +430,19 @@ class _$AuthenticQrPlusDataCrumb extends AuthenticQrPlusDataCrumb {
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, uid, data, mode, timestamp, index, crumbs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthenticQrPlusDataCrumbCopyWith<_$AuthenticQrPlusDataCrumb>
-      get copyWith =>
-          __$$AuthenticQrPlusDataCrumbCopyWithImpl<_$AuthenticQrPlusDataCrumb>(
-              this, _$identity);
+  _$$AuthenticQrPlusDataCrumbImplCopyWith<_$AuthenticQrPlusDataCrumbImpl>
+      get copyWith => __$$AuthenticQrPlusDataCrumbImplCopyWithImpl<
+          _$AuthenticQrPlusDataCrumbImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -521,7 +539,7 @@ class _$AuthenticQrPlusDataCrumb extends AuthenticQrPlusDataCrumb {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AuthenticQrPlusDataCrumbToJson(
+    return _$$AuthenticQrPlusDataCrumbImplToJson(
       this,
     );
   }
@@ -534,11 +552,11 @@ abstract class AuthenticQrPlusDataCrumb extends QrPlusDataCrumb {
       required final QrPlusMode mode,
       required final DateTime timestamp,
       required final int index,
-      required final int crumbs}) = _$AuthenticQrPlusDataCrumb;
+      required final int crumbs}) = _$AuthenticQrPlusDataCrumbImpl;
   const AuthenticQrPlusDataCrumb._() : super._();
 
   factory AuthenticQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =
-      _$AuthenticQrPlusDataCrumb.fromJson;
+      _$AuthenticQrPlusDataCrumbImpl.fromJson;
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -559,16 +577,20 @@ abstract class AuthenticQrPlusDataCrumb extends QrPlusDataCrumb {
   /// The total number of crumbs within the [QrPlusData]. This data can be useful
   /// when determining if the [QrPlusData] is complete.
   int get crumbs;
-  @JsonKey(ignore: true)
-  _$$AuthenticQrPlusDataCrumbCopyWith<_$AuthenticQrPlusDataCrumb>
+
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthenticQrPlusDataCrumbImplCopyWith<_$AuthenticQrPlusDataCrumbImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NoNetworkQrPlusDataCrumbCopyWith<$Res> {
-  factory _$$NoNetworkQrPlusDataCrumbCopyWith(_$NoNetworkQrPlusDataCrumb value,
-          $Res Function(_$NoNetworkQrPlusDataCrumb) then) =
-      __$$NoNetworkQrPlusDataCrumbCopyWithImpl<$Res>;
+abstract class _$$NoNetworkQrPlusDataCrumbImplCopyWith<$Res> {
+  factory _$$NoNetworkQrPlusDataCrumbImplCopyWith(
+          _$NoNetworkQrPlusDataCrumbImpl value,
+          $Res Function(_$NoNetworkQrPlusDataCrumbImpl) then) =
+      __$$NoNetworkQrPlusDataCrumbImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String uid,
@@ -582,13 +604,16 @@ abstract class _$$NoNetworkQrPlusDataCrumbCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$NoNetworkQrPlusDataCrumbCopyWithImpl<$Res>
-    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$NoNetworkQrPlusDataCrumb>
-    implements _$$NoNetworkQrPlusDataCrumbCopyWith<$Res> {
-  __$$NoNetworkQrPlusDataCrumbCopyWithImpl(_$NoNetworkQrPlusDataCrumb _value,
-      $Res Function(_$NoNetworkQrPlusDataCrumb) _then)
+class __$$NoNetworkQrPlusDataCrumbImplCopyWithImpl<$Res>
+    extends _$QrPlusDataCrumbCopyWithImpl<$Res, _$NoNetworkQrPlusDataCrumbImpl>
+    implements _$$NoNetworkQrPlusDataCrumbImplCopyWith<$Res> {
+  __$$NoNetworkQrPlusDataCrumbImplCopyWithImpl(
+      _$NoNetworkQrPlusDataCrumbImpl _value,
+      $Res Function(_$NoNetworkQrPlusDataCrumbImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -599,7 +624,7 @@ class __$$NoNetworkQrPlusDataCrumbCopyWithImpl<$Res>
     Object? index = null,
     Object? crumbs = null,
   }) {
-    return _then(_$NoNetworkQrPlusDataCrumb(
+    return _then(_$NoNetworkQrPlusDataCrumbImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -627,6 +652,8 @@ class __$$NoNetworkQrPlusDataCrumbCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QrPlusModeCopyWith<$Res> get mode {
@@ -638,8 +665,8 @@ class __$$NoNetworkQrPlusDataCrumbCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NoNetworkQrPlusDataCrumb extends NoNetworkQrPlusDataCrumb {
-  const _$NoNetworkQrPlusDataCrumb(
+class _$NoNetworkQrPlusDataCrumbImpl extends NoNetworkQrPlusDataCrumb {
+  const _$NoNetworkQrPlusDataCrumbImpl(
       {required this.uid,
       required this.data,
       required this.mode,
@@ -650,8 +677,8 @@ class _$NoNetworkQrPlusDataCrumb extends NoNetworkQrPlusDataCrumb {
       : $type = $type ?? 'noNetwork',
         super._();
 
-  factory _$NoNetworkQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =>
-      _$$NoNetworkQrPlusDataCrumbFromJson(json);
+  factory _$NoNetworkQrPlusDataCrumbImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NoNetworkQrPlusDataCrumbImplFromJson(json);
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -688,10 +715,10 @@ class _$NoNetworkQrPlusDataCrumb extends NoNetworkQrPlusDataCrumb {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoNetworkQrPlusDataCrumb &&
+            other is _$NoNetworkQrPlusDataCrumbImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.mode, mode) || other.mode == mode) &&
@@ -701,18 +728,19 @@ class _$NoNetworkQrPlusDataCrumb extends NoNetworkQrPlusDataCrumb {
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, uid, data, mode, timestamp, index, crumbs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$NoNetworkQrPlusDataCrumbCopyWith<_$NoNetworkQrPlusDataCrumb>
-      get copyWith =>
-          __$$NoNetworkQrPlusDataCrumbCopyWithImpl<_$NoNetworkQrPlusDataCrumb>(
-              this, _$identity);
+  _$$NoNetworkQrPlusDataCrumbImplCopyWith<_$NoNetworkQrPlusDataCrumbImpl>
+      get copyWith => __$$NoNetworkQrPlusDataCrumbImplCopyWithImpl<
+          _$NoNetworkQrPlusDataCrumbImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -809,7 +837,7 @@ class _$NoNetworkQrPlusDataCrumb extends NoNetworkQrPlusDataCrumb {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NoNetworkQrPlusDataCrumbToJson(
+    return _$$NoNetworkQrPlusDataCrumbImplToJson(
       this,
     );
   }
@@ -822,11 +850,11 @@ abstract class NoNetworkQrPlusDataCrumb extends QrPlusDataCrumb {
       required final QrPlusMode mode,
       required final DateTime timestamp,
       required final int index,
-      required final int crumbs}) = _$NoNetworkQrPlusDataCrumb;
+      required final int crumbs}) = _$NoNetworkQrPlusDataCrumbImpl;
   const NoNetworkQrPlusDataCrumb._() : super._();
 
   factory NoNetworkQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =
-      _$NoNetworkQrPlusDataCrumb.fromJson;
+      _$NoNetworkQrPlusDataCrumbImpl.fromJson;
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -847,17 +875,20 @@ abstract class NoNetworkQrPlusDataCrumb extends QrPlusDataCrumb {
   /// The total number of crumbs within the [QrPlusData]. This data can be useful
   /// when determining if the [QrPlusData] is complete.
   int get crumbs;
-  @JsonKey(ignore: true)
-  _$$NoNetworkQrPlusDataCrumbCopyWith<_$NoNetworkQrPlusDataCrumb>
+
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NoNetworkQrPlusDataCrumbImplCopyWith<_$NoNetworkQrPlusDataCrumbImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ScreenRecordingQrPlusDataCrumbCopyWith<$Res> {
-  factory _$$ScreenRecordingQrPlusDataCrumbCopyWith(
-          _$ScreenRecordingQrPlusDataCrumb value,
-          $Res Function(_$ScreenRecordingQrPlusDataCrumb) then) =
-      __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<$Res>;
+abstract class _$$ScreenRecordingQrPlusDataCrumbImplCopyWith<$Res> {
+  factory _$$ScreenRecordingQrPlusDataCrumbImplCopyWith(
+          _$ScreenRecordingQrPlusDataCrumbImpl value,
+          $Res Function(_$ScreenRecordingQrPlusDataCrumbImpl) then) =
+      __$$ScreenRecordingQrPlusDataCrumbImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String uid,
@@ -871,15 +902,17 @@ abstract class _$$ScreenRecordingQrPlusDataCrumbCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<$Res>
+class __$$ScreenRecordingQrPlusDataCrumbImplCopyWithImpl<$Res>
     extends _$QrPlusDataCrumbCopyWithImpl<$Res,
-        _$ScreenRecordingQrPlusDataCrumb>
-    implements _$$ScreenRecordingQrPlusDataCrumbCopyWith<$Res> {
-  __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl(
-      _$ScreenRecordingQrPlusDataCrumb _value,
-      $Res Function(_$ScreenRecordingQrPlusDataCrumb) _then)
+        _$ScreenRecordingQrPlusDataCrumbImpl>
+    implements _$$ScreenRecordingQrPlusDataCrumbImplCopyWith<$Res> {
+  __$$ScreenRecordingQrPlusDataCrumbImplCopyWithImpl(
+      _$ScreenRecordingQrPlusDataCrumbImpl _value,
+      $Res Function(_$ScreenRecordingQrPlusDataCrumbImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -890,7 +923,7 @@ class __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<$Res>
     Object? index = null,
     Object? crumbs = null,
   }) {
-    return _then(_$ScreenRecordingQrPlusDataCrumb(
+    return _then(_$ScreenRecordingQrPlusDataCrumbImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -918,6 +951,8 @@ class __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $QrPlusModeCopyWith<$Res> get mode {
@@ -929,8 +964,9 @@ class __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ScreenRecordingQrPlusDataCrumb extends ScreenRecordingQrPlusDataCrumb {
-  const _$ScreenRecordingQrPlusDataCrumb(
+class _$ScreenRecordingQrPlusDataCrumbImpl
+    extends ScreenRecordingQrPlusDataCrumb {
+  const _$ScreenRecordingQrPlusDataCrumbImpl(
       {required this.uid,
       required this.data,
       required this.mode,
@@ -941,9 +977,9 @@ class _$ScreenRecordingQrPlusDataCrumb extends ScreenRecordingQrPlusDataCrumb {
       : $type = $type ?? 'screenRecording',
         super._();
 
-  factory _$ScreenRecordingQrPlusDataCrumb.fromJson(
+  factory _$ScreenRecordingQrPlusDataCrumbImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$ScreenRecordingQrPlusDataCrumbFromJson(json);
+      _$$ScreenRecordingQrPlusDataCrumbImplFromJson(json);
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -980,10 +1016,10 @@ class _$ScreenRecordingQrPlusDataCrumb extends ScreenRecordingQrPlusDataCrumb {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScreenRecordingQrPlusDataCrumb &&
+            other is _$ScreenRecordingQrPlusDataCrumbImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.mode, mode) || other.mode == mode) &&
@@ -993,17 +1029,20 @@ class _$ScreenRecordingQrPlusDataCrumb extends ScreenRecordingQrPlusDataCrumb {
             (identical(other.crumbs, crumbs) || other.crumbs == crumbs));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, uid, data, mode, timestamp, index, crumbs);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ScreenRecordingQrPlusDataCrumbCopyWith<_$ScreenRecordingQrPlusDataCrumb>
-      get copyWith => __$$ScreenRecordingQrPlusDataCrumbCopyWithImpl<
-          _$ScreenRecordingQrPlusDataCrumb>(this, _$identity);
+  _$$ScreenRecordingQrPlusDataCrumbImplCopyWith<
+          _$ScreenRecordingQrPlusDataCrumbImpl>
+      get copyWith => __$$ScreenRecordingQrPlusDataCrumbImplCopyWithImpl<
+          _$ScreenRecordingQrPlusDataCrumbImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1100,7 +1139,7 @@ class _$ScreenRecordingQrPlusDataCrumb extends ScreenRecordingQrPlusDataCrumb {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ScreenRecordingQrPlusDataCrumbToJson(
+    return _$$ScreenRecordingQrPlusDataCrumbImplToJson(
       this,
     );
   }
@@ -1113,11 +1152,11 @@ abstract class ScreenRecordingQrPlusDataCrumb extends QrPlusDataCrumb {
       required final QrPlusMode mode,
       required final DateTime timestamp,
       required final int index,
-      required final int crumbs}) = _$ScreenRecordingQrPlusDataCrumb;
+      required final int crumbs}) = _$ScreenRecordingQrPlusDataCrumbImpl;
   const ScreenRecordingQrPlusDataCrumb._() : super._();
 
   factory ScreenRecordingQrPlusDataCrumb.fromJson(Map<String, dynamic> json) =
-      _$ScreenRecordingQrPlusDataCrumb.fromJson;
+      _$ScreenRecordingQrPlusDataCrumbImpl.fromJson;
 
   /// A unique identifier for this data. Note: the identifier is the same
   /// across multiple [QrPlusDataCrumb]s within the same [QrPlusData].
@@ -1138,7 +1177,11 @@ abstract class ScreenRecordingQrPlusDataCrumb extends QrPlusDataCrumb {
   /// The total number of crumbs within the [QrPlusData]. This data can be useful
   /// when determining if the [QrPlusData] is complete.
   int get crumbs;
-  @JsonKey(ignore: true)
-  _$$ScreenRecordingQrPlusDataCrumbCopyWith<_$ScreenRecordingQrPlusDataCrumb>
+
+  /// Create a copy of QrPlusDataCrumb
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ScreenRecordingQrPlusDataCrumbImplCopyWith<
+          _$ScreenRecordingQrPlusDataCrumbImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

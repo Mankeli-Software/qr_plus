@@ -74,7 +74,7 @@ void main() {
             authenticity: QrPlusAuthenticity.screenRecording,
             uuid: uuid,
           ),
-        )
+        ),
       ],
     );
 
@@ -110,7 +110,7 @@ void main() {
             authenticity: QrPlusAuthenticity.authentic,
             uuid: uuid,
           ),
-        )
+        ),
       ],
     );
 
@@ -119,17 +119,17 @@ void main() {
       'when onConnectivityChange(ConnectivityResult.none) is called',
       build: () => cubit,
       seed: () => state,
-      act: (cubit) => cubit.onConnectivityChange(ConnectivityResult.none),
+      act: (cubit) => cubit.onConnectivityChange([ConnectivityResult.none]),
       expect: () => <QrPlusRendererState>[
         state.copyWith(
-          connectivity: ConnectivityResult.none,
+          connectivity: [ConnectivityResult.none],
         ),
         state.copyWith(
-          connectivity: ConnectivityResult.none,
+          connectivity: [ConnectivityResult.none],
           authenticity: QrPlusAuthenticity.noNetwork,
         ),
         state.copyWith(
-          connectivity: ConnectivityResult.none,
+          connectivity: [ConnectivityResult.none],
           authenticity: QrPlusAuthenticity.noNetwork,
           crumbledDataIndex: 0,
           data: QrPlusData.fromData(
@@ -139,7 +139,7 @@ void main() {
             authenticity: QrPlusAuthenticity.noNetwork,
             uuid: uuid,
           ),
-        )
+        ),
       ],
     );
 
@@ -149,23 +149,23 @@ void main() {
       build: () => cubit,
       seed: () => state.copyWith(
         authenticity: QrPlusAuthenticity.noNetwork,
-        connectivity: ConnectivityResult.none,
+        connectivity: [ConnectivityResult.none],
         data: const QrPlusData.unknown(),
       ),
-      act: (cubit) => cubit.onConnectivityChange(ConnectivityResult.mobile),
+      act: (cubit) => cubit.onConnectivityChange([ConnectivityResult.mobile]),
       expect: () => <QrPlusRendererState>[
         state.copyWith(
-          connectivity: ConnectivityResult.mobile,
+          connectivity: [ConnectivityResult.mobile],
           authenticity: QrPlusAuthenticity.noNetwork,
           data: const QrPlusData.unknown(),
         ),
         state.copyWith(
-          connectivity: ConnectivityResult.mobile,
+          connectivity: [ConnectivityResult.mobile],
           authenticity: QrPlusAuthenticity.authentic,
           data: const QrPlusData.unknown(),
         ),
         state.copyWith(
-          connectivity: ConnectivityResult.mobile,
+          connectivity: [ConnectivityResult.mobile],
           authenticity: QrPlusAuthenticity.authentic,
           crumbledDataIndex: 0,
           data: QrPlusData.fromData(
@@ -175,7 +175,7 @@ void main() {
             authenticity: QrPlusAuthenticity.authentic,
             uuid: uuid,
           ),
-        )
+        ),
       ],
     );
 

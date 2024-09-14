@@ -14,25 +14,21 @@ class QrPlusRendererState with _$QrPlusRendererState {
     required String plainData,
 
     /// The [QrPlusData] generated from the [plainData] given by the user.
-    @Default(QrPlusData.unknown())
-        QrPlusData data,
+    @Default(QrPlusData.unknown()) QrPlusData data,
 
     /// The index of the crumb that is currently being rendered to the user.
-    @Default(0)
-        int crumbledDataIndex,
+    @Default(0) int crumbledDataIndex,
 
     /// A state of the devices mobile connections. This is relevant for detecting cheating attempts
     /// and constructing the proper [QrPlusAuthenticity].
-    @Default(ConnectivityResult.mobile)
-        ConnectivityResult connectivity,
+    @Default([ConnectivityResult.mobile]) List<ConnectivityResult> connectivity,
 
     /// The current status of the screen recorder. This is relevant for detecting cheating attempts
     /// and constructing the proper [QrPlusAuthenticity].
     @Default(ScreenRecorderStatus.recorderOff)
-        ScreenRecorderStatus screenRecorderStatus,
+    ScreenRecorderStatus screenRecorderStatus,
 
     /// A status for detecting cheating attempts by the renderer.
-    @Default(QrPlusAuthenticity.authentic)
-        QrPlusAuthenticity authenticity,
+    @Default(QrPlusAuthenticity.authentic) QrPlusAuthenticity authenticity,
   }) = _QrPlusRendererState;
 }

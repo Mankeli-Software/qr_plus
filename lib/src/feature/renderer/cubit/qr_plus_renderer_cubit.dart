@@ -31,7 +31,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
 
   ScreenCaptureEvent? _screenCaptureEvent;
 
-  StreamSubscription<ConnectivityResult>? _connectivitySubscription;
+  StreamSubscription<List<ConnectivityResult>>? _connectivitySubscription;
   Timer? _crumbledDataIndexTimer;
 
   /// Initializes the cubit by setting up the listeners and timers.
@@ -79,7 +79,7 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
 
   /// Callback to be called when the network connectivity changes.
   @visibleForTesting
-  void onConnectivityChange(ConnectivityResult result) {
+  void onConnectivityChange(List<ConnectivityResult> result) {
     emit(
       state.copyWith(
         connectivity: result,
@@ -95,7 +95,8 @@ class QrPlusRendererCubit extends Cubit<QrPlusRendererState> {
     var newAuthenticity = QrPlusAuthenticity.authentic;
     if (state.screenRecorderStatus == ScreenRecorderStatus.recorderOn) {
       newAuthenticity = QrPlusAuthenticity.screenRecording;
-    } else if (!state.connectivity.hasNetworkConnection) {
+    } else if (!state.connectivity
+        .any((connectivity) => connectivity.hasNetworkConnection)) {
       newAuthenticity = QrPlusAuthenticity.noNetwork;
     }
 

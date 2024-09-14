@@ -12,14 +12,16 @@ part of 'cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$QrPlusReaderState {
   /// A cache of read QR codes.
   Map<String, QrPlusData?> get cache => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusReaderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QrPlusReaderStateCopyWith<QrPlusReaderState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$QrPlusReaderStateCopyWithImpl<$Res, $Val extends QrPlusReaderState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QrPlusReaderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -58,30 +62,32 @@ class _$QrPlusReaderStateCopyWithImpl<$Res, $Val extends QrPlusReaderState>
 }
 
 /// @nodoc
-abstract class _$$_QrPlusReaderStateCopyWith<$Res>
+abstract class _$$QrPlusReaderStateImplCopyWith<$Res>
     implements $QrPlusReaderStateCopyWith<$Res> {
-  factory _$$_QrPlusReaderStateCopyWith(_$_QrPlusReaderState value,
-          $Res Function(_$_QrPlusReaderState) then) =
-      __$$_QrPlusReaderStateCopyWithImpl<$Res>;
+  factory _$$QrPlusReaderStateImplCopyWith(_$QrPlusReaderStateImpl value,
+          $Res Function(_$QrPlusReaderStateImpl) then) =
+      __$$QrPlusReaderStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<String, QrPlusData?> cache});
 }
 
 /// @nodoc
-class __$$_QrPlusReaderStateCopyWithImpl<$Res>
-    extends _$QrPlusReaderStateCopyWithImpl<$Res, _$_QrPlusReaderState>
-    implements _$$_QrPlusReaderStateCopyWith<$Res> {
-  __$$_QrPlusReaderStateCopyWithImpl(
-      _$_QrPlusReaderState _value, $Res Function(_$_QrPlusReaderState) _then)
+class __$$QrPlusReaderStateImplCopyWithImpl<$Res>
+    extends _$QrPlusReaderStateCopyWithImpl<$Res, _$QrPlusReaderStateImpl>
+    implements _$$QrPlusReaderStateImplCopyWith<$Res> {
+  __$$QrPlusReaderStateImplCopyWithImpl(_$QrPlusReaderStateImpl _value,
+      $Res Function(_$QrPlusReaderStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusReaderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? cache = null,
   }) {
-    return _then(_$_QrPlusReaderState(
+    return _then(_$QrPlusReaderStateImpl(
       cache: null == cache
           ? _value._cache
           : cache // ignore: cast_nullable_to_non_nullable
@@ -92,8 +98,8 @@ class __$$_QrPlusReaderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QrPlusReaderState implements _QrPlusReaderState {
-  const _$_QrPlusReaderState(
+class _$QrPlusReaderStateImpl implements _QrPlusReaderState {
+  const _$QrPlusReaderStateImpl(
       {final Map<String, QrPlusData?> cache = const <String, QrPlusData?>{}})
       : _cache = cache;
 
@@ -115,10 +121,10 @@ class _$_QrPlusReaderState implements _QrPlusReaderState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QrPlusReaderState &&
+            other is _$QrPlusReaderStateImpl &&
             const DeepCollectionEquality().equals(other._cache, _cache));
   }
 
@@ -126,24 +132,28 @@ class _$_QrPlusReaderState implements _QrPlusReaderState {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_cache));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusReaderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QrPlusReaderStateCopyWith<_$_QrPlusReaderState> get copyWith =>
-      __$$_QrPlusReaderStateCopyWithImpl<_$_QrPlusReaderState>(
+  _$$QrPlusReaderStateImplCopyWith<_$QrPlusReaderStateImpl> get copyWith =>
+      __$$QrPlusReaderStateImplCopyWithImpl<_$QrPlusReaderStateImpl>(
           this, _$identity);
 }
 
 abstract class _QrPlusReaderState implements QrPlusReaderState {
   const factory _QrPlusReaderState({final Map<String, QrPlusData?> cache}) =
-      _$_QrPlusReaderState;
-
-  @override
+      _$QrPlusReaderStateImpl;
 
   /// A cache of read QR codes.
-  Map<String, QrPlusData?> get cache;
   @override
-  @JsonKey(ignore: true)
-  _$$_QrPlusReaderStateCopyWith<_$_QrPlusReaderState> get copyWith =>
+  Map<String, QrPlusData?> get cache;
+
+  /// Create a copy of QrPlusReaderState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$QrPlusReaderStateImplCopyWith<_$QrPlusReaderStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

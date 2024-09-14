@@ -6,80 +6,88 @@ part of 'qr_plus_mode.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlainQrPlusMode _$$PlainQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$PlainQrPlusMode(
+_$PlainQrPlusModeImpl _$$PlainQrPlusModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$PlainQrPlusModeImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$PlainQrPlusModeToJson(_$PlainQrPlusMode instance) =>
+Map<String, dynamic> _$$PlainQrPlusModeImplToJson(
+        _$PlainQrPlusModeImpl instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$SafeQrPlusMode _$$SafeQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$SafeQrPlusMode(
-      crumbs: json['crumbs'] as int? ?? 3,
+_$SafeQrPlusModeImpl _$$SafeQrPlusModeImplFromJson(Map<String, dynamic> json) =>
+    _$SafeQrPlusModeImpl(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$SafeQrPlusModeToJson(_$SafeQrPlusMode instance) =>
+Map<String, dynamic> _$$SafeQrPlusModeImplToJson(
+        _$SafeQrPlusModeImpl instance) =>
     <String, dynamic>{
-      'crumbs': instance.crumbs,
       'runtimeType': instance.$type,
     };
 
-_$RobustQrPlusMode _$$RobustQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$RobustQrPlusMode(
+_$RobustQrPlusModeImpl _$$RobustQrPlusModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RobustQrPlusModeImpl(
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
-          : Duration(microseconds: json['ttl'] as int),
+          : Duration(microseconds: (json['ttl'] as num).toInt()),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$RobustQrPlusModeToJson(_$RobustQrPlusMode instance) =>
+Map<String, dynamic> _$$RobustQrPlusModeImplToJson(
+        _$RobustQrPlusModeImpl instance) =>
     <String, dynamic>{
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
-_$SoundQrPlusMode _$$SoundQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$SoundQrPlusMode(
+_$SoundQrPlusModeImpl _$$SoundQrPlusModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SoundQrPlusModeImpl(
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
-          : Duration(microseconds: json['ttl'] as int),
+          : Duration(microseconds: (json['ttl'] as num).toInt()),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$SoundQrPlusModeToJson(_$SoundQrPlusMode instance) =>
+Map<String, dynamic> _$$SoundQrPlusModeImplToJson(
+        _$SoundQrPlusModeImpl instance) =>
     <String, dynamic>{
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
-_$ParanoidQrPlusMode _$$ParanoidQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$ParanoidQrPlusMode(
+_$ParanoidQrPlusModeImpl _$$ParanoidQrPlusModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ParanoidQrPlusModeImpl(
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
-          : Duration(microseconds: json['ttl'] as int),
+          : Duration(microseconds: (json['ttl'] as num).toInt()),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ParanoidQrPlusModeToJson(
-        _$ParanoidQrPlusMode instance) =>
+Map<String, dynamic> _$$ParanoidQrPlusModeImplToJson(
+        _$ParanoidQrPlusModeImpl instance) =>
     <String, dynamic>{
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,
     };
 
-_$SnowdenQrPlusMode _$$SnowdenQrPlusModeFromJson(Map<String, dynamic> json) =>
-    _$SnowdenQrPlusMode(
+_$SnowdenQrPlusModeImpl _$$SnowdenQrPlusModeImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SnowdenQrPlusModeImpl(
       ttl: json['ttl'] == null
           ? const Duration(seconds: 20)
-          : Duration(microseconds: json['ttl'] as int),
+          : Duration(microseconds: (json['ttl'] as num).toInt()),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$SnowdenQrPlusModeToJson(_$SnowdenQrPlusMode instance) =>
+Map<String, dynamic> _$$SnowdenQrPlusModeImplToJson(
+        _$SnowdenQrPlusModeImpl instance) =>
     <String, dynamic>{
       'ttl': instance.ttl.inMicroseconds,
       'runtimeType': instance.$type,

@@ -12,7 +12,7 @@ part of 'qr_plus_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$QrPlusData {
@@ -72,32 +72,37 @@ class _$QrPlusDataCopyWithImpl<$Res, $Val extends QrPlusData>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of QrPlusData
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_QrPlusDataCopyWith<$Res> {
-  factory _$$_QrPlusDataCopyWith(
-          _$_QrPlusData value, $Res Function(_$_QrPlusData) then) =
-      __$$_QrPlusDataCopyWithImpl<$Res>;
+abstract class _$$QrPlusDataImplCopyWith<$Res> {
+  factory _$$QrPlusDataImplCopyWith(
+          _$QrPlusDataImpl value, $Res Function(_$QrPlusDataImpl) then) =
+      __$$QrPlusDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String uid, List<QrPlusDataCrumb> crumbs});
 }
 
 /// @nodoc
-class __$$_QrPlusDataCopyWithImpl<$Res>
-    extends _$QrPlusDataCopyWithImpl<$Res, _$_QrPlusData>
-    implements _$$_QrPlusDataCopyWith<$Res> {
-  __$$_QrPlusDataCopyWithImpl(
-      _$_QrPlusData _value, $Res Function(_$_QrPlusData) _then)
+class __$$QrPlusDataImplCopyWithImpl<$Res>
+    extends _$QrPlusDataCopyWithImpl<$Res, _$QrPlusDataImpl>
+    implements _$$QrPlusDataImplCopyWith<$Res> {
+  __$$QrPlusDataImplCopyWithImpl(
+      _$QrPlusDataImpl _value, $Res Function(_$QrPlusDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QrPlusData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uid = null,
     Object? crumbs = null,
   }) {
-    return _then(_$_QrPlusData(
+    return _then(_$QrPlusDataImpl(
       uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -112,8 +117,8 @@ class __$$_QrPlusDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QrPlusData extends _QrPlusData {
-  const _$_QrPlusData(
+class _$QrPlusDataImpl extends _QrPlusData {
+  const _$QrPlusDataImpl(
       {required this.uid,
       final List<QrPlusDataCrumb> crumbs = const <QrPlusDataCrumb>[]})
       : _crumbs = crumbs,
@@ -136,10 +141,10 @@ class _$_QrPlusData extends _QrPlusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QrPlusData &&
+            other is _$QrPlusDataImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             const DeepCollectionEquality().equals(other._crumbs, _crumbs));
   }
@@ -148,11 +153,13 @@ class _$_QrPlusData extends _QrPlusData {
   int get hashCode => Object.hash(
       runtimeType, uid, const DeepCollectionEquality().hash(_crumbs));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QrPlusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QrPlusDataCopyWith<_$_QrPlusData> get copyWith =>
-      __$$_QrPlusDataCopyWithImpl<_$_QrPlusData>(this, _$identity);
+  _$$QrPlusDataImplCopyWith<_$QrPlusDataImpl> get copyWith =>
+      __$$QrPlusDataImplCopyWithImpl<_$QrPlusDataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -220,36 +227,42 @@ class _$_QrPlusData extends _QrPlusData {
 abstract class _QrPlusData extends QrPlusData {
   const factory _QrPlusData(
       {required final String uid,
-      final List<QrPlusDataCrumb> crumbs}) = _$_QrPlusData;
+      final List<QrPlusDataCrumb> crumbs}) = _$QrPlusDataImpl;
   const _QrPlusData._() : super._();
 
   String get uid;
   List<QrPlusDataCrumb> get crumbs;
-  @JsonKey(ignore: true)
-  _$$_QrPlusDataCopyWith<_$_QrPlusData> get copyWith =>
+
+  /// Create a copy of QrPlusData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$QrPlusDataImplCopyWith<_$QrPlusDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnknownQrPlusDataCopyWith<$Res> {
-  factory _$$UnknownQrPlusDataCopyWith(
-          _$UnknownQrPlusData value, $Res Function(_$UnknownQrPlusData) then) =
-      __$$UnknownQrPlusDataCopyWithImpl<$Res>;
+abstract class _$$UnknownQrPlusDataImplCopyWith<$Res> {
+  factory _$$UnknownQrPlusDataImplCopyWith(_$UnknownQrPlusDataImpl value,
+          $Res Function(_$UnknownQrPlusDataImpl) then) =
+      __$$UnknownQrPlusDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnknownQrPlusDataCopyWithImpl<$Res>
-    extends _$QrPlusDataCopyWithImpl<$Res, _$UnknownQrPlusData>
-    implements _$$UnknownQrPlusDataCopyWith<$Res> {
-  __$$UnknownQrPlusDataCopyWithImpl(
-      _$UnknownQrPlusData _value, $Res Function(_$UnknownQrPlusData) _then)
+class __$$UnknownQrPlusDataImplCopyWithImpl<$Res>
+    extends _$QrPlusDataCopyWithImpl<$Res, _$UnknownQrPlusDataImpl>
+    implements _$$UnknownQrPlusDataImplCopyWith<$Res> {
+  __$$UnknownQrPlusDataImplCopyWithImpl(_$UnknownQrPlusDataImpl _value,
+      $Res Function(_$UnknownQrPlusDataImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of QrPlusData
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$UnknownQrPlusData extends UnknownQrPlusData {
-  const _$UnknownQrPlusData() : super._();
+class _$UnknownQrPlusDataImpl extends UnknownQrPlusData {
+  const _$UnknownQrPlusDataImpl() : super._();
 
   @override
   String toString() {
@@ -257,9 +270,9 @@ class _$UnknownQrPlusData extends UnknownQrPlusData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnknownQrPlusData);
+        (other.runtimeType == runtimeType && other is _$UnknownQrPlusDataImpl);
   }
 
   @override
@@ -329,6 +342,6 @@ class _$UnknownQrPlusData extends UnknownQrPlusData {
 }
 
 abstract class UnknownQrPlusData extends QrPlusData {
-  const factory UnknownQrPlusData() = _$UnknownQrPlusData;
+  const factory UnknownQrPlusData() = _$UnknownQrPlusDataImpl;
   const UnknownQrPlusData._() : super._();
 }

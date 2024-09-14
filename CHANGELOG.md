@@ -1,5 +1,9 @@
 # qr_plus changelog
 
+## 1.2.1
+
+- chore: dependency update
+
 ## 1.2.0
 
 - fix: convert timestamps to utc before checking TTL
