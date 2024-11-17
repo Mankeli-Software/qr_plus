@@ -1,5 +1,11 @@
 # qr_plus changelog
 
+## 1.3.0
+
+- fix: fix issues with snowden mode
+- chore: dependency updates
+- BREAKING CHANGE: bump ios minimum target to `15.5`
+
 ## 1.2.1
 
 - chore: dependency update

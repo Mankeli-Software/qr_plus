@@ -41,6 +41,7 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
 
     /// [id] being null means the data is [UnknownQrPlusData], which we won't process.
     final uid = data.maybeUid;
+
     if (uid == null) return;
 
     final cachedData = state.cache[uid];

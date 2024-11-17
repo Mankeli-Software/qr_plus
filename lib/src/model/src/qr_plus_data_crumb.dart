@@ -188,11 +188,10 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     try {
       final encrypted = Encrypted.from64(data);
       final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
-
       final decrypted = encrypter.decrypt(encrypted, iv: IV.fromLength(16));
 
       return tryParseJson(decrypted);
-    } catch (_) {
+    } catch (e) {
       return null;
     }
   }
@@ -208,8 +207,6 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
     if (encryptionKey == null) return jsonEncode(toJson());
 
     final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
-
-    // print(toJson());
 
     final encrypted = encrypter.encrypt(
       jsonEncode(toJson()),

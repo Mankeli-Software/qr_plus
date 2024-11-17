@@ -93,7 +93,7 @@ class Renderer extends StatelessWidget {
       body: Center(
         child: QrPlusRenderer(
           data: 'https://youtu.be/dQw4w9WgXcQ',
-          mode: const QrPlusMode.robust(),
+          mode: const QrPlusMode.snowden(),
         ),
       ),
     );
@@ -115,7 +115,7 @@ class Reader extends StatelessWidget {
       ),
       body: Center(
         child: QrPlusReader(
-          mode: const QrPlusMode.robust(),
+          mode: const QrPlusMode.snowden(),
           onData: (data, authenticity) {
             print(authenticity);
             print(data);
