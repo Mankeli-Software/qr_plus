@@ -14,22 +14,22 @@ environment:
   sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
-  connectivity_plus: ^6.0.5
-  encrypt: 5.0.1
+  connectivity_plus: ^7.1.1
+  encrypt: ^5.0.3
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.2
-  freezed: ^2.5.7
-  freezed_annotation: ^2.4.4
+  flutter_bloc: ^9.1.1
+  freezed: ^3.2.5
+  freezed_annotation: ^3.1.0
   json_annotation: ^4.8.1
-  mobile_scanner: ^6.0.2
+  mobile_scanner: ^7.2.0
   ntp: ^2.0.0
   qr_flutter: ^4.1.0
   screen_capture_event: ^1.1.1
   uuid: ^4.1.0
 
 dev_dependencies:
-  bloc_test: ^9.1.1
+  bloc_test: ^10.0.0
   build_runner: ^2.3.3
   flutter_test:
     sdk: flutter
