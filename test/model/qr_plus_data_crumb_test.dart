@@ -34,11 +34,45 @@ void main() {
         'is false '
         'when ttl has passed',
         () {
+          // QrPlusMode.safe carries no ttl at all, so isTTLValid is always
+          // true for it. Use a mode that actually defines one (robust
+          // defaults to 20 seconds) or this asserts nothing.
+          final expiring = QrPlusDataCrumb.authentic(
+            uid: 'uid',
+            data: 'data',
+            mode: const QrPlusMode.robust(),
+            timestamp: DateTime(2026),
+            index: 1,
+            crumbs: 2,
+          );
+
           expect(
-            crumb.isTTLValid(
-              now: DateTime.now().add(const Duration(seconds: 11)),
+            expiring.isTTLValid(
+              now: DateTime(2026).add(const Duration(seconds: 21)),
             ),
             isFalse,
+          );
+        },
+      );
+
+      test(
+        'is true '
+        'when ttl has not passed',
+        () {
+          final fresh = QrPlusDataCrumb.authentic(
+            uid: 'uid',
+            data: 'data',
+            mode: const QrPlusMode.robust(),
+            timestamp: DateTime(2026),
+            index: 1,
+            crumbs: 2,
+          );
+
+          expect(
+            fresh.isTTLValid(
+              now: DateTime(2026).add(const Duration(seconds: 19)),
+            ),
+            isTrue,
           );
         },
       );

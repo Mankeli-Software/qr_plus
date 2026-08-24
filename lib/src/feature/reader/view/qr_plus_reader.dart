@@ -10,6 +10,7 @@ class QrPlusReader extends StatefulWidget {
     required this.onData,
     this.mode = const QrPlusMode.plain(),
     super.key,
+    this.onError,
     this.controller,
     this.fit = BoxFit.cover,
     @Deprecated('Use DetectionSpeed on QrPlusReaderController instead')
@@ -41,6 +42,14 @@ class QrPlusReader extends StatefulWidget {
     /// [QrPlusAuthenticity.authentic].
     List<QrPlusAuthenticity> authenticity,
   ) onData;
+
+  /// Called when a QR code was detected but could not be turned into usable
+  /// data, with the reason why. See [QrPlusReadError].
+  ///
+  /// Handling this is strongly recommended: without it a decryption or parsing
+  /// failure is completely silent, and an unreadable code is indistinguishable
+  /// from the camera seeing nothing at all.
+  final void Function(QrPlusReadError error)? onError;
 
   /// Handles how the widget should fit the screen.
   final BoxFit fit;
@@ -83,6 +92,7 @@ class _QrPlusReaderState extends State<QrPlusReader> {
           mode: widget.mode,
           ntpRepository: _ntpRepository,
           onData: widget.onData,
+          onReadError: widget.onError,
         ),
         child: BlocBuilder<QrPlusReaderCubit, QrPlusReaderState>(
           buildWhen: (_, __) => false,

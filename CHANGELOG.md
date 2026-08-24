@@ -1,5 +1,23 @@
 # qr_plus changelog
 
+## 1.4.0
+
+- fix: snowden mode could not decrypt its own output. `encrypt` 5.0.3 changed
+  `IV.fromLength(16)` to return RANDOM bytes instead of zeros, so the renderer
+  and the reader each generated a different IV and every code failed to decrypt
+  with "Invalid or corrupted pad block". Now uses `IV.allZerosOfLength(16)`,
+  which restores the previous behaviour and keeps the wire format
+  byte-identical to 1.3.0 and earlier, so older clients still interoperate.
+- feat: added `onError` to `QrPlusReader`, reporting a `QrPlusReadError` when a
+  code is detected but cannot be decoded. Previously such failures were
+  swallowed silently, making an undecryptable code indistinguishable from the
+  camera seeing nothing at all.
+- test: added crypto regression tests pinning the wire format, and fixed a TTL
+  test that asserted nothing because it used a mode without a TTL.
+- ci: run on pushes to `main`, not just pull requests. The 1.3.0 dependency
+  update was pushed straight to `main` and skipped CI entirely, which is why
+  the existing round-trip tests never flagged the regression.
+
 ## 1.3.0
 
 - fix: fix issues with snowden mode

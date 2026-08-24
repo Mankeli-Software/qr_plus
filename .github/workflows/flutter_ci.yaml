@@ -2,6 +2,11 @@ name: '[CI]'
 
 on:
   pull_request:
+  # Also run on direct pushes to main. Without this, anything pushed straight
+  # to main skips CI entirely - which is how the encrypt 5.0.3 IV regression
+  # shipped despite the existing round-trip tests catching it.
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,20 +18,19 @@ jobs:
           
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.10.0"
+          flutter-version: "3.44.2"
           channel: 'stable'
           cache: true
-
-      - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: 3.0.0
 
 
       - name: Install dependencies
         run: flutter pub get
         
+      # NOTE: `dart format --fix` was removed in newer Dart SDKs; formatting
+      # is written in place by default. Applying lint fixes is now a separate
+      # command (`dart fix --apply`).
       - name: Verify formatting
-        run: dart format . --fix
+        run: dart format .
 
       - name: Analyze project source
         run: flutter analyze . --fatal-infos --no-pub
