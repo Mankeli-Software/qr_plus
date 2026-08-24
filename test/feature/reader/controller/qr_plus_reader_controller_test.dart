@@ -8,13 +8,18 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   group('QrPlusReaderController', () {
     test(
-      'barcodes will return empty stream '
+      'barcodes forwards the underlying scanner stream '
       'always',
       () {
-        expect(
-          QrPlusReaderController().barcodes,
-          const Stream<BarcodeCapture>.empty(),
-        );
+        // This used to return const Stream.empty(). 44e26b0 ("fixes issues
+        // where reader is too slow") deliberately changed it to forward
+        // super.barcodes, but this test was never updated and had been failing
+        // ever since. The getter stays deprecated because the values it emits
+        // are raw, still-encoded scanner data: consumers want onData instead.
+        final controller = QrPlusReaderController();
+
+        expect(controller.barcodes, isA<Stream<BarcodeCapture>>());
+        expect(controller.barcodes.isBroadcast, isTrue);
       },
     );
   });
