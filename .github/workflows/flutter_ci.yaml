@@ -2,20 +2,25 @@ name: '[CI]'
 
 on:
   pull_request:
-  # Also run on direct pushes to main. Without this, anything pushed straight
-  # to main skips CI entirely - which is how the encrypt 5.0.3 IV regression
-  # shipped despite the existing round-trip tests catching it.
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
   ci:
     runs-on: ubuntu-latest
 
+    # Required by the add-and-commit step at the end.
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v3
-          
+      - uses: actions/checkout@v4
+        with:
+          # actions/checkout defaults to a detached HEAD - on pull_request it
+          # checks out the merge ref rather than the source branch - which made
+          # the commit step fail with "You are not currently on a branch".
+          # Checking the branch out by name gives it somewhere to push back to.
+          ref: ${{ github.head_ref }}
+
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.44.2"
@@ -26,10 +31,14 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
         
-      # NOTE: `dart format --fix` was removed in newer Dart SDKs; formatting
-      # is written in place by default. Applying lint fixes is now a separate
+      # Formats in place; the commit step at the end pushes any changes back to
+      # the PR branch so the package's style stays consistent automatically.
+      #
+      # NOTE: `dart format --fix` no longer exists - the flag was removed from
+      # newer Dart SDKs and made this step fail with exit code 64. Formatting
+      # is written in place by default, and applying lint fixes is a separate
       # command (`dart fix --apply`).
-      - name: Verify formatting
+      - name: Format code
         run: dart format .
 
       - name: Analyze project source
@@ -38,8 +47,12 @@ jobs:
       - name: Run tests
         run: flutter test --no-pub
 
+      # Only meaningful on pull_request, where github.head_ref is set and the
+      # branch was checked out by name above. On workflow_dispatch there is no
+      # branch to push to.
       - uses: EndBug/add-and-commit@v9
+        if: github.event_name == 'pull_request'
         with:
-          message: Formats code
+          message: 'chore: formats code'
           committer_name: GitHub Actions
           committer_email: actions@github.com
