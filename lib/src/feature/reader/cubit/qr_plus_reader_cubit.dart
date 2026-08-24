@@ -10,6 +10,7 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     required this.mode,
     required this.onData,
     required this.ntpRepository,
+    this.onReadError,
     this.allowDuplicates = false,
   }) : super(const QrPlusReaderState());
 
@@ -24,6 +25,11 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     String data,
     List<QrPlusAuthenticity> authenticity,
   ) onData;
+
+  /// Called when a QR code was detected but could not be turned into usable
+  /// data. Without this the failure is invisible: the reader ignores the code
+  /// and the user sees a camera that never reacts.
+  final void Function(QrPlusReadError error)? onReadError;
 
   /// Whether to call [onData] on duplicate detections or not.
   final bool allowDuplicates;
@@ -42,7 +48,14 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
     /// [id] being null means the data is [UnknownQrPlusData], which we won't process.
     final uid = data.maybeUid;
 
-    if (uid == null) return;
+    if (uid == null) {
+      /// The code was readable as a QR code but its contents could not be
+      /// decrypted or parsed. In snowden mode this usually means the reader and
+      /// the renderer disagree on the encryption key.
+      onReadError?.call(QrPlusReadError.unreadable);
+
+      return;
+    }
 
     final cachedData = state.cache[uid];
 
@@ -81,6 +94,12 @@ class QrPlusReaderCubit extends Cubit<QrPlusReaderState> {
         data.isTypeValid(
           requiredMode: mode,
         );
+
+    if (isWhole && !valid) {
+      /// All crumbs arrived but they were produced with a different mode than
+      /// this reader is configured with.
+      onReadError?.call(QrPlusReadError.modeMismatch);
+    }
 
     if (valid) {
       /// Converts the crumbs into a string

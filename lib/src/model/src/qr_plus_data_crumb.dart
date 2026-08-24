@@ -185,10 +185,17 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
       return null;
     }
 
+    // NOTE: must be IV.allZerosOfLength, NOT IV.fromLength. As of encrypt
+    // 5.0.3 IV.fromLength returns RANDOM bytes rather than zeros, so the
+    // renderer and the reader each generate a different IV and decryption
+    // fails with "Invalid or corrupted pad block". allZerosOfLength also keeps
+    // the wire format byte-identical to encrypt 5.0.1, so older clients still
+    // interop. Covered by test/model/qr_plus_crypto_regression_test.dart.
     try {
       final encrypted = Encrypted.from64(data);
       final encrypter = Encrypter(AES(Key.fromUtf8(encryptionKey)));
-      final decrypted = encrypter.decrypt(encrypted, iv: IV.fromLength(16));
+      final decrypted =
+          encrypter.decrypt(encrypted, iv: IV.allZerosOfLength(16));
 
       return tryParseJson(decrypted);
     } catch (e) {
@@ -210,7 +217,7 @@ class QrPlusDataCrumb with _$QrPlusDataCrumb {
 
     final encrypted = encrypter.encrypt(
       jsonEncode(toJson()),
-      iv: IV.fromLength(16),
+      iv: IV.allZerosOfLength(16),
     );
 
     return encrypted.base64;
